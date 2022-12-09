@@ -3,6 +3,7 @@ tasks:
     before: |
       printf 'export PATH="$HOME%s:$PATH"\n' "/.astra/cli" >> $HOME/.bashrc
       printf 'unset JAVA_TOOL_OPTIONS\n' >> $HOME/.bashrc
+      mkdir ./katapod-logs
       curl -Ls "https://dtsx.io/get-astra-cli" | bash >> ./katapod-logs/astra-cli-install.log
     init: |
       docker pull cassandra:4.1

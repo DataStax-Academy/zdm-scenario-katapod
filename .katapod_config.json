@@ -1,0 +1,37 @@
+{
+  "layout": {
+    "terminals": [
+      {
+        "id": "host",
+        "name": "host-console"
+      },
+      {
+        "id": "api",
+        "name": "api-console"
+      },
+      {
+        "id": "client",
+        "name": "api-client-console"
+      },
+      {
+        "id": "container",
+        "name": "zdm-ansible-console"
+      },
+      {
+        "id": "logs",
+        "name": "zdm-proxy-logs"
+      }
+    ]
+  },
+  "navigation": {
+    "onLoadCommands": {
+      "intro": {
+        "host": [
+          {
+            "command": "./wait.sh"
+          }
+        ]
+      }
+    }
+  }
+}

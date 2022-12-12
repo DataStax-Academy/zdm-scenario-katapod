@@ -31,6 +31,18 @@
             "command": "./scenario_scripts/welcome.sh"
           }
         ]
+      },
+      "step1": {
+        "host": [
+          {
+            "command": "./scenario_scripts/wait_for_cassandra.sh",
+            "numInvocations": "unlimited"
+          },
+          {
+            "command": "./scenario_scripts/provision_origin.sh",
+            "numInvocations": "unlimited"
+          }
+        ]
       }
     }
   }

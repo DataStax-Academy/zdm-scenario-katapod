@@ -22,46 +22,39 @@
 
 <div class="step-title">Before the migration</div>
 
-✅ Notice that on loading of this page a command is executed on the `cqlsh-editor` console.
+Check Origin:
 
-
-✅ Run a command implicitly on the first terminal
 ```
-date
-```
-
-✅ Also a moot `### ` line would not create trouble
-```
-###     
-time date  # See what I did there?
+### host
+docker exec -it cassandra-origin-1 cqlsh -u cassandra -p cassandra -e "select * from my_application_ks.user_status where user='eva';"
 ```
 
-✅ For multiple `### ` lines, the last wins
+Prepare your dotenv file:
+
 ```
-### {"whatever": 123}
-echo "Nyvpr fraqf frperg zrffntr gb Obo." | tr 'a-zA-Z' 'n-za-mN-ZA-M'
-### cqlsh
+### api
+cd client_application
+nano .env
 ```
 
-✅ Run a command on a second terminal (explicitly specified with the `### termTwo` directive)
+Run the API so that it reads from Origin:
+
 ```
-### termTwo
-whoami
+### api
+CLIENT_CONNECTION_MODE=CASSANDRA uvicorn api:app
 ```
 
-✅ Run another on the first term explicitly (`### cqlsh` directive in code block)
+Test the API with a few calls:
+
 ```
-###    {"terminalId": "cqlsh", "maxInvocations": 2}
-ls -a
+TODO
 ```
 
-✅ How about starting a command _that does not terminate_? (Scary, I know)
-```
-### term_3
-watch -t -n 1 date +"%H:%M:%S"
-```
+Launch a loop that keeps using the API:
 
-
+```
+# TODO
+```
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
@@ -72,4 +65,5 @@ watch -t -n 1 date +"%H:%M:%S"
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>
+
 

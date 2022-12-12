@@ -18,6 +18,8 @@ tasks:
 ports:
   - port: 9042
     onOpen: ignore
+  - port: 22
+    onOpen: ignore
 github:
   prebuilds:
     main: true

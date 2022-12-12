@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from db_connection import get_session
 
 session_mode = os.environ['CLIENT_CONNECTION_MODE']
-print(f'\n\n*** API loading with mode = {session_mode} ***\n')
+print(f'\n*** API starting with mode = {session_mode} ***')
 
 # Helpers
 #   (this part, in a well-structured app, would go to separate modules...)

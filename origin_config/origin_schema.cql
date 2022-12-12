@@ -4,7 +4,7 @@ CREATE KEYSPACE IF NOT EXISTS my_application_ks WITH REPLICATION = {'class': 'Si
 
 USE my_application_ks;
 
-CREATE TABLE user_status (
+CREATE TABLE IF NOT EXISTS user_status (
   user    TEXT,
   when    TIMESTAMP,
   status  TEXT,

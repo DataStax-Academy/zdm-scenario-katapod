@@ -29,32 +29,63 @@ Check Origin:
 docker exec -it cassandra-origin-1 cqlsh -u cassandra -p cassandra -e "select * from my_application_ks.user_status where user='eva';"
 ```
 
-Prepare your dotenv file:
+It is now time to prepare your dotenv file to feed secrets and connection
+parameters to the sample application (a simple REST API in our case).
+
+To do so, first check the addresses you need by running:
+
+```
+### host
+. ./scenario_scripts/find_addresses.sh
+```
+
+Now copy the provided template and edit it, inserting, for the time being,
+just the IP address of the Cassandra (Origin) seed
+_(Note: to save the file and quit `nano` once modified: Ctrl-X, then Y, then Enter)_:
 
 ```
 ### api
 cd client_application
+cp .env.sample .env
 nano .env
 ```
 
-Run the API so that it reads from Origin:
+Run the API in such a way that it reads from Origin:
 
 ```
 ### api
 CLIENT_CONNECTION_MODE=CASSANDRA uvicorn api:app
 ```
 
-Test the API with a few calls:
+Test the API with a few calls: first check Eva's status with:
 
 ```
-TODO
+### client
+curl -s -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```
 
-Launch a loop that keeps using the API:
+Then write a new status:
 
 ```
-# TODO
+### client
+curl -s -XPOST localhost:8000/status/eva/New | jq
 ```
+
+Try the read now (click the `GET` command again):
+
+Now start a loop that periodically inserts a new status
+
+```
+### client
+while true; do
+  NEW_STATUS="ItIs_`date +'%H-%M-%S'`";
+  echo -n "Setting status to ${NEW_STATUS} ... ";
+  curl -s -XPOST -o /dev/null "localhost:8000/status/eva/${NEW_STATUS}";
+  echo "done. Sleeping a little ... ";
+  sleep 20;
+done
+```
+
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

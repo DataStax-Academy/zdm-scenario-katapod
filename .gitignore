@@ -1,0 +1,4 @@
+.env
+.find_addresses.log
+katapod_logs
+__pycache__

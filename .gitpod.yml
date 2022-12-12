@@ -16,9 +16,11 @@ tasks:
         cassandra:4.1
       source /home/gitpod/.astra/cli/astra-init.sh
 ports:
-  - port: 9042
-    onOpen: ignore
   - port: 22
+    onOpen: ignore
+  - port: 8000
+    onOpen: ignore
+  - port: 9042
     onOpen: ignore
 github:
   prebuilds:

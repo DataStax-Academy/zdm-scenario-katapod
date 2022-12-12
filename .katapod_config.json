@@ -28,7 +28,7 @@
       "intro": {
         "host": [
           {
-            "command": "./wait.sh"
+            "command": "./scenario_scripts/welcome.sh"
           }
         ]
       }

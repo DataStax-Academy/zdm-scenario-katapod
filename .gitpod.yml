@@ -1,28 +1,17 @@
 tasks:
   - name: scenario-setup
     before: |
-      printf 'export PATH="$HOME%s:$PATH"\n' "/.astra/cli" >> $HOME/.bashrc
-      printf 'unset JAVA_TOOL_OPTIONS\n' >> $HOME/.bashrc
-      mkdir ./katapod-logs
-      curl -Ls "https://dtsx.io/get-astra-cli" | bash >> ./katapod-logs/astra-cli-install.log
+      printf 'export PATH="$HOME%s:$PATH"\n' "/.astra/cli" | tee -a $HOME/.bashrc
+      printf 'unset JAVA_TOOL_OPTIONS\n' | tee -a $HOME/.bashrc
+      curl -Ls "https://dtsx.io/get-astra-cli" | bash | tee -a ./katapod_logs/astra-cli-install.log
     init: |
       docker pull cassandra:4.1
       pip install -r client_application/requirements.txt
-      DEBIAN_FRONTEND=noninteractive TZ=Europe/London sudo apt install openssh-server -y
-      sudo sed 's/#PermitRootLogin prohibit-password/PermitRootLogin prohibit-password/' /etc/ssh/sshd_config -i
-      sudo sed 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config -i
-      sudo sed 's/#ListenAddress/ListenAddress/' /etc/ssh/sshd_config -i
-      sudo sed 's/#AuthorizedKeysFile/AuthorizedKeysFile/' /etc/ssh/sshd_config -i
-      sudo mkdir /root/.ssh
-      cat /workspace/zdm-scenario-katapod/zdm_host_private_key/zdm_deploy_key.pub | sudo tee -a /root/.ssh/authorized_keys
-      mkdir /home/gitpod/.ssh
-      cat /workspace/zdm-scenario-katapod/zdm_host_private_key/zdm_deploy_key.pub | tee -a /home/gitpod/.ssh/authorized_keys
-      sudo service ssh restart
-      chmod 400 zdm_host_private_key/zdm_deploy_key
+      ./scenario_scripts/configure-ssh.sh  | tee -a ./katapod_logs/astra-cli-install.log
     command: |
       docker run \
         --name cassandra-origin-1 \
-        -v ${PWD}/origin-config/cassandra.yaml:/etc/cassandra/cassandra.yaml \
+        -v ${PWD}/origin_config/cassandra.yaml:/etc/cassandra/cassandra.yaml \
         -d \
         cassandra:4.1
       source /home/gitpod/.astra/cli/astra-init.sh

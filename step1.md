@@ -26,7 +26,10 @@ Check Origin:
 
 ```
 ### host
-docker exec -it cassandra-origin-1 cqlsh -u cassandra -p cassandra -e "select * from my_application_ks.user_status where user='eva';"
+docker exec \
+  -it cassandra-origin-1 \
+  cqlsh -u cassandra -p cassandra \
+  -e "select * from my_application_ks.user_status where user='eva';"
 ```
 
 It is now time to prepare your dotenv file to feed secrets and connection
@@ -61,14 +64,14 @@ Test the API with a few calls: first check Eva's status with:
 
 ```
 ### client
-curl -s -XGET localhost:8000/status/eva | jq -r '.[].status'
+curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```
 
 Then write a new status:
 
 ```
 ### client
-curl -s -XPOST localhost:8000/status/eva/New | jq
+curl -XPOST localhost:8000/status/eva/New | jq
 ```
 
 Try the read now (click the `GET` command again):

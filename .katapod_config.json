@@ -36,11 +36,11 @@
         "host": [
           {
             "command": "./scenario_scripts/wait_for_cassandra.sh",
-            "numInvocations": "unlimited"
+            "maxInvocations": "unlimited"
           },
           {
             "command": "./scenario_scripts/provision_origin.sh",
-            "numInvocations": "unlimited"
+            "maxInvocations": "unlimited"
           }
         ]
       }

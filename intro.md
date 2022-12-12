@@ -26,12 +26,12 @@
             <li><span class="scenario-description-attribute">curl</span>: the basics</li>
           </ul>
         </div>
-      </div>
-      <div class="feature col div-choice">
-        <div class="scenario-description">Outline of this lab TODO</div>
-      </div>
-      <div class="feature col div-choice">
-        <div class="scenario-description">References TODO</div>
+        <div class="feature col div-choice">
+          <div class="scenario-description">Outline of this lab TODO</div>
+        </div>
+        <div class="feature col div-choice">
+          <div class="scenario-description">References TODO</div>
+        </div>
       </div>
     </div>
 </main>

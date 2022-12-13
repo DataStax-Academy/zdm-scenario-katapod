@@ -91,6 +91,7 @@ Restart the `docker logs` command,
 
 ```
 ### {"terminalId": "logs", "macrosBefore": ["ctrl_c"]}
+# Ctrl-C ...
 docker logs -f zdm-proxy-container
 ```
 

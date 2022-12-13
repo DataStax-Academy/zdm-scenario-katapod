@@ -50,6 +50,7 @@ the command above:
 
 ```
 ### {"terminalId": "logs", "macrosBefore": ["ctrl_c"]}
+# Ctrl-C ...
 docker logs -f zdm-proxy-container
 ```
 

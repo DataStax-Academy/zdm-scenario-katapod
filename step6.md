@@ -62,6 +62,7 @@ you can stop the running API (with Ctrl-C in the "api" terminal) and restart it 
 
 ```
 ### {"terminalId": "api", "macrosBefore": ["ctrl_c"]}
+# Ctrl-C ...
 CLIENT_CONNECTION_MODE=ZDM_PROXY uvicorn api:app
 ```
 

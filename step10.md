@@ -35,6 +35,7 @@ restart it by passing it the appropriate setting:
 
 ```
 ### {"terminalId": "api", "macrosBefore": ["ctrl_c"]}
+# Ctrl-C ...
 CLIENT_CONNECTION_MODE=ASTRA_DB uvicorn api:app
 ```
 

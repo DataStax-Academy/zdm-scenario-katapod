@@ -35,7 +35,7 @@
       "step1": {
         "host": [
           {
-            "command": "/workspace/zdm-scenario-katapod/finalize_cassandra.sh",
+            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/finalize_cassandra.sh",
             "maxInvocations": "unlimited"
           }
         ]

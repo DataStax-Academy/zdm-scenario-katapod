@@ -2,3 +2,4 @@
 .find_addresses.log
 katapod_logs
 __pycache__
+data_migration/dsbulk-migrator/

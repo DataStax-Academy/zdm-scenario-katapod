@@ -35,11 +35,15 @@
       "step1": {
         "host": [
           {
-            "command": "./scenario_scripts/wait_for_cassandra.sh",
+            "command": "./scenario_scripts/wait_for_cassandra.sh; ./scenario_scripts/provision_origin.sh",
             "maxInvocations": "unlimited"
-          },
+          }
+        ]
+      },
+      "step4": {
+        "host": [
           {
-            "command": "./scenario_scripts/provision_origin.sh",
+            "command": "./scenario_scripts/gitpodize_zac.sh",
             "maxInvocations": "unlimited"
           }
         ]

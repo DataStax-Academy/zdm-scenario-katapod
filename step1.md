@@ -12,7 +12,7 @@
  <a href='command:katapod.loadPage?[{"step":"intro"}]' 
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
-<span class="step-count"> Step 1 of 2</span>
+<span class="step-count">Step 1</span>
  <a href='command:katapod.loadPage?[{"step":"step2"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
@@ -22,6 +22,9 @@
 
 <div class="step-title">Before the migration</div>
 
+_Goal: make sure Origin is ready and there is a sample client
+application reading and writing on it._
+
 Check Origin:
 
 ```
@@ -29,7 +32,7 @@ Check Origin:
 docker exec \
   -it cassandra-origin-1 \
   cqlsh -u cassandra -p cassandra \
-  -e "select * from my_application_ks.user_status where user='eva';"
+  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva';"
 ```
 
 It is now time to prepare your dotenv file to feed secrets and connection
@@ -42,7 +45,7 @@ To do so, first check the addresses you need by running:
 . ./scenario_scripts/find_addresses.sh
 ```
 
-Now copy the provided template and edit it, inserting, for the time being,
+Now, in the "api-console" terminal, copy the provided template and edit it, inserting, for the time being,
 just the IP address of the Cassandra (Origin) seed
 _(Note: to save the file and quit `nano` once modified: Ctrl-X, then Y, then Enter)_:
 
@@ -64,7 +67,7 @@ Test the API with a few calls: first check Eva's status with:
 
 ```
 ### client
-curl -XGET localhost:8000/status/eva | jq -r '.[].status'
+curl -XGET localhost:8000/status/eva
 ```
 
 Then write a new status:
@@ -89,6 +92,8 @@ while true; do
 done
 ```
 
+_You have a working application backed by a Cassandra cluster. Time to start
+preparing for a migration!_
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
@@ -99,5 +104,3 @@ done
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>
-
-

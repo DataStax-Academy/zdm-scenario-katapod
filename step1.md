@@ -58,7 +58,7 @@ cp .env.sample .env
 nano .env
 ```
 
-Run the API in such a way that it reads from Origin:
+Start the API in such a way that it reads from Origin:
 
 ```
 ### api

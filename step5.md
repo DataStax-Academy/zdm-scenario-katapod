@@ -57,7 +57,8 @@ gp preview --external `gp url 3000`
 
 Log in with user `admin` and the password you chose,
 then go to Dashboards/Manage and pick e.g.
-the "ZDM Proxy Dashboard v1" to confirm readings are coming in.
+the "ZDM Proxy Dashboard v1" to confirm the datapoints for the plots
+are pouring in.
 
 _🗒️ You can now keep the functioning and performance of the proxy
 completely under control thanks to a set of Grafana dashboards.

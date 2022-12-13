@@ -61,7 +61,7 @@ In the file, uncomment and edit the following entries:
 - `origin_port`: set to 9042;
 - `target_username` and `target_password`: set to Client ID and Client Secret found in your Astra DB Token;
 - `target_astra_db_id` is your Database ID from the Astra DB dashboard;
-- `target_astra_token` is the "token" string in your Astra DB Token" (the one starting with `AstraCs:...`).
+- `target_astra_token` is the "token" string in your Astra DB Token" (the one starting with `AstraCS:...`).
 
 _(remember to save and exit `nano` with Ctrl-X, Y, Enter)_
 

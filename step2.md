@@ -28,7 +28,7 @@ it is ready for the migration._
 - Create an Astra DB instance with a keyspace named `my_application_ks`.
 - Get a "R/W User" token from the Astra UI and store it in a safe place. _You will need it a few times throughout the exercise._
 - Retrieve the "Database ID" for your Astra DB instance.
-- Find the "download secure-connect-bundle" option in the Connect tab of your Astra DB instance and paste the `curl` command you get there in the "host" console here. Take a note of the full path to the bundle zipfile.
+- Find the "download secure-connect-bundle" option in the Connect tab of your Astra DB instance and paste the `curl` command you get there in the "host-console" here. Take a note of the full path to the bundle zipfile.
 - In the Web CQL Console on the Astra UI, paste the following script to create a schema that mirrors the one on Origin:
 
 ```

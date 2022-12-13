@@ -95,11 +95,11 @@ docker logs -f zdm-proxy-container
 ```
 
 and look for a very long line (it's one of the first being written)
-that starts with something like
+containing something like
 
 ```
 ### {"execute": false}
-time="2022-10-21T22:43:15Z" level=info msg="Parsed configuration: {\"PrimaryCluster\":\"ORIGIN\",\"ReadMode\":\"DUAL_ASYNC_ON_SECONDARY\" [...]
+time="2022-[... ...] ,\"ReadMode\":\"DUAL_ASYNC_ON_SECONDARY\" [... ...]
 ```
 
 Note the `ReadMode: DUAL_ASYNC_ON_SECONDARY` part in the above output.

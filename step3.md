@@ -66,7 +66,9 @@ cd ..
 docker ps
 ```
 
-_🗒️ The container can deploy the ZDM host(s) for you. The host(s) will be ready to accept connections instead of the Origin cluster. Ready to deploy the hosts?_
+_🗒️ The container is now all set to deploy the ZDM host(s) for you,
+which will then be ready to accept the connections currently directed
+at Origin cluster. Ready to deploy the hosts?_
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

@@ -63,7 +63,7 @@ actual production setup, do not take this step lightly
 
 ```
 ### host
-VOLUME_CASSANDRA_ORIGIN_1=`docker inspect cassandra-origin-1 | jq -r '.[].Mounts[0].Name'`
+VOLUME_CASSANDRA_ORIGIN_1=`docker inspect cassandra-origin-1 | jq -r '.[].Mounts[] | select( .Type=="volume" ).Name'`
 docker rm -f cassandra-origin-1
 docker volume rm ${VOLUME_CASSANDRA_ORIGIN_1}
 ```

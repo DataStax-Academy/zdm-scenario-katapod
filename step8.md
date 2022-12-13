@@ -78,7 +78,8 @@ Now perform a rolling update with:
 ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 ```
 
-**Note**: you may see the API issue an error if it happens to receive a
+**Note**: you may see the API issue a (recoverable) error
+if it happens to receive a
 write request during the (minimal) time with unavailable proxy. Don't worry:
 in a real production setup you would have several proxies and the drivers
 powering your client application would not even flinch at them undergoing
@@ -112,7 +113,7 @@ curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```
 
 During this phase, you can go to the Grafana dashboard and check
-the behaviour of Target in particular looking at the
+the behaviour of Target: in particular, looking at the
 "Read Throughput" and "Read Latency" plots (both per-instance and aggregate):
 there, any performance problem would be easy to spot.
 

@@ -33,8 +33,8 @@ Edit file `zdm_monitoring_config.yml` and set the value of `grafana_admin_passwo
 
 ```
 ### container
-cd /home/ubuntu/zdm-proxy-automation/
-nano ansible/vars/zdm_monitoring_config.yml
+cd /home/ubuntu/zdm-proxy-automation/ansible
+nano vars/zdm_monitoring_config.yml
 ```
 
 You can now launch the playbook that sets up the monitoring stack:
@@ -54,6 +54,7 @@ with the command _(specific to this learning environment)_:
 # PLEASE CHECK YOUR POPUP BLOCKER ONCE YOU RUN THIS!
 gp preview --external `gp url 3000`
 ```
+
 Log in with user `admin` and the password you chose,
 then go to Dashboards/Manage and pick e.g.
 the "ZDM Proxy Dashboard v1" to confirm readings are coming in.

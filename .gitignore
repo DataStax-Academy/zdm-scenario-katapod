@@ -7,3 +7,4 @@ running_zdm_util/LICENSE
 running_zdm_util/zdm-util-v*
 running_zdm_util/zdm_ansible_inventory
 running_zdm_util/ansible_container_init_config
+secure-connect*zip

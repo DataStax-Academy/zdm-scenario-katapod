@@ -79,7 +79,15 @@ Then write a new status:
 curl -XPOST localhost:8000/status/eva/New | jq
 ```
 
-Try the read now (click the `GET` command again):
+Try the read again. Even better, you can keep a separate browser tab open
+and refresh whenever you want to check: run the following command
+(_specific to this learning environment_)
+
+```
+### host
+# PLEASE CHECK YOUR POPUP BLOCKER ONCE YOU RUN THIS!
+gp preview --external `gp url 8000`/status/eva
+```
 
 Now start a loop that periodically inserts a new status (you'll keep it running
 througout the practice)

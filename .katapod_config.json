@@ -35,7 +35,7 @@
       "step1": {
         "host": [
           {
-            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/wait_for_cassandra.sh; /workspace/zdm-scenario-katapod/scenario_scripts/provision_origin.sh",
+            "command": "/workspace/zdm-scenario-katapod/finalize_cassandra.sh",
             "maxInvocations": "unlimited"
           }
         ]
@@ -45,6 +45,13 @@
           {
             "command": "/workspace/zdm-scenario-katapod/scenario_scripts/gitpodize_zac.sh",
             "maxInvocations": "unlimited"
+          }
+        ]
+      },
+      "finish": {
+        "host": [
+          {
+            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/closing.sh"
           }
         ]
       }

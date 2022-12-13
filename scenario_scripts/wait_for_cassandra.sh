@@ -14,4 +14,6 @@ while true; do
   fi
 done
 
+sleep 2;
+
 echo -e "\nCassandra fully started and operational.";

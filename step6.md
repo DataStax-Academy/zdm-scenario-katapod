@@ -34,16 +34,19 @@ the `.env` file. Check the full path of the secure-connect-bundle zipfile
 you downloaded with
 
 ```
-### host
+### logs
 ls /workspace/zdm-scenario-katapod/*zip
 ```
 
 and the IP address of the proxy instance, e.g. with
 
 ```
-### host
+### logs
 . ./scenario_scripts/find_addresses.sh
 ```
+
+_(this time, the two commands above will run on the still-unused
+"zdm-proxy-logs" console for your convenience while editing the dot-env file.)_
 
 and finally make sure you have the "Client ID" and the "Client Secret" found
 in your Astra DB Token. Now you can insert the values of `ASTRA_DB_SECURE_BUNDLE_PATH`, `ASTRA_DB_CLIENT_ID`, `ASTRA_DB_CLIENT_SECRET` and `ZDM_PROXY_SEED`:
@@ -79,8 +82,7 @@ curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 
 The API is connecting to the ZDM proxy. The proxy, in turn, is propagating
 writes to _both_ the Origin and Target databases. To verify this,
-check that you can read the last-inserted status rows from
-both Origin:
+check that you can read the last-inserted status rows from Origin:
 
 ```
 ### host
@@ -90,8 +92,13 @@ docker exec \
   -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
 ```
 
-and Target, i.e. Astra DB - this time pasting something like the above `SELECT`
-statement directly in the Astra DB Web CQL Console.
+and do the same check on Target, i.e. Astra DB - this time pasting something
+like the following `SELECT` statement directly in the Astra DB Web CQL Console:
+
+```
+### {"execute": false}
+SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;
+```
 
 Note that rows inserted before this switch are **not present** on Target.
 To remedy this shortcoming, you must do something more.

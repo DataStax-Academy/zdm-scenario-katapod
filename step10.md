@@ -23,7 +23,7 @@
 <div class="step-title">Phase 5: connect directly to Target</div>
 
 _Goal: Instructing your client application to connect directly to Target,
-in order to dispose of the whole ZDM infrastructure._
+in order to later dispose of the whole ZDM infrastructure._
 
 Until now we could bail out any time.
 After the following change **we are effectively committing to the migration**,

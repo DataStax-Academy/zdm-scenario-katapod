@@ -43,7 +43,7 @@ Even if, in this lab setup, the proxy container actually runs on the host machin
 ### logs
 . ./scenario_scripts/find_addresses.sh
 ssh \
-  -i /workspace/zdm-scenario-draft/zdm_host_private_key/zdm_deploy_key \
+  -i /workspace/zdm-scenario-katapod/zdm_host_private_key/zdm_deploy_key \
   gitpod@${ZDM_HOST_IP} -o StrictHostKeyChecking=no
 ```
 
@@ -67,8 +67,9 @@ cd /home/ubuntu/zdm-proxy-automation/ansible
 nano vars/zdm_proxy_core_config.yml
 ```
 
-Locate the `read_mode` line and change its value from `PRIMARY_ONLY`
-to `DUAL_ASYNC_ON_SECONDARY`. Save and exit the editor.
+Locate the `read_mode` line (down in the `READ ROUTING CONFIGURATION` section)
+and change its value from `PRIMARY_ONLY` to `DUAL_ASYNC_ON_SECONDARY`.
+Save and exit the editor.
 
 Now perform a rolling update with:
 
@@ -77,12 +78,18 @@ Now perform a rolling update with:
 ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 ```
 
-While this runs, keep an eye on the logs from the container:
-they will stop (in principle, one after the other).
+**Note**: you may see the API issue an error if it happens to receive a
+write request during the (minimal) time with unavailable proxy. Don't worry:
+in a real production setup you would have several proxies and the drivers
+powering your client application would not even flinch at them undergoing
+a rolling restart.
+
+Meanwhile, keep an eye on the logs from the container:
+they will stop (taking turns, if there were several).
 Restart the `docker logs` command,
 
 ```
-### {"terminalId": "container", "macrosBefore": ["ctrl_c"]}
+### {"terminalId": "logs", "macrosBefore": ["ctrl_c"]}
 docker logs -f zdm-proxy-container
 ```
 
@@ -104,8 +111,10 @@ rows being inserted in the output of:
 curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```
 
-What about read performance? Go back to the Grafana tab you opened earlier
-and **TODO**
+During this phase, you can go to the Grafana dashboard and check
+the behaviour of Target in particular looking at the
+"Read Throughput" and "Read Latency" plots (both per-instance and aggregate):
+there, any performance problem would be easy to spot.
 
 _The two databases are now guaranteed to be identical not only in their
 content, but also in the requests they get (including read requests).

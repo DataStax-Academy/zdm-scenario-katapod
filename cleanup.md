@@ -24,12 +24,12 @@
 
 _Goal: Cleanly delete all resources that are no longer needed once the migration is over._
 
-If your ZDM infrastructure was running on disposable hosts (such as
+If your ZDM infrastructure was running on disposable hosts, such as
 cloud instances that you can delete with one click), you could do so now.
 
 In this exercise, however, all containers (and related Docker objects)
-are running on the same host: for the sake of completeness, you can cleanly
-dispose of all resources not used anymore.
+are running on the same host: for the sake of completeness, let us explicitly
+dispose of all resources not needed anymore.
 
 Remove the `zdm-ansible-container` with:
 
@@ -58,8 +58,8 @@ docker volume rm zdm-prometheus-metrics-volume
 
 Finally, **destroy Origin** (gulp!). In this case it is easy,
 it's just a single-node Cassandra cluster. _Note: in an
-actual production setup do not take this step lightly
-(and presumably it's a bit more than one node)!_
+actual production setup, do not take this step lightly
+(by the way, it's a bit more than one node)!_
 
 ```
 ### host

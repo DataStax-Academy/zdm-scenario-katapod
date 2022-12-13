@@ -57,7 +57,7 @@ Then, start the utility with:
 ./zdm-util-v2.0.3
 ```
 
-Once you are done with the answers, a `zdm-ansible-container` is created and started
+Once you are done, answer "Yes" to "Do you wish to proceed?": a `zdm-ansible-container` is created and started
 on the host machine's Docker. Check with
 
 ```

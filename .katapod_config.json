@@ -28,14 +28,14 @@
       "intro": {
         "host": [
           {
-            "command": "./scenario_scripts/welcome.sh"
+            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/welcome.sh"
           }
         ]
       },
       "step1": {
         "host": [
           {
-            "command": "./scenario_scripts/wait_for_cassandra.sh; ./scenario_scripts/provision_origin.sh",
+            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/wait_for_cassandra.sh; /workspace/zdm-scenario-katapod/scenario_scripts/provision_origin.sh",
             "maxInvocations": "unlimited"
           }
         ]
@@ -43,7 +43,7 @@
       "step4": {
         "host": [
           {
-            "command": "./scenario_scripts/gitpodize_zac.sh",
+            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/gitpodize_zac.sh",
             "maxInvocations": "unlimited"
           }
         ]

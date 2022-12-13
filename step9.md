@@ -49,7 +49,7 @@ Again, the logs will stop and will need to be restarted shortly after launching
 the command above:
 
 ```
-### {"terminalId": "container", "macrosBefore": ["ctrl_c"]}
+### {"terminalId": "logs", "macrosBefore": ["ctrl_c"]}
 docker logs -f zdm-proxy-container
 ```
 

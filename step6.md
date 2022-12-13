@@ -71,7 +71,7 @@ As a test, try sending manually a new status with:
 curl -XPOST localhost:8000/status/eva/ThroughZDMProxy | jq
 ```
 
-and reading immediately after:
+and reading right after that:
 ```
 ### host
 curl -XGET localhost:8000/status/eva | jq -r '.[].status'

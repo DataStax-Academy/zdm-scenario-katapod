@@ -22,11 +22,12 @@
 
 <div class="step-title">Phase 1c: Start the proxy</div>
 
-_Goal: configure and start the Ansible playbook that automate the creation
+_Goal: configure and start the Ansible playbook that automates the creation
 and deployment of the ZDM proxy on the target machine(s)._
 
-First run a `bash` shell on the `zdm-ansible-container`: this
-will be needed a few times in the rest of this lab.
+First start a `bash` shell on the `zdm-ansible-container`: this
+will be needed a few times in the rest of this lab
+(and will be in the "zdm-ansible-console" terminal).
 
 ```
 ### container
@@ -34,8 +35,8 @@ docker exec -it zdm-ansible-container bash
 ```
 
 The prompt on the "zdm-ansible-console" terminal should now
-change to something like `4fb20a9b@ubuntu>`.
-_This terminal will remain in the container until the end._
+change to something like `ubuntu@4fb20a9b:~$`.
+_This terminal will stay in the container until the end._
 
 It is time to configure the settings for the proxy that is
 about to be created. To do so, edit file `zdm_proxy_core_config.yml` _on the container_:
@@ -60,7 +61,9 @@ In the file, uncomment and edit the following entries:
 - `origin_port`: set to 9042;
 - `target_username` and `target_password`: set to Client ID and Client Secret found in your Astra DB Token;
 - `target_astra_db_id` is your Database ID from the Astra DB dashboard;
-- `target_astra_token` is the "token" string in your Astra DB Token" (the string starting with `AstraCs:...`).
+- `target_astra_token` is the "token" string in your Astra DB Token" (the one starting with `AstraCs:...`).
+
+_(remember to save and exit `nano` with Ctrl-X, Y, Enter)_
 
 You can now run the Ansible playbook that will provision and start the proxy containers in the three proxy hosts: still in the Ansible container, launch the command:
 
@@ -79,8 +82,8 @@ docker ps
 ```
 
 _The ZDM proxy is now up and running, ready to accept
-connections as if it were any Cassandra cluster. Before
-doing just that, let's think about observability!_
+connections just as if it were a regular Cassandra cluster.
+But before doing that, let's think about observability!_
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

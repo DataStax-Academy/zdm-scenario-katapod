@@ -25,7 +25,9 @@
 _Goal: make sure Origin is ready and there is a sample client
 application reading and writing on it._
 
-Check Origin:
+Wait for the message "Origin database provisioned" on the the first console ("host-console").
+
+Now check Origin:
 
 ```
 ### host
@@ -35,8 +37,8 @@ docker exec \
   -e "SELECT * FROM my_application_ks.user_status WHERE user='eva';"
 ```
 
-It is now time to prepare your dotenv file to feed secrets and connection
-parameters to the sample application (a simple REST API in our case).
+It is now time to prepare the dotenv file so that the connection
+parameters for Origin are known to the sample application (a simple REST API in our case).
 
 To do so, first check the addresses you need by running:
 
@@ -46,7 +48,7 @@ To do so, first check the addresses you need by running:
 ```
 
 Now, in the "api-console" terminal, copy the provided template and edit it, inserting, for the time being,
-just the IP address of the Cassandra (Origin) seed
+just the IP address of the Origin seed, `CASSANDRA_SEED_IP`
 _(Note: to save the file and quit `nano` once modified: Ctrl-X, then Y, then Enter)_:
 
 ```
@@ -67,7 +69,7 @@ Test the API with a few calls: first check Eva's status with:
 
 ```
 ### client
-curl -XGET localhost:8000/status/eva
+curl -XGET localhost:8000/status/eva | jq
 ```
 
 Then write a new status:
@@ -79,7 +81,8 @@ curl -XPOST localhost:8000/status/eva/New | jq
 
 Try the read now (click the `GET` command again):
 
-Now start a loop that periodically inserts a new status
+Now start a loop that periodically inserts a new status (you'll keep it running
+througout the practice)
 
 ```
 ### client

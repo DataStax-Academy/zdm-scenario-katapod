@@ -1,4 +1,4 @@
-# ZDM Interactive scenario
+# ZDM interactive scenario
 
 ## Start this hands-on lab:
 

@@ -25,7 +25,7 @@
 _Goal: have the Ansible automation provision and start the monitoring stack
 associated to the ZDM proxy._
 
-The `zdm-ansible-container` offers also a playbook that installs and starts
+The `zdm-ansible-container` also offers a playbook that installs and starts
 a full monitoring stack, which will make Grafana dashboards available for
 a detailed view of the performance of the proxy.
 
@@ -47,7 +47,7 @@ ansible-playbook deploy_zdm_monitoring.yml -i zdm_ansible_inventory
 
 When the execution has completed, there will be a Grafana instance
 waiting for you on port 3000: you can open it in a new browser tab
-with the command (specific to this learning environment):
+with the command _(specific to this learning environment)_:
 
 ```
 ### host

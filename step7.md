@@ -26,7 +26,7 @@ _Goal: ensuring historical data, inserted before the introduction of the ZDM pro
 is present on the Target database._
 
 In order to completely migrate to Target, you must take care
-of the _whole_ contents of the database. To this goal,
+of the _whole_ contents of the database. To this end,
 you will now download, build and launch DSBulk Migrator (a tool which,
 in turn, leverages the capabilities of DSBulk).
 
@@ -39,7 +39,7 @@ code:
 
 ```
 ### host
-cd /workspace/zdm-scenario-draft/data_migration
+cd /workspace/zdm-scenario-katapod/data_migrator/
 git clone https://github.com/datastax/dsbulk-migrator.git
 cd dsbulk-migrator/
 # we pin a commit just to make sure the (versioned) jar name matches later on:

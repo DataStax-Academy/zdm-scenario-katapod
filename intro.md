@@ -16,11 +16,11 @@
           <div class="scenario-description">An interactive Zero Downtime Migration (ZDM) hands-on lab</div>
           <ul>
             <li><span class="scenario-description-attribute">Difficulty</span>: Advanced</li>
-            <li><span class="scenario-description-attribute">Time</span>: 30 minutes</li>
+            <li><span class="scenario-description-attribute">Duration</span>: 50 minutes</li>
           </ul>
         </div>
         <div class="feature col div-choice">
-          <div class="scenario-description">Pre-requisites</div>
+          <div class="scenario-description">Pre-requisites TODO</div>
           <ul>
             <li><span class="scenario-description-attribute">nano</span>: minimal knowledge</li>
             <li><span class="scenario-description-attribute">curl</span>: the basics</li>

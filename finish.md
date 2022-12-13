@@ -15,8 +15,8 @@
         <div class="feature col div-choice">
           <div class="scenario-description">Congratulations, you just completed this scenario!</div>
           <ul>
-            <li><span class="scenario-description-attribute">Learn more at:</span> TODO</li>
-            <li><span class="scenario-description-attribute">Try other Hands-on Labs:</span> TODO</li>
+            <li><span class="scenario-description-attribute">Learn more about ZDM</span>: TODO</li>
+            <li><span class="scenario-description-attribute">Try other Hands-on Labs</span>: TODO</li>
           </ul>
         </div>
       </div>

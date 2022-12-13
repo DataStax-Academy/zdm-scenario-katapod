@@ -22,7 +22,8 @@
 
 <div class="step-title">Epilogue: cleanup</div>
 
-_Goal: Cleanly delete all resources that are no longer needed once the migration is over._
+_🎯 Goal: cleanly deleting all resources that are no longer
+needed now that the migration is over._
 
 If your ZDM infrastructure was running on disposable hosts, such as
 cloud instances that you can delete with one click), you could do so now.
@@ -68,7 +69,7 @@ docker rm -f cassandra-origin-1
 docker volume rm ${VOLUME_CASSANDRA_ORIGIN_1}
 ```
 
-_Well, this is really the end. Time to wrap it up._
+_🗒️ Well, this is really the end. Time to wrap it up._
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

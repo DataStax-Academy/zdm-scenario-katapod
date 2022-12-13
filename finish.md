@@ -15,8 +15,8 @@
         <div class="feature col div-choice">
           <div class="scenario-description">Congratulations, you just completed this scenario!</div>
           <ul>
-            <li><span class="scenario-description-attribute">Learn more about ZDM</span>: TODO</li>
-            <li><span class="scenario-description-attribute">Try other Hands-on Labs</span>: TODO</li>
+            <li><span class="scenario-description-attribute">Learn more about ZDM</span>: <a href="https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction.html">read the documentation</a></li>
+            <li><span class="scenario-description-attribute">Learning resources (hands-on labs and more)</span>: <a href="https://www.datastax.com/dev">DataStax Dev portal</a></li>
           </ul>
         </div>
       </div>

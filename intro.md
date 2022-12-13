@@ -14,6 +14,7 @@
       <div class="row g-4 py-2 row-cols-1 row-cols-lg-1">
         <div class="feature col div-choice">
           <div class="scenario-description">An interactive Zero Downtime Migration (ZDM) hands-on lab</div>
+          <div class="scenario-description"><strong>NOT READY FOR RELEASE (yet)</strong></div>
           <ul>
             <li><span class="scenario-description-attribute">Difficulty</span>: Advanced</li>
             <li><span class="scenario-description-attribute">Duration</span>: 50 minutes</li>
@@ -22,15 +23,15 @@
         <div class="feature col div-choice">
           <div class="scenario-description">Pre-requisites TODO</div>
           <ul>
-            <li><span class="scenario-description-attribute">nano</span>: minimal knowledge</li>
-            <li><span class="scenario-description-attribute">curl</span>: the basics</li>
+            <li><span class="scenario-description-attribute">Linux command line</span>: basic knowledge;</li>
+            <li><span class="scenario-description-attribute">a modern browser</span>: Firefox or Chrome for best experience.</li>
           </ul>
         </div>
         <div class="feature col div-choice">
-          <div class="scenario-description">Outline of this lab TODO</div>
+          <div class="scenario-description">Outline of this lab: TODO</div>
         </div>
         <div class="feature col div-choice">
-          <div class="scenario-description">References TODO</div>
+          <div class="scenario-description">References: TODO</div>
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@
 
 <div class="step-title">Phase 1b: Prepare the Ansible container</div>
 
-_Goal: have the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM proxy._
+_🎯 Goal: having the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM proxy._
 
 Time to download and run `zdm-util`, which creates the Ansible container which will then deploy the ZDM proxies. Download and extract the utility:
 
@@ -66,7 +66,7 @@ cd ..
 docker ps
 ```
 
-_The container can deploy the ZDM host(s) for you. The host(s) will be ready to accept connections instead of the Origin cluster. Ready to deploy the hosts?_
+_🗒️ The container can deploy the ZDM host(s) for you. The host(s) will be ready to accept connections instead of the Origin cluster. Ready to deploy the hosts?_
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

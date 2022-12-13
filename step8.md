@@ -22,7 +22,7 @@
 
 <div class="step-title">Phase 3: enable asynchronous dual reads</div>
 
-_Goal: putting Target to test by having the ZDM proxy
+_🎯 Goal: putting Target to test by having the ZDM proxy
 forward all read requests to it as well._
 
 So far, the ZDM proxy has duplicated only the _write_ statements,
@@ -117,7 +117,7 @@ the behaviour of Target: in particular, looking at the
 "Read Throughput" and "Read Latency" plots (both per-instance and aggregate):
 there, any performance problem would be easy to spot.
 
-_The two databases are now guaranteed to be identical not only in their
+_🗒️ The two databases are now guaranteed to be identical not only in their
 content, but also in the requests they get (including read requests).
 The next step is to elect Target to the role of primary database._
 

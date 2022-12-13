@@ -22,7 +22,7 @@
 
 <div class="step-title">Phase 4: change read routing to Target</div>
 
-_Goal: setting Target as primary database, so that the ZDM proxy
+_🎯 Goal: setting Target as primary database, so that the ZDM proxy
 will serve the data read from it to connected clients._
 
 This step is not dissimilar from the previous one: first
@@ -81,7 +81,7 @@ and Target -- by pasting the following in the Astra DB CQL Web Console:
 SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;
 ```
 
-_You are almost at the end of this migration journey. The only missing step
+_🗒️ You are almost at the end of this migration journey. The only missing step
 is to ... abandon the proxy altogether, writing directly to Target.
 Keep reading to do just that._
 

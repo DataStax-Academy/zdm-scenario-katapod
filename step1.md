@@ -22,7 +22,7 @@
 
 <div class="step-title">Before the migration</div>
 
-_Goal: make sure Origin is ready and there is a sample client
+_🎯 Goal: making sure that Origin is ready and that there is a sample client
 application reading and writing on it._
 
 Wait for the message "Origin database provisioned" on the the first console ("host-console").
@@ -103,7 +103,7 @@ while true; do
 done
 ```
 
-_You have a working application backed by a Cassandra cluster. Time to start
+_🗒️ You have a working application backed by a Cassandra cluster. Time to start
 preparing for a migration!_
 
 <!-- NAVIGATION -->

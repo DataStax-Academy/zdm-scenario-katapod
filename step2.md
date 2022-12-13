@@ -22,8 +22,8 @@
 
 <div class="step-title">Phase 1a: Set up Target</div>
 
-_Goal: create the Target database (Astra DB instance) and make
-sure it is ready for the migration._
+_🎯 Goal: creating the Target database (Astra DB instance) and verifying
+it is ready for the migration._
 
 - Create an Astra DB instance with a keyspace named `my_application_ks`.
 - Get a "R/W User" token from the Astra UI and store it in a safe place. _You will need it a few times throughout the exercise._
@@ -45,7 +45,7 @@ _Note: the steps above could be better automated with the use of `astra-cli`.
 Support for it in the instructions, either alongside or instead of the "UI way",
 will be added._
 
-_Your brand new database is created and has the right schema.
+_🗒️ Your brand new database is created and has the right schema.
 Now you can start setting up the ZDM process, instructing it to use Astra DB as target._
 
 <!-- NAVIGATION -->

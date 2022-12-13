@@ -22,7 +22,7 @@
 
 <div class="step-title">Phase 5: connect directly to Target</div>
 
-_Goal: Instructing your client application to connect directly to Target,
+_🎯 Goal: instructing your client application to connect directly to Target,
 in order to later dispose of the whole ZDM infrastructure._
 
 Until now we could bail out any time.
@@ -50,7 +50,7 @@ another read request:
 curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```
 
-_Congratulations: the migration is complete. You managed to perform
+_🏆 Congratulations: the migration is complete. You managed to perform
 a Zero Downtime Migration, making sure all data (past and present)
 is kept consistent, with the ability to keep read performance
 under scrutiny at all times, and a full suite of dashboards to inspect

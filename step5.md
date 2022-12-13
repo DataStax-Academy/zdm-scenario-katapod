@@ -22,7 +22,7 @@
 
 <div class="step-title">Phase 1d: Start the monitoring stack</div>
 
-_Goal: have the Ansible automation provision and start the monitoring stack
+_🎯 Goal: having the Ansible automation provision and start the monitoring stack
 associated to the ZDM proxy._
 
 The `zdm-ansible-container` also offers a playbook that installs and starts
@@ -59,7 +59,7 @@ Log in with user `admin` and the password you chose,
 then go to Dashboards/Manage and pick e.g.
 the "ZDM Proxy Dashboard v1" to confirm readings are coming in.
 
-_You can now keep the functioning and performance of the proxy
+_🗒️ You can now keep the functioning and performance of the proxy
 completely under control thanks to a set of Grafana dashboards.
 The time has come to make your client application talk to the proxy!_
 

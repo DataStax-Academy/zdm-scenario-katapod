@@ -65,7 +65,7 @@ In the file, uncomment and edit the following entries:
 
 _(remember to save and exit `nano` with Ctrl-X, Y, Enter)_
 
-You can now run the Ansible playbook that will provision and start the proxy containers in the three proxy hosts: still in the Ansible container, launch the command:
+You can now run the Ansible playbook that will provision and start the proxy containers in the proxy host: still in the Ansible container, launch the command:
 
 ```
 ### container

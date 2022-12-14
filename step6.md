@@ -22,6 +22,8 @@
 
 <div class="step-title">Phase 1e: Connect the client application to the proxy</div>
 
+![Phase 1](images/zdm-phase-1.png)
+
 _🎯 Goal: switching the client application from a direct connection to Origin
 to a connection through the proxy
 (while still keeping Origin as the primary DB)._

@@ -22,6 +22,8 @@
 
 <div class="step-title">Phase 5: connect directly to Target</div>
 
+![Phase 5](images/zdm-phase-5.png)
+
 _🎯 Goal: instructing your client application to connect directly to Target,
 in order to later dispose of the whole ZDM infrastructure._
 

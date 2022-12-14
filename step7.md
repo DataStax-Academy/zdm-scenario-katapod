@@ -22,6 +22,8 @@
 
 <div class="step-title">Phase 2: migrate data</div>
 
+![Phase 2](images/zdm-phase-2.png)
+
 _🎯 Goal: ensuring historical data, inserted before the introduction of the ZDM proxy,
 is present on the Target database._
 

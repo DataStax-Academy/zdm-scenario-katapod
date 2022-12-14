@@ -22,6 +22,8 @@
 
 <div class="step-title">Phase 1b: Prepare the Ansible container</div>
 
+![Phase 1](images/zdm-phase-1.png)
+
 _🎯 Goal: having the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM proxy._
 
 Time to download and run `zdm-util`, which creates the Ansible container which will then deploy the ZDM proxies. Download and extract the utility:

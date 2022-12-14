@@ -22,6 +22,8 @@
 
 <div class="step-title">Phase 1d: Start the monitoring stack</div>
 
+![Phase 1](images/zdm-phase-1.png)
+
 _🎯 Goal: having the Ansible automation provision and start the monitoring stack
 associated to the ZDM proxy._
 

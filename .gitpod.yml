@@ -4,6 +4,8 @@ tasks:
       printf 'export PATH="$HOME%s:$PATH"\n' "/.astra/cli" | tee -a $HOME/.bashrc
       printf 'unset JAVA_TOOL_OPTIONS\n' | tee -a $HOME/.bashrc
       curl -Ls "https://dtsx.io/get-astra-cli" | bash | tee -a ./katapod_logs/astra-cli-install.log
+      # adding to path just before .bashrc invokes /home/gitpod/.bashrc.d/60-python to avoid "pyenv: command not found" issues when sshing to host itself
+      sed -i '/\$HOME\/.bashrc.d\//i export PATH=\"\/home\/gitpod\/.pyenv\/plugins\/pyenv-virtualenv\/shims:/home\/gitpod\/.pyenv\/shims:\/home\/gitpod\/.pyenv\/bin:\$\{PATH\}\"\n' /home/gitpod/.bashrc
     init: |
       docker pull cassandra:4.1
       pip install -r client_application/requirements.txt

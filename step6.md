@@ -56,7 +56,7 @@ in your Astra DB Token. Now you can insert the values of `ASTRA_DB_SECURE_BUNDLE
 
 ```
 ### host
-nano /workspace/zdm-scenario-katapod/client_application/.env
+nano +7,30 /workspace/zdm-scenario-katapod/client_application/.env
 ```
 
 Once you save the changes (_Ctrl-X, then Y, then Enter in the `nano` editor_),

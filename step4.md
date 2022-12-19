@@ -76,7 +76,8 @@ ansible-playbook deploy_zdm_proxy.yml -i zdm_ansible_inventory
 ```
 
 This will provision, configure and start the ZDM proxy, one container per instance
-(in this exercise there'll be a single instance). Once this is done, you can check a new container is listed in the output of
+(in this exercise there'll be a single instance, `zdm-proxy-container`).
+Once this is done, you can check a new container is listed in the output of
 
 ```
 ### host
@@ -85,7 +86,7 @@ docker ps
 
 _🗒️ The ZDM proxy is now up and running, ready to accept
 connections just as if it were a regular Cassandra cluster.
-But before doing that, let's think about observability!_
+But before re-routing the client application, let's think about observability!_
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

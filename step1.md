@@ -55,7 +55,7 @@ _(Note: to save the file and quit `nano` once modified: Ctrl-X, then Y, then Ent
 ### api
 cd client_application
 cp .env.sample .env
-nano .env
+nano +3,17 .env
 ```
 
 Start the API in such a way that it reads from Origin:

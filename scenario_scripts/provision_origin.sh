@@ -4,6 +4,8 @@
 
 CASSANDRA_NODE_NAME="cassandra-origin-1"
 
+echo -e "\nProvisioning Origin database ...";
+
 sleep 20;
 
 docker cp origin_config/origin_schema.cql "${CASSANDRA_NODE_NAME}":/

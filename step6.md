@@ -60,11 +60,11 @@ nano /workspace/zdm-scenario-katapod/client_application/.env
 ```
 
 Once you save the changes (_Ctrl-X, then Y, then Enter in the `nano` editor_),
-you can stop the running API (with Ctrl-C in the "api" terminal) and restart it with:
+restart the API by executing the following, which kills the process in the "api-console" and launches it again:
 
 ```
 ### {"terminalId": "api", "macrosBefore": ["ctrl_c"]}
-# Ctrl-C ...
+# A Ctrl-C to stop the running process ... followed by:
 CLIENT_CONNECTION_MODE=ZDM_PROXY uvicorn api:app
 ```
 

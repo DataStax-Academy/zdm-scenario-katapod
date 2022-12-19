@@ -32,12 +32,12 @@ After the following change **we are effectively committing to the migration**,
 with the app directly writing to Astra DB and finally
 skipping the ZDM (and Origin) altogether.
 
-This step is very simple. First stop the running API with Ctrl-C, then
-restart it by passing it the appropriate setting:
+This step is very simple. The following command stops the running API, then
+restarts it by passing it the appropriate setting:
 
 ```
 ### {"terminalId": "api", "macrosBefore": ["ctrl_c"]}
-# Ctrl-C ...
+# A Ctrl-C to stop the running process ... followed by:
 CLIENT_CONNECTION_MODE=ASTRA_DB uvicorn api:app
 ```
 

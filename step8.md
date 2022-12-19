@@ -93,7 +93,8 @@ Restart the `docker logs` command,
 
 ```
 ### {"terminalId": "logs", "macrosBefore": ["ctrl_c"]}
-# Ctrl-C ...
+# A Ctrl-C to stop the logs (in case they're still running) ...
+# Then we start them again:
 docker logs -f zdm-proxy-container
 ```
 

@@ -48,6 +48,13 @@
           }
         ]
       },
+      "step8": {
+        "logs": [
+          {
+            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/prepare_for_ssh.sh"
+          }
+        ]
+      },
       "finish": {
         "host": [
           {

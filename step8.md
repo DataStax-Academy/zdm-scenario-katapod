@@ -117,9 +117,10 @@ curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```
 
 During this phase, you can go to the Grafana dashboard and check
-the behaviour of Target: in particular, looking at the
-"Read Throughput" and "Read Latency" plots (both per-instance and aggregate):
-there, any performance problem would be easy to spot.
+the behaviour of Target: in particular, if you scroll down in the
+"ZDM Proxy Dashboard", you'll see there's a whole "Async Read Request Metrics" section
+is available: looking at it, any performance problem would be promptly
+spotted and diagnosed.
 
 _🗒️ The two databases are now guaranteed to be identical not only in their
 content, but also in the requests they get (including read requests).

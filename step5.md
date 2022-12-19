@@ -36,7 +36,7 @@ Edit file `zdm_monitoring_config.yml` and set the value of `grafana_admin_passwo
 ```
 ### container
 cd /home/ubuntu/zdm-proxy-automation/ansible
-nano vars/zdm_monitoring_config.yml
+nano +4,25 vars/zdm_monitoring_config.yml
 ```
 
 You can now launch the playbook that sets up the monitoring stack:

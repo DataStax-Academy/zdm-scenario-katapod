@@ -39,7 +39,7 @@ are dealing with a database exceeding a few tens of GB, that might be your best 
 Start by going to the `data_migration` directory and obtain the source
 code:
 
-```
+```bash
 ### host
 cd /workspace/zdm-scenario-katapod/data_migrator/
 git clone https://github.com/datastax/dsbulk-migrator.git
@@ -50,7 +50,7 @@ git checkout 9b8a3759d3b59bcbcea191164d791ec8adc83ce9
 
 Build the project with (this may take 1-2 minutes):
 
-```
+```bash
 ### host
 mvn clean package
 ```
@@ -61,7 +61,7 @@ schema information (the "export cluster" will be Origin and the
 following commands read the required connection settings also from the dot-env
 file you already set up for the client application:
 
-```
+```bash
 ### host
 . ../../scenario_scripts/find_addresses.sh
 . ../../client_application/.env
@@ -85,7 +85,7 @@ the ZDM proxy.
 To verify this, you can paste something like the following query in your
 Astra DB Web CQL Console:
 
-```
+```cql
 ### {"execute": false}
 SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 30;
 ```

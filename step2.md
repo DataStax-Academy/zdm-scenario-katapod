@@ -33,7 +33,7 @@ it is ready for the migration._
 - Find the "download secure-connect-bundle" option in the Connect tab of your Astra DB instance and paste the `curl` command you get there in the "host-console" here. Take a note of the full path to the bundle zipfile.
 - In the Web CQL Console on the Astra UI, paste the following script to create a schema that mirrors the one on Origin:
 
-```
+```cql
 ### {"execute": false}
 CREATE TABLE IF NOT EXISTS my_application_ks.user_status (
   user    TEXT,

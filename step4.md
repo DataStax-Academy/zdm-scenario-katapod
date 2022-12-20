@@ -31,7 +31,7 @@ First start a `bash` shell on the `zdm-ansible-container`: this
 will be needed a few times in the rest of this lab
 (and will be in the "zdm-ansible-console" terminal).
 
-```
+```bash
 ### container
 docker exec -it zdm-ansible-container bash
 ```
@@ -43,7 +43,7 @@ _This terminal will stay in the container until the end._
 It is time to configure the settings for the proxy that is
 about to be created. To do so, edit file `zdm_proxy_core_config.yml` _on the container_:
 
-```
+```bash
 ### container
 cd /home/ubuntu/zdm-proxy-automation/
 nano ansible/vars/zdm_proxy_core_config.yml
@@ -51,7 +51,7 @@ nano ansible/vars/zdm_proxy_core_config.yml
 
 You may find it convenient to check the needed IP addresses with:
 
-```
+```bash
 ### host
 . ./scenario_scripts/find_addresses.sh
 ```
@@ -69,7 +69,7 @@ _(remember to save and exit `nano` with Ctrl-X, Y, Enter)_
 
 You can now run the Ansible playbook that will provision and start the proxy containers in the proxy host: still in the Ansible container, launch the command:
 
-```
+```bash
 ### container
 cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook deploy_zdm_proxy.yml -i zdm_ansible_inventory
@@ -79,7 +79,7 @@ This will provision, configure and start the ZDM proxy, one container per instan
 (in this exercise there'll be a single instance, `zdm-proxy-container`).
 Once this is done, you can check a new container is listed in the output of
 
-```
+```bash
 ### host
 docker ps
 ```

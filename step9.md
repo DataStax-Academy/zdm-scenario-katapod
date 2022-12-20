@@ -32,7 +32,7 @@ edit the `zdm_proxy_core_config.yml` settings again,
 this time changing the value of `primary_cluster` from
 `ORIGIN` to `TARGET`:
 
-```
+```bash
 ### container
 cd /home/ubuntu/zdm-proxy-automation/ansible
 nano vars/zdm_proxy_core_config.yml
@@ -42,7 +42,7 @@ Once you save and exit the editor, you can issue another
 "rolling update" to propagate the new configuration
 to the proxy(/proxies):
 
-```
+```bash
 ### container
 ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 ```
@@ -50,7 +50,7 @@ ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 Again, the logs will stop and will need to be restarted shortly after launching
 the command above:
 
-```
+```bash
 ### {"terminalId": "logs", "macrosBefore": ["ctrl_c"]}
 # A Ctrl-C to stop the logs (in case they're still running) ...
 # Then we start them again:
@@ -63,14 +63,14 @@ confirms the new setting having taken effect.
 At this point, Target is the functioning primary, with Origin still being kept completely up to date.
 For a proof, you can launch a manual write through the API:
 
-```
+```bash
 ### host
 curl -XPOST localhost:8000/status/eva/TargetIsPrimary | jq
 ```
 
 and then try reading the recent rows from both databases, Origin:
 
-```
+```bash
 ### host
 docker exec \
   -it cassandra-origin-1 \
@@ -80,7 +80,7 @@ docker exec \
 
 and Target -- by pasting the following in the Astra DB CQL Web Console:
 
-```
+```cql
 ### {"execute": false}
 SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;
 ```

@@ -36,14 +36,14 @@ Before doing that, however, let's finish writing the required settings in
 the `.env` file. Check the full path of the secure-connect-bundle zipfile
 you downloaded with
 
-```
+```bash
 ### logs
 ls /workspace/zdm-scenario-katapod/*zip
 ```
 
 and the IP address of the proxy instance, e.g. with
 
-```
+```bash
 ### logs
 . ./scenario_scripts/find_addresses.sh
 ```
@@ -54,7 +54,7 @@ _(this time, the two commands above will run on the still-unused
 and finally make sure you have the "Client ID" and the "Client Secret" found
 in your Astra DB Token. Now you can insert the values of `ASTRA_DB_SECURE_BUNDLE_PATH`, `ASTRA_DB_CLIENT_ID`, `ASTRA_DB_CLIENT_SECRET` and `ZDM_PROXY_SEED`:
 
-```
+```bash
 ### host
 nano +7,30 /workspace/zdm-scenario-katapod/client_application/.env
 ```
@@ -62,7 +62,7 @@ nano +7,30 /workspace/zdm-scenario-katapod/client_application/.env
 Once you save the changes (_Ctrl-X, then Y, then Enter in the `nano` editor_),
 restart the API by executing the following, which kills the process in the "api-console" and launches it again:
 
-```
+```bash
 ### {"terminalId": "api", "macrosBefore": ["ctrl_c"]}
 # A Ctrl-C to stop the running process ... followed by:
 CLIENT_CONNECTION_MODE=ZDM_PROXY uvicorn api:app
@@ -73,7 +73,7 @@ requests that are running in the "api-client-console".
 
 As a test, try sending manually a new status with:
 
-```
+```bash
 ### host
 curl -XPOST localhost:8000/status/eva/ThroughZDMProxy | jq
 ```
@@ -88,7 +88,7 @@ The API is connecting to the ZDM proxy. The proxy, in turn, is propagating
 writes to _both_ the Origin and Target databases. To verify this,
 check that you can read the last-inserted status rows from Origin:
 
-```
+```bash
 ### host
 docker exec \
   -it cassandra-origin-1 \
@@ -99,7 +99,7 @@ docker exec \
 and do the same check on Target, i.e. Astra DB - this time pasting something
 like the following `SELECT` statement directly in the Astra DB Web CQL Console:
 
-```
+```cql
 ### {"execute": false}
 SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;
 ```

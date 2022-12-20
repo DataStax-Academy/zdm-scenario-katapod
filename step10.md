@@ -35,7 +35,7 @@ skipping the ZDM (and Origin) altogether.
 This step is very simple. The following command stops the running API, then
 restarts it by passing it the appropriate setting:
 
-```
+```bash
 ### {"terminalId": "api", "macrosBefore": ["ctrl_c"]}
 # A Ctrl-C to stop the running process ... followed by:
 CLIENT_CONNECTION_MODE=ASTRA_DB uvicorn api:app
@@ -48,7 +48,7 @@ The loop is still periodically writing new rows: to ensure
 the application is still working as expected, you can launch yet
 another read request:
 
-```
+```bash
 ### host
 curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```

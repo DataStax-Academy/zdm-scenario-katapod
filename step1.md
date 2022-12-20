@@ -31,7 +31,7 @@ Wait for the message "Origin database provisioned" on the the first console ("ho
 
 Now check Origin:
 
-```
+```bash
 ### host
 docker exec \
   -it cassandra-origin-1 \
@@ -44,7 +44,7 @@ parameters for Origin are known to the sample application (a simple REST API in 
 
 To do so, first check the addresses you need by running:
 
-```
+```bash
 ### host
 . ./scenario_scripts/find_addresses.sh
 ```
@@ -53,7 +53,7 @@ Now, in the "api-console" terminal, copy the provided template and edit it, inse
 just the IP address of the Origin seed, `CASSANDRA_SEED_IP`
 _(Note: to save the file and quit `nano` once modified: Ctrl-X, then Y, then Enter)_:
 
-```
+```bash
 ### api
 cd client_application
 cp .env.sample .env
@@ -62,21 +62,21 @@ nano +3,17 .env
 
 Start the API in such a way that it reads from Origin:
 
-```
+```bash
 ### api
 CLIENT_CONNECTION_MODE=CASSANDRA uvicorn api:app
 ```
 
 Test the API with a few calls: first check Eva's status with:
 
-```
+```bash
 ### client
 curl -XGET localhost:8000/status/eva | jq
 ```
 
 Then write a new status:
 
-```
+```bash
 ### client
 curl -XPOST localhost:8000/status/eva/New | jq
 ```
@@ -85,7 +85,7 @@ Try the read again. Even better, you can keep a separate browser tab open
 and refresh whenever you want to check: run the following command
 (_specific to this learning environment_)
 
-```
+```bash
 ### host
 # PLEASE CHECK YOUR POPUP BLOCKER ONCE YOU RUN THIS!
 gp preview --external `gp url 8000`/status/eva
@@ -94,7 +94,7 @@ gp preview --external `gp url 8000`/status/eva
 Now start a loop that periodically inserts a new status (you'll keep it running
 througout the practice)
 
-```
+```bash
 ### client
 while true; do
   NEW_STATUS="ItIs_`date +'%H-%M-%S'`";

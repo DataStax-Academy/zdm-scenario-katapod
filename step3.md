@@ -28,7 +28,7 @@ _🎯 Goal: having the automation create and start the `zdm-ansible-container`, 
 
 Time to download and run `zdm-util`, which creates the Ansible container which will then deploy the ZDM proxies. Download and extract the utility:
 
-```
+```bash
 ### host
 cd /workspace/zdm-scenario-katapod/running_zdm_util
 wget https://github.com/datastax/zdm-proxy-automation/releases/download/v2.0.3/zdm-util-linux-amd64-v2.0.3.tgz
@@ -47,14 +47,14 @@ Next, start the utility. It will ask you a few questions:
 
 You may find it convenient to check the IP addresses with:
 
-```
+```bash
 ### host
 . ../scenario_scripts/find_addresses.sh
 ```
 
 Then, start the utility with:
 
-```
+```bash
 ### host
 ./zdm-util-v2.0.3
 ```
@@ -62,7 +62,7 @@ Then, start the utility with:
 Once you are done, answer "Yes" to "Do you wish to proceed?": a `zdm-ansible-container` is created and started
 on the host machine's Docker. Check with
 
-```
+```bash
 ### host
 cd ..
 docker ps

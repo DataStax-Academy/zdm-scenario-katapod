@@ -33,7 +33,7 @@ a detailed view of the performance of the proxy.
 
 Edit file `zdm_monitoring_config.yml` and set the value of `grafana_admin_password` to a memorable password (leaving `grafana_admin_user` to its default of `admin`):
 
-```
+```bash
 ### container
 cd /home/ubuntu/zdm-proxy-automation/ansible
 nano +4,25 vars/zdm_monitoring_config.yml
@@ -41,7 +41,7 @@ nano +4,25 vars/zdm_monitoring_config.yml
 
 You can now launch the playbook that sets up the monitoring stack:
 
-```
+```bash
 ### container
 cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook deploy_zdm_monitoring.yml -i zdm_ansible_inventory
@@ -51,7 +51,7 @@ When the execution has completed, there will be a Grafana instance
 waiting for you on port 3000: you can open it in a new browser tab
 with the command _(specific to this learning environment)_:
 
-```
+```bash
 ### host
 # PLEASE CHECK YOUR POPUP BLOCKER ONCE YOU RUN THIS!
 gp preview --external `gp url 3000`

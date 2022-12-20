@@ -36,21 +36,21 @@ dispose of all resources not needed anymore.
 
 Remove the `zdm-ansible-container` with:
 
-```
+```bash
 ### host
 docker rm -f zdm-ansible-container
 ```
 
 Then remove the proxy container itself:
 
-```
+```bash
 ### host
 docker rm -f zdm-proxy-container
 ```
 
 Get rid of all of the monitoring stack (including a volume that comes with the containers):
 
-```
+```bash
 ### host
 docker rm -f \
   zdm-grafana-container \
@@ -64,7 +64,7 @@ it's just a single-node Cassandra cluster. _Note: in an
 actual production setup, do not take this step lightly
 (by the way, it's a bit more than one node)!_
 
-```
+```bash
 ### host
 VOLUME_CASSANDRA_ORIGIN_1=`docker inspect cassandra-origin-1 | jq -r '.[].Mounts[] | select( .Type=="volume" ).Name'`
 docker rm -f cassandra-origin-1

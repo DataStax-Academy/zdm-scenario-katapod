@@ -41,7 +41,7 @@ It is desirable to keep an eye on the proxy logs during
 configuration updates and restarts.
 Even if, in this lab setup, the proxy container actually runs on the host machine itself, let's go through the motions of a real ZDM deployment, that is, first ssh to "the proxy host" and once there inspect the logs of the Docker container where the proxy is running. Run the following in the "zdm-proxy-logs" console:
 
-```
+```bash
 ### logs
 . ./scenario_scripts/find_addresses.sh
 ssh \
@@ -52,7 +52,7 @@ ssh \
 You are now logged on to the ZDM proxy host. Have Docker print
 the logs from the proxy container (in a non-stop fashion):
 
-```
+```bash
 ### logs
 docker logs -f zdm-proxy-container
 ```
@@ -63,7 +63,7 @@ concept in this case, since there is a single proxy, but that's the idea).
 
 First open the `zdm_proxy_core_config.yml` configuration:
 
-```
+```bash
 ### container
 cd /home/ubuntu/zdm-proxy-automation/ansible
 nano vars/zdm_proxy_core_config.yml
@@ -75,7 +75,7 @@ Save and exit the editor.
 
 Now perform a rolling update with:
 
-```
+```bash
 ### container
 ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 ```
@@ -91,7 +91,7 @@ Meanwhile, keep an eye on the logs from the container:
 they will stop (taking turns, if there were several).
 Restart the `docker logs` command,
 
-```
+```bash
 ### {"terminalId": "logs", "macrosBefore": ["ctrl_c"]}
 # A Ctrl-C to stop the logs (in case they're still running) ...
 # Then we start them again:
@@ -111,7 +111,7 @@ Note the `ReadMode: DUAL_ASYNC_ON_SECONDARY` part in the above output.
 If you want, check that the application still works by looking for the latest
 rows being inserted in the output of:
 
-```
+```bash
 ### host
 curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```

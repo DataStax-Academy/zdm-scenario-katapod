@@ -22,6 +22,8 @@
 
 <div class="step-title">Before the migration</div>
 
+![Phase 0](images/p0.png)
+
 _🎯 Goal: making sure that Origin is ready and that there is a sample client
 application reading and writing on it._
 

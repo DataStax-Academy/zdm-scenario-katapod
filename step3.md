@@ -22,7 +22,7 @@
 
 <div class="step-title">Phase 1b: Prepare the Ansible container</div>
 
-![Phase 1](images/zdm-phase-1.png)
+![Phase 1b](images/p1b.png)
 
 _🎯 Goal: having the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM proxy._
 

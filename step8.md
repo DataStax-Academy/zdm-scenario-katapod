@@ -22,7 +22,7 @@
 
 <div class="step-title">Phase 3: enable asynchronous dual reads</div>
 
-![Phase 3](images/zdm-phase-3.png)
+![Phase 3](images/p3.png)
 
 _🎯 Goal: putting Target to test by having the ZDM proxy
 forward all read requests to it as well._

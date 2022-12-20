@@ -15,9 +15,10 @@
         <div class="feature col div-choice">
           <div class="scenario-description">An interactive Zero Downtime Migration (ZDM) hands-on lab</div>
           <div class="scenario-description"><strong>NOT READY FOR RELEASE (yet)</strong></div>
+          <div class="scenario-description"><img src="https://raw.githubusercontent.com/hemidactylus/zdm-scenario-katapod/main/images/pz.png" /></div>
           <ul>
             <li><span class="scenario-description-attribute">Difficulty</span>: Advanced</li>
-            <li><span class="scenario-description-attribute">Duration</span>: 50 minutes</li>
+            <li><span class="scenario-description-attribute">Duration</span>: 80 minutes</li>
           </ul>
         </div>
         <div class="feature col div-choice">

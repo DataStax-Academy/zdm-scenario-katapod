@@ -22,7 +22,7 @@
 
 <div class="step-title">Phase 1a: Set up Target</div>
 
-![Phase 1](images/zdm-phase-1.png)
+![Phase 1a](images/p1a.png)
 
 _🎯 Goal: creating the Target database (Astra DB instance) and verifying
 it is ready for the migration._

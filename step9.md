@@ -22,7 +22,7 @@
 
 <div class="step-title">Phase 4: change read routing to Target</div>
 
-![Phase 4](images/zdm-phase-4.png)
+![Phase 4](images/p4.png)
 
 _🎯 Goal: setting Target as primary database, so that the ZDM proxy
 will serve the data read from it to connected clients._

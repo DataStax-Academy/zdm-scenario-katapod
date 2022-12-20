@@ -22,6 +22,8 @@
 
 <div class="step-title">Epilogue: cleanup</div>
 
+![Phase 6](images/p6.png)
+
 _🎯 Goal: cleanly deleting all resources that are no longer
 needed now that the migration is over._
 

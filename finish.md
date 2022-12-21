@@ -16,8 +16,8 @@
           <div class="scenario-description">Congratulations, you just completed this scenario!</div>
           <div class="scenario-description"><img src="https://raw.githubusercontent.com/hemidactylus/zdm-scenario-katapod/main/images/pz.png" /></div>
           <ul>
-            <li><span class="scenario-description-attribute">Learn more about ZDM</span>: <a href="https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction.html">read the documentation</a></li>
-            <li><span class="scenario-description-attribute">Learning resources (hands-on labs and more)</span>: <a href="https://www.datastax.com/dev">DataStax Dev portal</a></li>
+            <li><span class="scenario-description-attribute"><a href="https://docs.datastax.com/en/astra-serverless/docs/migrate/introduction.html" target="_blank">Datastax ZDM documentation</a></span></li>
+            <li><span class="scenario-description-attribute">Learning resources (hands-on labs and more)</span>: <a href="https://www.datastax.com/dev" target="_blank">DataStax Dev portal</a></li>
           </ul>
         </div>
       </div>

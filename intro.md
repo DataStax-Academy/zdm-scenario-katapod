@@ -23,6 +23,8 @@
         <div class="feature col div-choice">
           <div class="scenario-description">
             <strong>Outline of this lab:</strong>
+          <div>
+          <div>
             This is a guided end-to-end Zero-Downtime-Migration hands-on experience
             designed to run entirely in your browser. You will start with a running client application
             backed by a Cassandra installation, and will go through all steps required

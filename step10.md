@@ -60,6 +60,8 @@ under scrutiny at all times, and a full suite of dashboards to inspect
 every aspect of the migration process. The only thing left to do
 is cleaning up: hit "Next" to complete this exercise._
 
+![Schema, phase 5](images/schema5_r.png)
+
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"step9"}]'

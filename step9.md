@@ -89,6 +89,8 @@ _🗒️ You are almost at the end of this migration journey. The only missing s
 is to ... abandon the proxy altogether, writing directly to Target.
 Keep reading to do just that._
 
+![Schema, phase 4](images/schema4_r.png)
+
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"step8"}]'

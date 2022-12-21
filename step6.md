@@ -111,6 +111,8 @@ _🗒️ The proxy is doing its job: in order to guarantee that the two database
 have the same content, including historical data, it's time to run a
 migration process._
 
+![Schema, phase 1e](images/schema1e_r.png)
+
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"step5"}]'

@@ -108,6 +108,8 @@ done
 _🗒️ You have a working application backed by a Cassandra cluster. Time to start
 preparing for a migration!_
 
+![Schema, phase 0](images/schema0_r.png)
+
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"intro"}]'

@@ -98,6 +98,8 @@ of sustaining the read workload your applications demand. Well, the perfect
 way to address this concern is to have the proxy perform "read mirroring".
 Read on to find out._
 
+![Schema, phase 2](images/schema2_r.png)
+
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"step6"}]'

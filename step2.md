@@ -55,6 +55,8 @@ CREATE TABLE IF NOT EXISTS my_application_ks.user_status (
 _🗒️ Your brand new database is created and has the right schema.
 Now you can start setting up the ZDM process, instructing it to use Astra DB as target._
 
+![Schema, phase 1a](images/schema1a_r.png)
+
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"step1"}]'

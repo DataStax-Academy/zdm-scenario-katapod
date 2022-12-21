@@ -126,6 +126,8 @@ _🗒️ The two databases are now guaranteed to be identical not only in their
 content, but also in the requests they get (including read requests).
 The next step is to elect Target to the role of primary database._
 
+![Schema, phase 3](images/schema3_r.png)
+
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"step7"}]'

@@ -87,7 +87,7 @@ astra db cqlsh target_database \
   -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
 ```
 
-otherwise paste this in the Astra DB CQL Web Console:
+**otherwise**, paste this in the Astra DB CQL Web Console:
 
 ```cql
 ### {"execute": false}

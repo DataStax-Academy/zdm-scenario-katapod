@@ -16,8 +16,6 @@
   <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
     class="btn btn-dark navigation-top-right">Next (astra-cli) ➡️
   </a>
-</div>
-<div id="navigation-top" class="navigation-top">
   <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
     class="btn btn-dark navigation-top-right">Next (Astra UI) ➡️
   </a>
@@ -125,8 +123,6 @@ _🧭 ↔️ Please choose if you'd rather use a CLI or the Astra Web interface 
   <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
     class="btn btn-dark navigation-top-right">Next (astra-cli) ➡️
   </a>
-</div>
-<div id="navigation-top" class="navigation-top">
   <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
     class="btn btn-dark navigation-top-right">Next (Astra UI) ➡️
   </a>

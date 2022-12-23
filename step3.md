@@ -12,14 +12,14 @@
   <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
     class="btn btn-dark navigation-top-left">⬅️ Back (astra-cli)
   </a>
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+    class="btn btn-dark navigation-top-left"
+    style="margin-left: 8px;"
+  >⬅️ Back (Astra UI)
+  </a>
   <span class="step-count">Step 3</span>
   <a href='command:katapod.loadPage?[{"step":"step4"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
-  </a>
-</div>
-<div id="navigation-top" class="navigation-top">
-  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
-    class="btn btn-dark navigation-top-left">⬅️ Back (Astra UI)
   </a>
 </div>
 
@@ -83,12 +83,12 @@ at Origin cluster. Ready to deploy the hosts?_
   <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
     class="btn btn-dark navigation-top-left">⬅️ Back (astra-cli)
   </a>
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+    class="btn btn-dark navigation-top-left"
+    style="margin-left: 8px;"
+  >⬅️ Back (Astra UI)
+  </a>
   <a href='command:katapod.loadPage?[{"step":"step4"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
-  </a>
-</div>
-<div id="navigation-top" class="navigation-top">
-  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
-    class="btn btn-dark navigation-top-left">⬅️ Back (Astra UI)
   </a>
 </div>

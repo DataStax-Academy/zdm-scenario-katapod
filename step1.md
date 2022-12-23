@@ -13,11 +13,13 @@
     class="btn btn-dark navigation-top-left">⬅️ Back
   </a>
   <span class="step-count">Step 1</span>
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+    class="btn btn-dark navigation-top-right"
+    style="margin-left: 8px;"
+  >Next (Astra UI) ➡️
+  </a>
   <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
     class="btn btn-dark navigation-top-right">Next (astra-cli) ➡️
-  </a>
-  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
-    class="btn btn-dark navigation-top-right">Next (Astra UI) ➡️
   </a>
 </div>
 
@@ -120,10 +122,12 @@ _🧭 ↔️ Please choose if you'd rather use a CLI or the Astra Web interface 
   <a href='command:katapod.loadPage?[{"step":"intro"}]' 
     class="btn btn-dark navigation-top-left">⬅️ Back
   </a>
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+    class="btn btn-dark navigation-top-right"
+    style="margin-left: 8px;"
+  >Next (Astra UI) ➡️
+  </a>
   <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
     class="btn btn-dark navigation-top-right">Next (astra-cli) ➡️
-  </a>
-  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
-    class="btn btn-dark navigation-top-right">Next (Astra UI) ➡️
   </a>
 </div>

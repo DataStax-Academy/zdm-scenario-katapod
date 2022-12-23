@@ -36,6 +36,14 @@ tar -xvf zdm-util-linux-amd64-v2.0.3.tgz
 rm zdm-util-linux-amd64-v2.0.3.tgz
 ```
 
+Before going through the configuration utility, you may find it convenient to check the IP addresses
+(on the still-unused "zdm-proxy-logs" console, for your convenience) with:
+
+```bash
+### logs
+. ../scenario_scripts/find_addresses.sh
+```
+
 Next, start the utility. It will ask you a few questions:
 
 - the private key location: it is `../zdm_host_private_key/zdm_deploy_key`;
@@ -44,13 +52,6 @@ Next, start the utility. It will ask you a few questions:
 - yes, this is for testing (so as to allow for a single ZDM host instead of the required three);
 - enter the IP for the ZDM host;
 - enter the same IP as above for the monitoring instance (in this setup, it will be the same machine).
-
-You may find it convenient to check the IP addresses with:
-
-```bash
-### host
-. ../scenario_scripts/find_addresses.sh
-```
 
 Then, start the utility with:
 

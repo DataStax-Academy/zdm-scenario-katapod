@@ -36,7 +36,7 @@ can cover much, much more I/O and storage than what's needed for
 this migration exercise._
 
 - Create your [Astra account](https://astra.datastax.com/) if you haven't yet.
-- Create a database called `target_database` with a `my_application_ks` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in a 2-3 minutes._
+- Create a database called `target_database` with a `my_application_ks` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
 - Get a "R/W User" database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise._
 - Locate and note down the "Database ID" for your Astra DB instance. This is seen on your Astra dashboard, next to your database name ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/faq/#where-should-i-find-a-database-identifier)).
 - Find the "download secure-connect-bundle" option in the Connect tab for your database (`Connect` ⇒ `Drivers` ⇒ `"Native"` ⇒ _any language_ ⇒ `"Download Bundle"` ⇒ _pick Region_ ⇒ `CURL`) and paste the resulting `curl` command in the "host-console" here ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/download-scb/#c-procedure)). _Take a note of the full path to the bundle zipfile, you'll need it for the example API_.

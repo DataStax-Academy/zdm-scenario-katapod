@@ -96,8 +96,17 @@ docker exec \
   -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
 ```
 
-and do the same check on Target, i.e. Astra DB - this time pasting something
-like the following `SELECT` statement directly in the Astra DB Web CQL Console:
+Likewise, you can do the same check on Target, i.e. Astra DB:
+**if you went through the Astra CLI path**, you can run the following:
+
+```bash
+### host
+astra db cqlsh target_database \
+  -k my_application_ks \
+  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
+```
+
+otherwise, paste this `SELECT` statement directly in the Astra DB Web CQL Console:
 
 ```cql
 ### {"execute": false}

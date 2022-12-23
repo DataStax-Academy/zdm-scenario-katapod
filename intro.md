@@ -14,11 +14,11 @@
       <div class="row g-4 py-2 row-cols-1 row-cols-lg-1">
         <div class="feature col div-choice">
           <div class="scenario-description">An interactive Zero Downtime Migration (ZDM) hands-on lab</div>
-          <div class="scenario-description"><img src="https://raw.githubusercontent.com/hemidactylus/zdm-scenario-katapod/main/images/pz.png" /></div>
           <ul>
             <li><span class="scenario-description-attribute">Difficulty</span>: Advanced</li>
             <li><span class="scenario-description-attribute">Duration</span>: 80 minutes</li>
           </ul>
+          <div class="scenario-description"><img src="https://raw.githubusercontent.com/hemidactylus/zdm-scenario-katapod/main/images/pz.png" /></div>
         </div>
         <div class="feature col div-choice">
           <div class="scenario-description">

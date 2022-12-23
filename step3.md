@@ -46,7 +46,7 @@ Before going through the configuration utility, you may find it convenient to ch
 
 ```bash
 ### logs
-. ../scenario_scripts/find_addresses.sh
+. /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 ```
 
 Next, start the utility. It will ask you a few questions:

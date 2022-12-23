@@ -82,15 +82,24 @@ Once this command has completed, you will see that now _all_ rows are
 on Target as well, including those written prior to setting up
 the ZDM proxy.
 
-To verify this, you can paste something like the following query in your
-Astra DB Web CQL Console:
+To verify this,
+**if you went through the Astra CLI path**, launch this command:
+
+```bash
+### host
+astra db cqlsh target_database \
+  -k my_application_ks \
+  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 30;"
+```
+
+if you used the Astra UI, go to the Web CQL Console and run the statement:
 
 ```cql
 ### {"execute": false}
 SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 30;
 ```
 
-From this point on, the data on Target will not diverge from Origin
+From this moment on, the data on Target will not diverge from Origin
 until the moment you decide to cut over and neglect Origin altogether.
 
 _🗒️ At this point, you might wonder whether Target is actually capable

@@ -44,7 +44,7 @@ to perform most of the required steps from the console.
 
 The Astra CLI is preinstalled for you. Configure it with
 
-```
+```bash
 ### host
 astra setup
 ```
@@ -53,7 +53,7 @@ and provide the `AstraCS:...` part of the token when prompted.
 
 Have the CLI prepare a `.env` file, useful to later retrieve the database ID:
 
-```
+```bash
 ### host
 astra db create-dotenv target_database -k my_application_ks
 ```
@@ -61,7 +61,7 @@ astra db create-dotenv target_database -k my_application_ks
 Next, the CLI will download the "secure connect bundle" zipfile, for use by the sample application.
 _Take a note of the full path to the bundle zipfile, you'll need it for the example API_:
 
-```
+```bash
 ### host
 astra db download-scb target_database -f secure-connect-target_database.zip
 ls /workspace/zdm-scenario-katapod/*.zip -lh
@@ -70,14 +70,14 @@ ls /workspace/zdm-scenario-katapod/*.zip -lh
 Finally, your Target database needs a schema matching the one in Origin.
 Check the contents of the script file with
 
-```
+```bash
 ### host
 cat target_config/target_schema.cql
 ```
 
 and then execute it on the newly-created Astra DB instance:
 
-```
+```bash
 ### host
 astra db cqlsh target_database -f target_config/target_schema.cql
 ```

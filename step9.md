@@ -68,7 +68,7 @@ For a proof, you can launch a manual write through the API:
 curl -XPOST localhost:8000/status/eva/TargetIsPrimary | jq
 ```
 
-and then try reading the recent rows from both databases, Origin:
+and then try reading the recent rows from both databases. For Origin:
 
 ```bash
 ### host
@@ -78,7 +78,16 @@ docker exec \
   -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
 ```
 
-and Target -- by pasting the following in the Astra DB CQL Web Console:
+For Target, **if you went through the Astra CLI path**, launch the following:
+
+```bash
+### host
+astra db cqlsh target_database \
+  -k my_application_ks \
+  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
+```
+
+otherwise paste this in the Astra DB CQL Web Console:
 
 ```cql
 ### {"execute": false}

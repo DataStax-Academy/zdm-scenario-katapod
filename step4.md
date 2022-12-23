@@ -56,7 +56,7 @@ You may find it convenient to check the needed IP addresses with:
 . ./scenario_scripts/find_addresses.sh
 ```
 
-Moreover, if you went through the Astra CLI path, your database ID is simply given by
+Moreover, **if you went through the Astra CLI path**, your database ID is simply given by
 (check this [link](https://awesome-astra.github.io/docs/pages/astra/faq/#where-should-i-find-a-database-identifier) if you used the Astra UI instead):
 
 ```bash
@@ -85,7 +85,7 @@ ansible-playbook deploy_zdm_proxy.yml -i zdm_ansible_inventory
 
 This will provision, configure and start the ZDM proxy, one container per instance
 (in this exercise there'll be a single instance, `zdm-proxy-container`).
-Once this is done, you can check a new container is listed in the output of
+Once this is done, you can check the new container is listed in the output of
 
 ```bash
 ### host

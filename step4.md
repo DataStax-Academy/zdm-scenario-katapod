@@ -56,7 +56,15 @@ You may find it convenient to check the needed IP addresses with:
 . ./scenario_scripts/find_addresses.sh
 ```
 
-In the file, uncomment and edit the following entries:
+Moreover, if you went through the Astra CLI path, your database ID is simply given by
+(check this [link](https://awesome-astra.github.io/docs/pages/astra/faq/#where-should-i-find-a-database-identifier) if you used the Astra UI instead):
+
+```bash
+### host
+grep ASTRA_DB_ID .env
+```
+
+In file `zdm_proxy_core_config.yml`, uncomment and edit the following entries:
 
 - `origin_username` and `origin_password`: set both to "cassandra" (no quotes);
 - `origin_contact_points`: set it to the IP of the Cassandra seed node;

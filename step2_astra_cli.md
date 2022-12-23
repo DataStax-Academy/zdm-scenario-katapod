@@ -35,21 +35,51 @@ If you don't have an Astra account, [go create one](https://astra.datastax.com/)
 can cover much, much more I/O and storage than what's needed for
 this migration exercise._
 
+**Note**: you are going to make use of the `astra-cli` [utility](https://docs.datastax.com/en/astra-classic/docs/astra-cli/introduction.html)
+to perform most of the required steps from the console.
+
 - Create your [Astra account](https://astra.datastax.com/) if you haven't yet.
 - Create a database called `target_database` with a `my_application_ks` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
-- Get a "R/W User" database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise._
-- Locate and note down the "Database ID" for your Astra DB instance. This is seen on your Astra dashboard, next to your database name ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/faq/#where-should-i-find-a-database-identifier)).
-- Find the "download secure-connect-bundle" option in the Connect tab for your database (`Connect` ⇒ `Drivers` ⇒ `"Native"` ⇒ _any language_ ⇒ `"Download Bundle"` ⇒ _pick Region_ ⇒ `CURL`) and paste the resulting `curl` command in the "host-console" here ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/download-scb/#c-procedure)). _Take a note of the full path to the bundle zipfile, you'll need it for the example API_.
-- In the Web CQL Console on the Astra UI (it's a tab in your database dashboard), paste the following script to create a schema mirroring the one on Origin:
+- Get a "Database Administrator" database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise. For the migration process, a "R/W User" token would suffice, but a more powerful token is needed for the `astra-cli` automation._
 
-```cql
-### {"execute": false}
-CREATE TABLE IF NOT EXISTS my_application_ks.user_status (
-  user    TEXT,
-  when    TIMESTAMP,
-  status  TEXT,
-  PRIMARY KEY ((user), when)
-) WITH CLUSTERING ORDER BY (when DESC);
+The Astra CLI is preinstalled for you. Configure it with
+
+```
+### host
+astra setup
+```
+
+and provide the `AstraCS:...` part of the token when prompted.
+
+Have the CLI prepare a `.env` file, useful to later retrieve the database ID:
+
+```
+### host
+astra db create-dotenv target_database -k my_application_ks
+```
+
+Next, the CLI will download the "secure connect bundle" zipfile, for use by the sample application.
+_Take a note of the full path to the bundle zipfile, you'll need it for the example API_:
+
+```
+### host
+astra db download-scb target_database -f secure-connect-target_database.zip
+ls /workspace/zdm-scenario-katapod/*.zip -lh
+```
+
+Finally, your Target database needs a schema matching the one in Origin.
+Check the contents of the script file with
+
+```
+### host
+cat target_config/target_schema.cql
+```
+
+and then execute it on the newly-created Astra DB instance:
+
+```
+### host
+astra db cqlsh target_database -f target_config/target_schema.cql
 ```
 
 _🗒️ Your brand new database is created and has the right schema.

@@ -35,6 +35,8 @@ If you don't have an Astra account, [go create one](https://astra.datastax.com/)
 can cover much, much more I/O and storage than what's needed for
 this migration exercise._
 
+**Note**: you are going to execute the following steps within the Astra Web interface.
+
 - Create your [Astra account](https://astra.datastax.com/) if you haven't yet.
 - Create a database called `target_database` with a `my_application_ks` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
 - Get a "R/W User" database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise._

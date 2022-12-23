@@ -9,12 +9,17 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"intro"}]' 
-   class="btn btn-dark navigation-top-left">⬅️ Back
- </a>
-<span class="step-count">Step 1</span>
- <a href='command:katapod.loadPage?[{"step":"step2"}]' 
-    class="btn btn-dark navigation-top-right">Next ➡️
+  <a href='command:katapod.loadPage?[{"step":"intro"}]' 
+    class="btn btn-dark navigation-top-left">⬅️ Back
+  </a>
+  <span class="step-count">Step 1</span>
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
+    class="btn btn-dark navigation-top-right">Next (astra-cli) ➡️
+  </a>
+</div>
+<div id="navigation-top" class="navigation-top">
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+    class="btn btn-dark navigation-top-right">Next (Astra UI) ➡️
   </a>
 </div>
 
@@ -110,12 +115,19 @@ preparing for a migration!_
 
 ![Schema, phase 0](images/schema0_r.png)
 
+_🧭 ↔️ Please choose if you'd rather use a CLI or the Astra Web interface for the next step:_
+
 <!-- NAVIGATION -->
-<div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"intro"}]'
-   class="btn btn-dark navigation-bottom-left">⬅️ Back
- </a>
- <a href='command:katapod.loadPage?[{"step":"step2"}]'
-    class="btn btn-dark navigation-bottom-right">Next ➡️
+<div id="navigation-top" class="navigation-top">
+  <a href='command:katapod.loadPage?[{"step":"intro"}]' 
+    class="btn btn-dark navigation-top-left">⬅️ Back
+  </a>
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
+    class="btn btn-dark navigation-top-right">Next (astra-cli) ➡️
+  </a>
+</div>
+<div id="navigation-top" class="navigation-top">
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+    class="btn btn-dark navigation-top-right">Next (Astra UI) ➡️
   </a>
 </div>

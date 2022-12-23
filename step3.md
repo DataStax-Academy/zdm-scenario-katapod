@@ -9,12 +9,17 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step2"}]' 
-   class="btn btn-dark navigation-top-left">⬅️ Back
- </a>
-<span class="step-count">Step 3</span>
- <a href='command:katapod.loadPage?[{"step":"step4"}]' 
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
+    class="btn btn-dark navigation-top-left">⬅️ Back (astra-cli)
+  </a>
+  <span class="step-count">Step 3</span>
+  <a href='command:katapod.loadPage?[{"step":"step4"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
+  </a>
+</div>
+<div id="navigation-top" class="navigation-top">
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+    class="btn btn-dark navigation-top-left">⬅️ Back (Astra UI)
   </a>
 </div>
 
@@ -74,11 +79,16 @@ which will then be ready to accept the connections currently directed
 at Origin cluster. Ready to deploy the hosts?_
 
 <!-- NAVIGATION -->
-<div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step2"}]'
-   class="btn btn-dark navigation-bottom-left">⬅️ Back
- </a>
- <a href='command:katapod.loadPage?[{"step":"step4"}]'
-    class="btn btn-dark navigation-bottom-right">Next ➡️
+<div id="navigation-top" class="navigation-top">
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
+    class="btn btn-dark navigation-top-left">⬅️ Back (astra-cli)
+  </a>
+  <a href='command:katapod.loadPage?[{"step":"step4"}]' 
+    class="btn btn-dark navigation-top-right">Next ➡️
+  </a>
+</div>
+<div id="navigation-top" class="navigation-top">
+  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+    class="btn btn-dark navigation-top-left">⬅️ Back (Astra UI)
   </a>
 </div>

@@ -118,7 +118,7 @@ curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 
 During this phase, you can go to the Grafana dashboard and check
 the behaviour of Target: in particular, if you scroll down in the
-"ZDM Proxy Dashboard", you'll see there's a whole "Async Read Request Metrics" section
+"ZDM Proxy Dashboard", you'll see that a whole "Async Read Request Metrics" section
 is available: looking at it, any performance problem would be promptly
 spotted and diagnosed.
 

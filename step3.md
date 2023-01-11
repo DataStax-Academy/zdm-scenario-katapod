@@ -29,7 +29,7 @@
 
 ![Phase 1b](images/p1b.png)
 
-_🎯 Goal: having the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM proxy._
+### _🎯 Goal: having the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM proxy._
 
 Time to download and run `zdm-util`, which creates the Ansible container which will then deploy the ZDM proxies. Download and extract the utility:
 
@@ -49,16 +49,16 @@ Before going through the configuration utility, you may find it convenient to ch
 . /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 ```
 
-Next, start the utility. It will ask you a few questions:
+The configuration utility will ask you a few questions along the way.
 
 - the private key location: it is `../zdm_host_private_key/zdm_deploy_key`;
 - the network prefix for the ZDM host: if, for example, your ZDM host is `172.17.0.1`, you can provide `172.17.0.*` here;
 - no, you don't have an inventory file yet;
 - yes, this is for testing (so as to allow for a single ZDM host instead of the required three);
-- enter the IP for the ZDM host;
+- enter the IP for the ZDM host (there's just one and you have to _input a blank line afterwards to signal you're done_);
 - enter the same IP as above for the monitoring instance (in this setup, it will be the same machine).
 
-Then, start the utility with:
+Start the config utility with:
 
 ```bash
 ### host
@@ -74,9 +74,7 @@ cd ..
 docker ps
 ```
 
-_🗒️ The container is now all set to deploy the ZDM host(s) for you,
-which will then be ready to accept the connections currently directed
-at Origin cluster. Ready to deploy the hosts?_
+### _🗒️ The container is now all set to deploy the ZDM host(s) for you, which will then be ready to accept the connections currently directed at Origin cluster. Ready to deploy the hosts?_
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">

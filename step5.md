@@ -24,8 +24,7 @@
 
 ![Phase 1d](images/p1d.png)
 
-_🎯 Goal: having the Ansible automation provision and start the monitoring stack
-associated to the ZDM proxy._
+### _🎯 Goal: having the Ansible automation provision and start the monitoring stack associated to the ZDM proxy._
 
 The `zdm-ansible-container` also offers a playbook that installs and starts
 a full monitoring stack, which will make Grafana dashboards available for
@@ -62,9 +61,7 @@ then go to Dashboards/Manage and pick e.g.
 the "ZDM Proxy Dashboard v1" to confirm the datapoints for the plots
 are pouring in.
 
-_🗒️ You can now keep the functioning and performance of the proxy
-completely under control thanks to a set of Grafana dashboards.
-The time has come to make your client application talk to the proxy!_
+### _🗒️ You can now keep the functioning and performance of the proxy completely under control thanks to a set of Grafana dashboards. The time has come to make your client application talk to the proxy!_
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

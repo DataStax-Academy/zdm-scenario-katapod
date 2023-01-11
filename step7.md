@@ -24,13 +24,12 @@
 
 ![Phase 2](images/p2.png)
 
-_🎯 Goal: ensuring historical data, inserted before the introduction of the ZDM proxy,
-is present on the Target database._
+### _🎯 Goal: ensuring historical data, inserted before the introduction of the ZDM proxy, is present on the Target database._
 
 In order to completely migrate to Target, you must take care
 of the _whole_ contents of the database. To this end,
-you will now download, build and launch DSBulk Migrator (a tool which,
-in turn, leverages the capabilities of DSBulk).
+you will now download, build and launch [DSBulk Migrator](https://github.com/datastax/dsbulk-migrator#readme)
+(a tool which, in turn, leverages the capabilities of [DSBulk](https://github.com/datastax/dsbulk#readme)).
 
 _Note: since the data featured in this exercise is rather small, and the data
 migration itself is not the main topic of this exercise, we are not using "Cassandra Data Migrator" here. But if you need advanced data renconciliation features, or you
@@ -87,7 +86,7 @@ To verify this,
 
 ```bash
 ### host
-astra db cqlsh target_database \
+astra db cqlsh zdmtarget \
   -k my_application_ks \
   -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 30;"
 ```
@@ -102,10 +101,7 @@ SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 30;
 From this moment on, the data on Target will not diverge from Origin
 until the moment you decide to cut over and neglect Origin altogether.
 
-_🗒️ At this point, you might wonder whether Target is actually capable
-of sustaining the read workload your applications demand. Well, the perfect
-way to address this concern is to have the proxy perform "read mirroring".
-Read on to find out._
+### _🗒️ At this point, you might wonder whether Target is actually capable of sustaining the read workload your applications demand. Well, the perfect way to address this concern is to have the proxy perform "read mirroring". Read on to find out._
 
 ![Schema, phase 2](images/schema2_r.png)
 

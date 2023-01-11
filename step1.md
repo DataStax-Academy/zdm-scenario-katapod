@@ -29,8 +29,7 @@
 
 ![Phase 0](images/p0.png)
 
-_🎯 Goal: making sure that Origin is ready and that there is a sample client
-application reading and writing on it._
+### _🎯 Goal: making sure that Origin is ready and that there is a sample client application reading and writing on it._
 
 Wait for the message "Origin database provisioned" on the the first console ("host-console").
 
@@ -110,13 +109,13 @@ while true; do
 done
 ```
 
-_🗒️ You have a working application backed by a Cassandra cluster. Time to start
-preparing for a migration!_
+### _🗒️ You have a working application backed by a Cassandra cluster. Time to start preparing for a migration!_
 
 ![Schema, phase 0](images/schema0_r.png)
 
-_🧭 You can do the next step either on the Astra Web UI or (mostly) with a CLI
-in the console. The result will be the same (just keep in mind that for the
+_🧭 You can choose whether to proceed to next step either using the Astra
+Web UI or using a CLI in the console (_except for the DB creation part, which is on the Astra UI anyway_).
+The result will be the same (just keep in mind that for the
 CLI route you'll use an Astra database auth token with slightly higher
 permissions than strictly
 [needed for the migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/create-target.html#_create_an_astra_db_serverless_cluster)

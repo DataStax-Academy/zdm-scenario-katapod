@@ -24,8 +24,7 @@
 
 ![Phase 1a](images/p1a.png)
 
-_🎯 Goal: creating the Target database (Astra DB instance) and verifying
-it is ready for the migration._
+### _🎯 Goal: creating the Target database (Astra DB instance) and verifying it is ready for the migration._
 
 _The Target database you are going to create is an **Astra DB** instance.
 This managed solution, built on Apache Cassandra™, frees you from
@@ -37,12 +36,14 @@ this migration exercise._
 
 **Note**: you are going to make use of the `astra-cli` [utility](https://docs.datastax.com/en/astra-classic/docs/astra-cli/introduction.html)
 to perform most of the required steps from the console.
+However, database creation and generation of an associated token are still done on the Astra Web UI:
 
 - Create your [Astra account](https://astra.datastax.com/) if you haven't yet.
-- Create a database called `target_database` with a `my_application_ks` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
+- Create a database called `zdmtarget` with a `my_application_ks` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
 - Get a "Database Administrator" database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise. For the migration process, a "R/W User" token would suffice, but a more powerful token is needed for the `astra-cli` automation._
 
-The Astra CLI is preinstalled for you. Configure it with
+Once this part is done, you can proceed in the "host" console.
+The Astra CLI is preinstalled for you: configure it with
 
 ```bash
 ### host
@@ -55,7 +56,7 @@ Have the CLI prepare a `.env` file, useful to later retrieve the database ID:
 
 ```bash
 ### host
-astra db create-dotenv target_database -k my_application_ks
+astra db create-dotenv zdmtarget -k my_application_ks
 ```
 
 Next, the CLI will download the "secure connect bundle" zipfile, for use by the sample application.
@@ -63,7 +64,7 @@ _Take a note of the full path to the bundle zipfile, you'll need it for the exam
 
 ```bash
 ### host
-astra db download-scb target_database -f secure-connect-target_database.zip
+astra db download-scb zdmtarget -f secure-connect-zdmtarget.zip
 ls /workspace/zdm-scenario-katapod/*.zip -lh
 ```
 
@@ -79,11 +80,10 @@ and then execute it on the newly-created Astra DB instance:
 
 ```bash
 ### host
-astra db cqlsh target_database -f target_config/target_schema.cql
+astra db cqlsh zdmtarget -f target_config/target_schema.cql
 ```
 
-_🗒️ Your brand new database is created and has the right schema.
-Now you can start setting up the ZDM process, instructing it to use Astra DB as target._
+### _🗒️ Your brand new database is created and has the right schema. Now you can start setting up the ZDM process, instructing it to use Astra DB as target._
 
 ![Schema, phase 1a](images/schema1a_r.png)
 

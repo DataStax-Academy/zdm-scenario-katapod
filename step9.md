@@ -24,8 +24,7 @@
 
 ![Phase 4](images/p4.png)
 
-_🎯 Goal: setting Target as primary database, so that the ZDM proxy
-will serve the data read from it to connected clients._
+### _🎯 Goal: setting Target as primary database, so that the ZDM proxy will serve the data read from it to connected clients._
 
 This step is not dissimilar from the previous one: first
 edit the `zdm_proxy_core_config.yml` settings again,
@@ -82,7 +81,7 @@ For Target, **if you went through the Astra CLI path**, launch the following:
 
 ```bash
 ### host
-astra db cqlsh target_database \
+astra db cqlsh zdmtarget \
   -k my_application_ks \
   -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
 ```
@@ -94,9 +93,7 @@ astra db cqlsh target_database \
 SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;
 ```
 
-_🗒️ You are almost at the end of this migration journey. The only missing step
-is to ... abandon the proxy altogether, writing directly to Target.
-Keep reading to do just that._
+### _🗒️ You are almost at the end of this migration journey. The only missing step is to ... abandon the proxy altogether, writing directly to Target. Keep reading to do just that._
 
 ![Schema, phase 4](images/schema4_r.png)
 

@@ -19,7 +19,7 @@ CASSANDRA_PASSWORD = os.environ['CASSANDRA_PASSWORD']
 #
 KEYSPACE_NAME = os.environ['KEYSPACE_NAME']
 #
-ZDM_PROXY_SEED = os.environ['ZDM_PROXY_SEED']
+ZDM_HOST_IP = os.environ['ZDM_HOST_IP']
 
 
 # global cache variables to re-use a single Session (per mode)
@@ -59,7 +59,7 @@ def get_session(mode):
             session = cluster.connect(KEYSPACE_NAME)
         elif mode == 'ZDM_PROXY':
             cluster = Cluster(
-                [ZDM_PROXY_SEED],
+                [ZDM_HOST_IP],
                 auth_provider=PlainTextAuthProvider(
                     ASTRA_DB_CLIENT_ID,
                     ASTRA_DB_CLIENT_SECRET,

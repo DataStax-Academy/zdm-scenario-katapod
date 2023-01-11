@@ -24,7 +24,7 @@
 
 ![Phase 2](images/p2.png)
 
-### _🎯 Goal: ensuring historical data, inserted before the introduction of the ZDM proxy, is present on the Target database._
+#### _🎯 Goal: ensuring historical data, inserted before the introduction of the ZDM proxy, is present on the Target database._
 
 In order to completely migrate to Target, you must take care
 of the _whole_ contents of the database. To this end,
@@ -101,7 +101,7 @@ SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 30;
 From this moment on, the data on Target will not diverge from Origin
 until the moment you decide to cut over and neglect Origin altogether.
 
-### _🗒️ At this point, you might wonder whether Target is actually capable of sustaining the read workload your applications demand. Well, the perfect way to address this concern is to have the proxy perform "read mirroring". Read on to find out._
+#### _🗒️ At this point, you might wonder whether Target is actually capable of sustaining the read workload your applications demand. Well, the perfect way to address this concern is to have the proxy perform "read mirroring". Read on to find out._
 
 ![Schema, phase 2](images/schema2_r.png)
 

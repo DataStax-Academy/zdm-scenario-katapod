@@ -24,12 +24,19 @@
 
 ![Phase 4](images/p4.png)
 
-### _🎯 Goal: setting Target as primary database, so that the ZDM proxy will serve the data read from it to connected clients._
+#### _🎯 Goal: setting Target as primary database, so that the ZDM proxy will serve the data read from it to connected clients._
 
-This step is not dissimilar from the previous one: first
-edit the `zdm_proxy_core_config.yml` settings again,
-this time changing the value of `primary_cluster` from
-`ORIGIN` to `TARGET`:
+At this point, you have ensured that your Target database is able to handle
+the read load and you are happy with its tuning.
+It is now time to disable asynchronous read routing and
+switch all synchronous reads to Target.
+
+This step is very similar from the previous one: first
+edit the `zdm_proxy_core_config.yml` settings again:
+
+- change the value of `primary_cluster` from
+`ORIGIN` to `TARGET`;
+- revert `read_mode` back to `PRIMARY_ONLY` (which will now mean Target):
 
 ```bash
 ### container
@@ -93,7 +100,7 @@ astra db cqlsh zdmtarget \
 SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;
 ```
 
-### _🗒️ You are almost at the end of this migration journey. The only missing step is to ... abandon the proxy altogether, writing directly to Target. Keep reading to do just that._
+#### _🗒️ You are almost at the end of this migration journey. The only missing step is to ... abandon the proxy altogether, writing directly to Target. Keep reading to do just that._
 
 ![Schema, phase 4](images/schema4_r.png)
 

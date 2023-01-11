@@ -24,7 +24,7 @@
 
 ![Phase 1a](images/p1a.png)
 
-### _🎯 Goal: creating the Target database (Astra DB instance) and verifying it is ready for the migration._
+#### _🎯 Goal: creating the Target database (Astra DB instance) and verifying it is ready for the migration._
 
 _The Target database you are going to create is an **Astra DB** instance.
 This managed solution, built on Apache Cassandra™, frees you from
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS my_application_ks.user_status (
 ) WITH CLUSTERING ORDER BY (when DESC);
 ```
 
-### _🗒️ Your brand new database is created and has the right schema. Now you can start setting up the ZDM process, instructing it to use Astra DB as target._
+#### _🗒️ Your brand new database is created and has the right schema. Now you can start setting up the ZDM process, instructing it to use Astra DB as target._
 
 ![Schema, phase 1a](images/schema1a_r.png)
 

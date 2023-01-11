@@ -24,7 +24,7 @@
 
 ![Phase 1c](images/p1c.png)
 
-### _🎯 Goal: configuring and starting the Ansible playbook that automates the creation and deployment of the ZDM proxy on the target machine(s)._
+#### _🎯 Goal: configuring and starting the Ansible playbook that automates the creation and deployment of the ZDM proxy on the target machine(s)._
 
 First start a `bash` shell on the `zdm-ansible-container`: this
 will be needed a few times in the rest of this lab
@@ -91,7 +91,7 @@ Once this is done, you can check the new container is listed in the output of
 docker ps
 ```
 
-### _🗒️ The ZDM proxy is now up and running, ready to accept connections just as if it were a regular Cassandra cluster. But before re-routing the client application, let's think about observability!_
+#### _🗒️ The ZDM proxy is now up and running, ready to accept connections just as if it were a regular Cassandra cluster. But before re-routing the client application, let's think about observability!_
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

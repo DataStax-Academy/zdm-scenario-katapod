@@ -24,7 +24,7 @@
 
 ![Phase 1e](images/p1e.png)
 
-### _🎯 Goal: switching the client application from a direct connection to Origin to a connection through the proxy (while still keeping Origin as the primary DB)._
+#### _🎯 Goal: switching the client application from a direct connection to Origin to a connection through the proxy (while still keeping Origin as the primary DB)._
 
 The sample client application used in this exercise is a simple FastAPI process:
 we will have to stop it (killing the process running the API) and start it again
@@ -115,7 +115,7 @@ SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;
 Note that rows inserted before this switch are **not present** on Target.
 To remedy this shortcoming, you must do something more.
 
-### _🗒️ The proxy is doing its job: in order to guarantee that the two databases have the same content, including historical data, it's time to run a migration process._
+#### _🗒️ The proxy is doing its job: in order to guarantee that the two databases have the same content, including historical data, it's time to run a migration process._
 
 ![Schema, phase 1e](images/schema1e_r.png)
 

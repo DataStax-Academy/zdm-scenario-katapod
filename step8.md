@@ -24,7 +24,7 @@
 
 ![Phase 3](images/p3.png)
 
-### _🎯 Goal: putting Target to test by having the ZDM proxy forward all read requests to it as well._
+#### _🎯 Goal: putting Target to test by having the ZDM proxy forward all read requests to it as well._
 
 So far, the ZDM proxy has duplicated only the _write_ statements,
 so as to ensure continued equivalence between the contents of
@@ -121,7 +121,7 @@ the behaviour of Target: in particular, if you scroll down in the
 is available: looking at it, any performance problem would be promptly
 spotted and diagnosed.
 
-### _🗒️ The two databases are now guaranteed to be identical not only in their content, but also in the requests they get (including read requests). The next step is to elect Target to the role of primary database._
+#### _🗒️ The two databases are now guaranteed to be identical not only in their content, but also in the requests they get (including read requests). The next step is to elect Target to the role of primary database._
 
 ![Schema, phase 3](images/schema3_r.png)
 

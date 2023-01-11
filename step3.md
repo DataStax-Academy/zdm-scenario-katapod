@@ -29,9 +29,11 @@
 
 ![Phase 1b](images/p1b.png)
 
-### _🎯 Goal: having the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM proxy._
+#### _🎯 Goal: having the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM proxy._
 
-Time to download and run `zdm-util`, which creates the Ansible container which will then deploy the ZDM proxies. Download and extract the utility:
+It's time to download and run `zdm-util`, which creates
+the Ansible container that, in turn, will deploy the ZDM proxies.
+Download and extract the utility:
 
 ```bash
 ### host
@@ -48,6 +50,9 @@ Before going through the configuration utility, you may find it convenient to ch
 ### logs
 . /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 ```
+
+_Note: in this learning environment we are using a single host for all containers (including Origin!)._
+_In a production setup, you would most likely have the proxy containers run each on a separate host machine._
 
 The configuration utility will ask you a few questions along the way.
 
@@ -74,7 +79,7 @@ cd ..
 docker ps
 ```
 
-### _🗒️ The container is now all set to deploy the ZDM host(s) for you, which will then be ready to accept the connections currently directed at Origin cluster. Ready to deploy the hosts?_
+#### _🗒️ The container is now all set to deploy the ZDM host(s) for you, which will then be ready to accept the connections currently directed at Origin cluster. Ready to deploy the hosts?_
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">

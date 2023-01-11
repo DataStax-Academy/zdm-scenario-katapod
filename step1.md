@@ -29,7 +29,7 @@
 
 ![Phase 0](images/p0.png)
 
-### _🎯 Goal: making sure that Origin is ready and that there is a sample client application reading and writing on it._
+#### _🎯 Goal: making sure that Origin is ready and that there is a sample client application reading and writing on it._
 
 Wait for the message "Origin database provisioned" on the the first console ("host-console").
 
@@ -95,8 +95,8 @@ and refresh whenever you want to check: run the following command
 gp preview --external `gp url 8000`/status/eva
 ```
 
-Now start a loop that periodically inserts a new status (you'll keep it running
-througout the practice)
+Now start a loop that periodically inserts a new status. You'll keep it running
+througout the practice, to put the "zero-downtime" aspect to test:
 
 ```bash
 ### client
@@ -109,7 +109,7 @@ while true; do
 done
 ```
 
-### _🗒️ You have a working application backed by a Cassandra cluster. Time to start preparing for a migration!_
+#### _🗒️ You have a working application backed by a Cassandra cluster. Time to start preparing for a migration!_
 
 ![Schema, phase 0](images/schema0_r.png)
 

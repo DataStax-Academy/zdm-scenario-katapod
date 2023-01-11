@@ -24,7 +24,7 @@
 
 ![Phase 5](images/p5.png)
 
-### _🎯 Goal: instructing your client application to connect directly to Target, in order to later dispose of the whole ZDM infrastructure._
+#### _🎯 Goal: instructing your client application to connect directly to Target, in order to later dispose of the whole ZDM infrastructure._
 
 Until now we could bail out any time.
 After the following change **we are effectively committing to the migration**,
@@ -52,7 +52,7 @@ another read request:
 curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```
 
-### _🏆 Congratulations: the migration is complete._
+#### _🏆 Congratulations: the migration is complete._
 
 _You managed to perform_
 _a Zero Downtime Migration, making sure all data (past and present)_

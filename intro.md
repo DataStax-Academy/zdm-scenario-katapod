@@ -79,7 +79,7 @@
             <details><summary>Click to see how this learning environment differs from a real migration</summary>
               <p>
                 <i>
-                  This is an ephemeral setup, designed to be bootstrapped quickly and in such a way to be easily packaged into a single host machine. As a consequence, please mind that:
+                  This is an ephemeral setup, designed to be bootstrapped quickly and in such a way as to be easily packaged into a single host machine. As a consequence, please mind that:
                 </i>
                 <ul>
                   <li>

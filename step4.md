@@ -42,8 +42,8 @@ _This terminal will stay in the container until the end._
 It is time to configure the settings for the proxy that is
 about to be created. To do so, edit file `zdm_proxy_core_config.yml` _on the container_:
 
-> In the container, you have to edit files in the console. To save and quit
-> `nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`:
+_Within the container, all the file editing will have to be done in the console. To save and quit_
+_`nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`:_
 
 ```bash
 ### container
@@ -55,7 +55,7 @@ You may find it convenient to check the needed IP addresses with:
 
 ```bash
 ### host
-. ./scenario_scripts/find_addresses.sh
+. /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 ```
 
 Moreover, **if you went through the Astra CLI path**, your database ID is simply given by
@@ -63,7 +63,7 @@ Moreover, **if you went through the Astra CLI path**, your database ID is simply
 
 ```bash
 ### host
-grep ASTRA_DB_ID .env
+grep ASTRA_DB_ID /workspace/zdm-scenario-katapod/.env
 ```
 
 In file `zdm_proxy_core_config.yml`, uncomment and edit the following entries:

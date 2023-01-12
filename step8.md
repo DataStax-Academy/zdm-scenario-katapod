@@ -42,7 +42,7 @@ Even if, in this lab setup, the proxy container actually runs on the host machin
 
 ```bash
 ### logs
-. ./scenario_scripts/find_addresses.sh
+. /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 ssh \
   -i /workspace/zdm-scenario-katapod/zdm_host_private_key/zdm_deploy_key \
   gitpod@${ZDM_HOST_IP} -o StrictHostKeyChecking=no
@@ -76,13 +76,14 @@ Now perform a rolling update with:
 
 ```bash
 ### container
+cd /home/ubuntu/zdm-proxy-automation/ansible/
 ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 ```
 
 **Note**: you may see the API issue a (recoverable) error
 if it happens to receive a
 write request during the (minimal) time with unavailable proxy. Don't worry:
-in a real production setup you would have several proxies and the drivers
+in a real production setup **you would have several proxies** and the drivers
 powering your client application would not even flinch at them undergoing
 a rolling restart.
 

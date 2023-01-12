@@ -60,8 +60,8 @@ docker volume rm zdm-prometheus-metrics-volume
 
 Finally, **destroy Origin** (gulp!). In this case it is easy,
 it's just a single-node Cassandra cluster. _Note: in an
-actual production setup, do not take this step lightly
-(by the way, it's a bit more than one node)!_
+actual production setup, you probably do not want to take this step lightly
+(and presumably it would be a bit more than one node)!_
 
 ```bash
 ### host

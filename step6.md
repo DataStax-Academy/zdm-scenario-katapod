@@ -43,7 +43,7 @@ and the IP address of the proxy instance, e.g. with
 
 ```bash
 ### logs
-. ./scenario_scripts/find_addresses.sh
+. /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 ```
 
 _(this time, the two commands above will run on the still-unused

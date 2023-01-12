@@ -51,6 +51,7 @@ Build the project with (this may take 1-2 minutes):
 
 ```bash
 ### host
+cd /workspace/zdm-scenario-katapod/data_migrator/dsbulk-migrator/
 mvn clean package
 ```
 
@@ -62,8 +63,9 @@ file you already set up for the client application:
 
 ```bash
 ### host
-. ../../scenario_scripts/find_addresses.sh
-. ../../client_application/.env
+cd /workspace/zdm-scenario-katapod/data_migrator/dsbulk-migrator/
+. /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
+. /workspace/zdm-scenario-katapod/client_application/.env
 
 java -jar target/dsbulk-migrator-1.0.0-SNAPSHOT-embedded-dsbulk.jar \
   migrate-live \

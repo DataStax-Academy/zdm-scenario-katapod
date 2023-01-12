@@ -51,6 +51,7 @@ The following command instructs it to use Origin:
 
 ```bash
 ### api
+cd /workspace/zdm-scenario-katapod/client_application/
 CLIENT_CONNECTION_MODE=CASSANDRA uvicorn api:app
 ```
 
@@ -105,11 +106,11 @@ done
 
 _🧭 You can choose whether to proceed to next step either using the Astra
 Web UI or using a CLI in the console (_except for the DB creation part, which is on the Astra UI anyway_).
-The result will be the same (just keep in mind that for the
+The result will be the same -- just keep in mind that for the
 CLI route you'll use an Astra database auth token with slightly higher
 permissions than strictly
 [needed for the migration](https://docs.datastax.com/en/astra-serverless/docs/migrate/create-target.html#_create_an_astra_db_serverless_cluster)
-itself)._
+itself._
 
 _↔️ Please choose how you would like to perform the next step (setting up Target):_
 

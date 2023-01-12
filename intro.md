@@ -35,7 +35,7 @@
               This is a guided end-to-end Zero-Downtime-Migration hands-on experience
               designed to run entirely in your browser. You will start with a running client application
               backed by a Cassandra installation, and will go through all steps required
-              to migrate it to an Astra DB instance/
+              to migrate it to an Astra DB instance
             </p>
             <p>
               This interactive lab is designed after the phases described in detail in the ZDM Documentation pages,
@@ -70,10 +70,10 @@
               provisioned while you are reading this.
               The lab provides a simple client application, a HTTP REST API used to read and write
               the "status" of "users" (e.g. <i>Away, Busy, Online</i>).
-              Even though during the lab you will query the API just to get the latest values,
-              reading straight from the DB you will be able to see the whole history of user status changes.
+              Even though during the lab you will mostly query the API, getting just the latest values,
+              by reading straight from DB you will be able to see the whole history of user status changes.
               The application will initially connect to Origin, but is ready to adapt to the migration phases
-              with a simple restart, provided you will have inserted the required connection parameters in a
+              with a simple restart as you progress, provided you will have inserted the required connection parameters in a
               configuration file.
             </p>
             <details><summary>Click to see how this learning environment differs from a real migration</summary>

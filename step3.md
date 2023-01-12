@@ -67,15 +67,16 @@ Start the config utility with:
 
 ```bash
 ### host
+cd /workspace/zdm-scenario-katapod/running_zdm_util
 ./zdm-util-v2.0.3
 ```
 
 Once you are done, answer "Yes" when asked "Do you wish to proceed?": a `zdm-ansible-container` is created and started
-on the host machine's Docker. Check with
+on the host machine's Docker (this will take ten seconds or so).
+Once you get the prompt back, check with
 
 ```bash
 ### host
-cd ..
 docker ps
 ```
 

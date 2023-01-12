@@ -40,7 +40,7 @@ However, database creation and generation of an associated token are still done 
 
 - Create your [Astra account](https://astra.datastax.com/) if you haven't yet.
 - Create a database called `zdmtarget` with a `zdmapp` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
-- Get a "Database Administrator" database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise. For the migration process, a "R/W User" token would suffice, but a more powerful token is needed for the `astra-cli` automation._
+- Get a **"Database Administrator"** database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise. For the migration process, a "R/W User" token would suffice, but a more powerful token is needed for the `astra-cli` automation._
 
 Once this part is done, you can proceed in the "host" console.
 The Astra CLI is preinstalled for you: configure it with
@@ -56,7 +56,7 @@ Have the CLI prepare a `.env` file, useful to later retrieve the database ID:
 
 ```bash
 ### host
-astra db create-dotenv zdmtarget -k zdmapp
+astra db create-dotenv zdmtarget -k zdmapp -d /workspace/zdm-scenario-katapod
 ```
 
 Next, the CLI will download the "secure connect bundle" zipfile, for use by the sample application.
@@ -64,6 +64,7 @@ _Take a note of the full path to the bundle zipfile, you'll need it for the exam
 
 ```bash
 ### host
+cd /workspace/zdm-scenario-katapod/
 astra db download-scb zdmtarget -f secure-connect-zdmtarget.zip
 ls /workspace/zdm-scenario-katapod/*.zip -lh
 ```
@@ -73,13 +74,14 @@ Check the contents of the script file with
 
 ```bash
 ### host
-cat target_config/target_schema.cql
+cat /workspace/zdm-scenario-katapod/target_config/target_schema.cql
 ```
 
 and then execute it on the newly-created Astra DB instance:
 
 ```bash
 ### host
+cd /workspace/zdm-scenario-katapod/
 astra db cqlsh zdmtarget -f target_config/target_schema.cql
 ```
 

@@ -50,6 +50,7 @@ to the proxy(/proxies):
 
 ```bash
 ### container
+cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 ```
 

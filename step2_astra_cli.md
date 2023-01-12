@@ -59,15 +59,15 @@ Have the CLI prepare a `.env` file, useful to later retrieve the database ID:
 astra db create-dotenv zdmtarget -k zdmapp -d /workspace/zdm-scenario-katapod
 ```
 
-Next, the CLI will download the "secure connect bundle" zipfile, for use by the sample application.
-_Take a note of the full path to the bundle zipfile, you'll need it for the example API_:
+During creation of this file, the "secure connect bundle" zipfile, needed by
+the sample application, has been downloaded as well at this path:
 
 ```bash
 ### host
-cd /workspace/zdm-scenario-katapod/
-astra db download-scb zdmtarget -f secure-connect-zdmtarget.zip
-ls /workspace/zdm-scenario-katapod/*.zip -lh
+grep ASTRA_DB_SECURE_BUNDLE_PATH /workspace/zdm-scenario-katapod/.env
 ```
+
+_Take a note of the zipfile full path, you'll need it later for the example API._
 
 Finally, your Target database needs a schema matching the one in Origin.
 Check the contents of the script file with

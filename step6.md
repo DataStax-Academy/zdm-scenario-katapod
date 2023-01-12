@@ -32,11 +32,14 @@ specifying a different connection mode.
 
 Before doing that, however, let's finish writing the required settings in
 the `.env` file. Check the full path of the secure-connect-bundle zipfile
-you downloaded with
+you downloaded:
 
 ```bash
 ### logs
-ls /workspace/zdm-scenario-katapod/*zip
+# This will succeed if you went through the Astra CLI path:
+grep ASTRA_DB_SECURE_BUNDLE_PATH /workspace/zdm-scenario-katapod/.env
+# This will succeed if you used the Astra UI:
+ls /workspace/zdm-scenario-katapod/secure*zip
 ```
 
 and the IP address of the proxy instance, e.g. with

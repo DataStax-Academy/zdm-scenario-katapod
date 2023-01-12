@@ -1,8 +1,8 @@
 -- Prepare origin schema
 
-CREATE KEYSPACE IF NOT EXISTS my_application_ks WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1};
+CREATE KEYSPACE IF NOT EXISTS zdmapp WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1};
 
-USE my_application_ks;
+USE zdmapp;
 
 CREATE TABLE IF NOT EXISTS user_status (
   user    TEXT,

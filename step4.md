@@ -42,6 +42,9 @@ _This terminal will stay in the container until the end._
 It is time to configure the settings for the proxy that is
 about to be created. To do so, edit file `zdm_proxy_core_config.yml` _on the container_:
 
+> In the container, you have to edit files in the console. To save and quit
+> `nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`:
+
 ```bash
 ### container
 cd /home/ubuntu/zdm-proxy-automation/

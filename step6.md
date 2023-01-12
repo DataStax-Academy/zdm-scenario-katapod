@@ -92,7 +92,7 @@ check that you can read the last-inserted status rows from Origin:
 docker exec \
   -it cassandra-origin-1 \
   cqlsh -u cassandra -p cassandra \
-  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
+  -e "SELECT * FROM zdmapp.user_status WHERE user='eva' limit 3;"
 ```
 
 Likewise, you can do the same check on Target, i.e. Astra DB:
@@ -101,15 +101,15 @@ Likewise, you can do the same check on Target, i.e. Astra DB:
 ```bash
 ### host
 astra db cqlsh zdmtarget \
-  -k my_application_ks \
-  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
+  -k zdmapp \
+  -e "SELECT * FROM zdmapp.user_status WHERE user='eva' limit 3;"
 ```
 
 **otherwise**, paste this `SELECT` statement directly in the Astra DB Web CQL Console:
 
 ```cql
 ### {"execute": false}
-SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;
+SELECT * FROM zdmapp.user_status WHERE user='eva' limit 3;
 ```
 
 Note that rows inserted before this switch are **not present** on Target.

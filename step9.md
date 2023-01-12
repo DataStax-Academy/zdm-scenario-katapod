@@ -81,7 +81,7 @@ and then try reading the recent rows from both databases. For Origin:
 docker exec \
   -it cassandra-origin-1 \
   cqlsh -u cassandra -p cassandra \
-  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
+  -e "SELECT * FROM zdmapp.user_status WHERE user='eva' limit 3;"
 ```
 
 For Target, **if you went through the Astra CLI path**, launch the following:
@@ -89,15 +89,15 @@ For Target, **if you went through the Astra CLI path**, launch the following:
 ```bash
 ### host
 astra db cqlsh zdmtarget \
-  -k my_application_ks \
-  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;"
+  -k zdmapp \
+  -e "SELECT * FROM zdmapp.user_status WHERE user='eva' limit 3;"
 ```
 
 **otherwise**, paste this in the Astra DB CQL Web Console:
 
 ```cql
 ### {"execute": false}
-SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 3;
+SELECT * FROM zdmapp.user_status WHERE user='eva' limit 3;
 ```
 
 #### _🗒️ You are almost at the end of this migration journey. The only missing step is to ... abandon the proxy altogether, writing directly to Target. Keep reading to do just that._

@@ -39,7 +39,7 @@ to perform most of the required steps from the console.
 However, database creation and generation of an associated token are still done on the Astra Web UI:
 
 - Create your [Astra account](https://astra.datastax.com/) if you haven't yet.
-- Create a database called `zdmtarget` with a `my_application_ks` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
+- Create a database called `zdmtarget` with a `zdmapp` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
 - Get a "Database Administrator" database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise. For the migration process, a "R/W User" token would suffice, but a more powerful token is needed for the `astra-cli` automation._
 
 Once this part is done, you can proceed in the "host" console.
@@ -56,7 +56,7 @@ Have the CLI prepare a `.env` file, useful to later retrieve the database ID:
 
 ```bash
 ### host
-astra db create-dotenv zdmtarget -k my_application_ks
+astra db create-dotenv zdmtarget -k zdmapp
 ```
 
 Next, the CLI will download the "secure connect bundle" zipfile, for use by the sample application.

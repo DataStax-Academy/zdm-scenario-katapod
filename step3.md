@@ -44,7 +44,7 @@ rm zdm-util-linux-amd64-v2.0.3.tgz
 ```
 
 Before going through the configuration utility, you may find it convenient to check the IP addresses
-(on the still-unused "zdm-proxy-logs" console, for your convenience) with:
+(on the still-unused "zdm-proxy-logs" console, for your convenience):
 
 ```bash
 ### logs

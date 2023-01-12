@@ -31,7 +31,8 @@
 
 #### _🎯 Goal: making sure that Origin is ready and that there is a sample client application reading and writing on it._
 
-Wait for the message "Origin database provisioned" on the the first console ("host-console").
+**Note**: please wait for message _"Ready for Step 1"_ on the
+the first console ("host-console") before proceeding.
 
 Now check Origin:
 
@@ -40,31 +41,13 @@ Now check Origin:
 docker exec \
   -it cassandra-origin-1 \
   cqlsh -u cassandra -p cassandra \
-  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva';"
+  -e "SELECT * FROM zdmapp.user_status WHERE user='eva';"
 ```
 
-It is now time to prepare the dotenv file so that the connection
-parameters for Origin are known to the sample application (a simple REST API in our case).
-
-To do so, first check the addresses you need by running:
-
-```bash
-### host
-. ./scenario_scripts/find_addresses.sh
-```
-
-Now, in the "api-console" terminal, copy the provided template and edit it, inserting, for the time being,
-just the IP address of the Origin seed, `CASSANDRA_SEED_IP`
-_(Note: to save the file and quit `nano` once modified: Ctrl-X, then Y, then Enter)_:
-
-```bash
-### api
-cd client_application
-cp .env.sample .env
-nano +3,17 .env
-```
-
-Start the API in such a way that it reads from Origin:
+The parameters to connect to Origin are pre-filled in file `client_application/.env`,
+so that you can immediately launch the client application
+(an API to handle "status updates" by various "users").
+The following command instructs it to use Origin:
 
 ```bash
 ### api
@@ -85,9 +68,16 @@ Then write a new status:
 curl -XPOST localhost:8000/status/eva/New | jq
 ```
 
-Try the read again. Even better, you can keep a separate browser tab open
-and refresh whenever you want to check: run the following command
-(_specific to this learning environment_)
+Try the read again and check the output:
+
+```bash
+### client
+curl -XGET localhost:8000/status/eva | jq
+```
+
+Even better, you can open a separate browser tab
+and refresh it whenever you want to check.
+The following command (_specific to this learning environment_) opens it:
 
 ```bash
 ### host

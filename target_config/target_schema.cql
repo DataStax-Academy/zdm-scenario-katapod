@@ -1,4 +1,4 @@
-USE my_application_ks;
+USE zdmapp;
 
 CREATE TABLE IF NOT EXISTS user_status (
   user    TEXT,

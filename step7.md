@@ -68,7 +68,7 @@ file you already set up for the client application:
 java -jar target/dsbulk-migrator-1.0.0-SNAPSHOT-embedded-dsbulk.jar \
   migrate-live \
   -e \
-  --keyspaces=my_application_ks \
+  --keyspaces=zdmapp \
   --export-host=${CASSANDRA_SEED_IP} \
   --export-username=cassandra \
   --export-password=cassandra \
@@ -87,15 +87,15 @@ To verify this,
 ```bash
 ### host
 astra db cqlsh zdmtarget \
-  -k my_application_ks \
-  -e "SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 30;"
+  -k zdmapp \
+  -e "SELECT * FROM zdmapp.user_status WHERE user='eva' limit 30;"
 ```
 
 or, **if you used the Astra UI**, go to the Web CQL Console and run the statement:
 
 ```cql
 ### {"execute": false}
-SELECT * FROM my_application_ks.user_status WHERE user='eva' limit 30;
+SELECT * FROM zdmapp.user_status WHERE user='eva' limit 30;
 ```
 
 From this moment on, the data on Target will not diverge from Origin

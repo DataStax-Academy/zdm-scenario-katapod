@@ -28,15 +28,7 @@
       "intro": {
         "host": [
           {
-            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/welcome.sh"
-          }
-        ]
-      },
-      "step1": {
-        "host": [
-          {
-            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/finalize_cassandra.sh",
-            "maxInvocations": "unlimited"
+            "command": "/workspace/zdm-scenario-katapod/scenario_scripts/finalize_origin.sh"
           }
         ]
       },

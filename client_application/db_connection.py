@@ -13,7 +13,7 @@ ASTRA_DB_SECURE_BUNDLE_PATH = os.environ['ASTRA_DB_SECURE_BUNDLE_PATH']
 ASTRA_DB_CLIENT_ID = os.environ['ASTRA_DB_CLIENT_ID']
 ASTRA_DB_CLIENT_SECRET = os.environ['ASTRA_DB_CLIENT_SECRET']
 #
-CASSANDRA_SEED = os.environ['CASSANDRA_SEED']
+CASSANDRA_SEED_IP = os.environ['CASSANDRA_SEED_IP']
 CASSANDRA_USERNAME = os.environ['CASSANDRA_USERNAME']
 CASSANDRA_PASSWORD = os.environ['CASSANDRA_PASSWORD']
 #
@@ -39,7 +39,7 @@ def get_session(mode):
         print(f'[get_session] Creating session (mode={mode})')
         if mode == 'CASSANDRA':
             cluster = Cluster(
-                [CASSANDRA_SEED],
+                [CASSANDRA_SEED_IP],
                 auth_provider=PlainTextAuthProvider(
                     CASSANDRA_USERNAME,
                     CASSANDRA_PASSWORD,

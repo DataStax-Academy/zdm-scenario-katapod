@@ -29,15 +29,14 @@
 First start a `bash` shell on the `zdm-ansible-container`: this
 will be needed a few times in the rest of this lab
 (and will be in the "zdm-ansible-console" terminal).
+_The next command will result in the prompt changing to_
+_something like `ubuntu@4fb20a9b:~$`:_
+_this terminal will stay in the container until the end._
 
 ```bash
 ### container
 docker exec -it zdm-ansible-container bash
 ```
-
-The prompt on the "zdm-ansible-console" terminal should now
-change to something like `ubuntu@4fb20a9b:~$`.
-_This terminal will stay in the container until the end._
 
 It is time to configure the settings for the proxy that is
 about to be created. To do so, edit file `zdm_proxy_core_config.yml` _on the container_:

@@ -39,33 +39,27 @@ docker exec -it zdm-ansible-container bash
 ```
 
 It is time to configure the settings for the proxy that is
-about to be created. To do so, edit file `zdm_proxy_core_config.yml` _on the container_:
+about to be created. To do so, you are going to edit
+the file `zdm_proxy_core_config.yml` _on the container_,
+adding connection parameters for both Origin and Target.
 
-_Within the container, all the file editing will have to be done in the console. To save and quit_
-_`nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`:_
-
-```bash
-### container
-cd /home/ubuntu/zdm-proxy-automation/
-nano ansible/vars/zdm_proxy_core_config.yml
-```
-
-You may find it convenient to check the needed IP addresses with:
+First check the IP address of the Cassandra node, with:
 
 ```bash
 ### host
 . /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 ```
 
-Moreover, **if you went through the Astra CLI path**, your database ID is simply given by
-(check this [link](https://awesome-astra.github.io/docs/pages/astra/faq/#where-should-i-find-a-database-identifier) if you used the Astra UI instead):
+Moreover you'll need the Target database ID:
+**if you went through the Astra CLI path**, your database ID is simply given by this command
+(check this [link](https://awesome-astra.github.io/docs/pages/astra/faq/#where-should-i-find-a-database-identifier) if you used the **Astra UI** instead):
 
 ```bash
 ### host
 grep ASTRA_DB_ID /workspace/zdm-scenario-katapod/.env
 ```
 
-In file `zdm_proxy_core_config.yml`, uncomment and edit the following entries:
+In file `zdm_proxy_core_config.yml`, you'll have to uncomment and edit the following entries:
 
 - `origin_username` and `origin_password`: set both to "cassandra" (no quotes);
 - `origin_contact_points`: set it to the IP of the Cassandra seed node;
@@ -74,9 +68,17 @@ In file `zdm_proxy_core_config.yml`, uncomment and edit the following entries:
 - `target_astra_db_id` is your Database ID from the Astra DB dashboard;
 - `target_astra_token` is the "token" string in your Astra DB Token" (the one starting with `AstraCS:...`).
 
-_(remember to save and exit `nano` with Ctrl-X, Y, Enter)_
+_Within the container, all the file editing will have to be done in the console. To save and quit_
+_`nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`._
 
-You can now run the Ansible playbook that will provision and start the proxy containers in the proxy host: still in the Ansible container, launch the command:
+```bash
+### container
+cd /home/ubuntu/zdm-proxy-automation/
+nano ansible/vars/zdm_proxy_core_config.yml
+```
+
+Once the changes are saved,
+you can run the Ansible playbook that will provision and start the proxy containers in the proxy host: still in the Ansible container, launch the command:
 
 ```bash
 ### container

@@ -27,7 +27,7 @@
           </div>
           <div class="scenario-description">
             <p>
-              <img src="https://raw.githubusercontent.com/hemidactylus/zdm-scenario-katapod/main/images/pz_annotated.png" />
+              <img src="https://raw.githubusercontent.com/DataStax-Academy/zdm-scenario-katapod/main/images/pz_annotated.png" />
             </p>
           </div>
           <div class="scenario-description-attribute">

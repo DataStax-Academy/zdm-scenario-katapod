@@ -24,7 +24,7 @@
 
 ![Phase 4](images/p4.png)
 
-#### _🎯 Goal: setting Target as primary database, so that the ZDM proxy will serve the data read from it to connected clients._
+#### _🎯 Goal: setting Target as primary database, so that the ZDM Proxy will serve the data read from it to connected clients._
 
 At this point, you have ensured that your Target database is able to handle
 the read load and you are happy with its tuning.
@@ -104,6 +104,22 @@ SELECT * FROM zdmapp.user_status WHERE user='eva' limit 3;
 #### _🗒️ You are almost at the end of this migration journey. The only missing step is to ... abandon the proxy altogether, writing directly to Target. Keep reading to do just that._
 
 ![Schema, phase 4](images/schema4_r.png)
+
+#### 🔎 Monitoring suggestion
+
+The proxy is reading from just Target at this point: correspondingly,
+check that the graphs about asynchronous dual reads have quieted down accordingly.
+
+You can also try issuing several reads through the API with (click repeatedly
+to execute many times):
+
+```bash
+### host
+curl -XGET localhost:8000/status/eva | jq -r '.[].status'
+```
+
+This corresponds now to reads being sent to Target: you can verify it on
+the "reads_target" curve in the "Read throughput by instance" plot.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

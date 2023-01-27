@@ -24,7 +24,7 @@
 
 ![Phase 1d](images/p1d.png)
 
-#### _🎯 Goal: having the Ansible automation provision and start the monitoring stack associated to the ZDM proxy._
+#### _🎯 Goal: having the Ansible automation provision and start the monitoring stack associated to the ZDM Proxy._
 
 The `zdm-ansible-container` also offers a playbook that installs and starts
 a full monitoring stack, which will make Grafana dashboards available for
@@ -54,16 +54,33 @@ by running the command:
 
 ```bash
 ### host
-# PLEASE CHECK YOUR POPUP BLOCKER ONCE YOU RUN THIS!
-gp preview --external `gp url 3000`
+MONITORING_URL=`gp url 3000`
+echo "Opening ${MONITORING_URL} ..."
+gp preview --external ${MONITORING_URL}
 ```
+
+_(Depending on your browser and popup-blocker settings, chances are no tab will open at this point. In that case, simply grab the URL output on your console and manually point a new tab to that address.)_
 
 Log in with user `admin` and the password you chose,
 then go to Dashboards/Manage and pick e.g.
 the "ZDM Proxy Dashboard v1" to confirm the datapoints for the plots
 are pouring in.
 
-#### _🗒️ You can now keep the functioning and performance of the proxy completely under control thanks to a set of Grafana dashboards. The time has come to make your client application talk to the proxy!_
+<details style="margin-bottom: 12px;"><summary>Click for instructions</summary>
+
+![Grafana dashboards](images/grafana_dashboards.png)
+
+</details>
+
+#### _🗒️ You have just set up a tool to keep the functioning and performance of the proxy completely under control. The time has come to make your client application talk to the proxy!_
+
+#### 🔎 Monitoring suggestion
+
+**Please keep the dashboard open throughout the rest of this lab.**
+
+For now, just scroll through the graphs in the dashboard
+to familiarize yourself with it. You will inspect it more in detail
+in the next steps.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

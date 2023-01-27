@@ -29,7 +29,7 @@
 
 ![Phase 1b](images/p1b.png)
 
-#### _🎯 Goal: having the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM proxy._
+#### _🎯 Goal: having the automation create and start the `zdm-ansible-container`, in which you will then launch the Ansible playbook that provisions and starts the ZDM Proxy._
 
 It's time to download and run `zdm-util`, which creates
 the Ansible container that, in turn, will deploy the ZDM proxies.
@@ -60,7 +60,7 @@ The configuration utility will ask you a few questions along the way.
 - the network prefix for the ZDM host: if, for example, your ZDM host is `172.17.0.1`, you can provide `172.17.0.*` here;
 - no, you don't have an inventory file yet;
 - yes, this is for testing (so as to allow for a single ZDM host instead of the required three);
-- enter the IP for the ZDM host (there's just one and you have to _input a blank line afterwards to signal you're done_);
+- enter the IP for the ZDM host, that is, `ZDM_HOST_IP` in the output above (there's just one and you have to _input a blank line afterwards to signal you're done_);
 - enter the same IP as above for the monitoring instance (in this setup, it will be the same machine).
 
 Start the config utility with:

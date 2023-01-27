@@ -82,9 +82,12 @@ The following command (_specific to this learning environment_) opens it:
 
 ```bash
 ### host
-# PLEASE CHECK YOUR POPUP BLOCKER ONCE YOU RUN THIS!
-gp preview --external `gp url 8000`/status/eva
+API_URL=`gp url 8000`/status/eva
+echo "Opening ${API_URL} ..."
+gp preview --external ${API_URL}
 ```
+
+_(Depending on your browser and popup-blocker settings, chances are no tab will open at this point. In that case, simply grab the URL output on your console and manually point a new tab to that address.)_
 
 Now start a loop that periodically inserts a new status. You'll keep it running
 througout the practice, to put the "zero-downtime" aspect to test:

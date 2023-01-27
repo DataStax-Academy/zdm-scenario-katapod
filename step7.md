@@ -24,7 +24,7 @@
 
 ![Phase 2](images/p2.png)
 
-#### _🎯 Goal: ensuring historical data, inserted before the introduction of the ZDM proxy, is present on the Target database._
+#### _🎯 Goal: ensuring historical data, inserted before the introduction of the ZDM Proxy, is present on the Target database._
 
 In order to completely migrate to Target, you must take care
 of the _whole_ contents of the database. To this end,
@@ -81,7 +81,7 @@ java -jar target/dsbulk-migrator-1.0.0-SNAPSHOT-embedded-dsbulk.jar \
 
 Once this command has completed, you will see that now _all_ rows are
 on Target as well, including those written prior to setting up
-the ZDM proxy.
+the ZDM Proxy.
 
 To verify this,
 **if you went through the Astra CLI path**, launch this command:
@@ -103,9 +103,18 @@ SELECT * FROM zdmapp.user_status WHERE user='eva' limit 30;
 From this moment on, the data on Target will not diverge from Origin
 until the moment you decide to cut over and neglect Origin altogether.
 
-#### _🗒️ At this point, you might wonder whether Target is actually capable of sustaining the read workload your applications demand. Well, the perfect way to address this concern is to have the proxy perform "read mirroring". Read on to find out._
+#### _🗒️ At this point, you might wonder whether Target is actually capable of sustaining the read workload your applications demand. Well, the perfect way to address this concern is to have the proxy perform asynchronous dual reads on it. Read on to find out._
 
 ![Schema, phase 2](images/schema2_r.png)
+
+#### 🔎 Monitoring suggestion
+
+Since the data migrator connects **directly to Origin and Target, oblivious to
+the ZDM Proxy**, the migration workload will not be reflected in the monitoring.
+You can confirm this by looking at the proxy instance graphs, which will show
+no read activity and the usual background write activity.
+In other words, the data migration occurs outside of the proxy's scope,
+hence will not be part of the metrics collected in the Grafana dashboard.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

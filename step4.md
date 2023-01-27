@@ -24,7 +24,7 @@
 
 ![Phase 1c](images/p1c.png)
 
-#### _🎯 Goal: configuring and starting the Ansible playbook that automates the creation and deployment of the ZDM proxy on the target machine(s)._
+#### _🎯 Goal: configuring and starting the Ansible playbook that automates the creation and deployment of the ZDM Proxy on the target machine(s)._
 
 First start a `bash` shell on the `zdm-ansible-container`: this
 will be needed a few times in the rest of this lab
@@ -62,7 +62,7 @@ grep ASTRA_DB_ID /workspace/zdm-scenario-katapod/.env
 In file `zdm_proxy_core_config.yml`, you'll have to uncomment and edit the following entries:
 
 - `origin_username` and `origin_password`: set both to "cassandra" (no quotes);
-- `origin_contact_points`: set it to the IP of the Cassandra seed node;
+- `origin_contact_points`: set it to the IP of the Cassandra seed node (**Note: this is the value of `CASSANDRA_SEED_IP`, and _not_ the ZDM host address**);
 - `origin_port`: set to 9042;
 - `target_username` and `target_password`: set to Client ID and Client Secret found in your Astra DB Token;
 - `target_astra_db_id` is your Database ID from the Astra DB dashboard;
@@ -86,7 +86,7 @@ cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook deploy_zdm_proxy.yml -i zdm_ansible_inventory
 ```
 
-This will provision, configure and start the ZDM proxy, one container per instance
+This will provision, configure and start the ZDM Proxy, one container per instance
 (in this exercise there'll be a single instance, `zdm-proxy-container`).
 Once this is done, you can check the new container is listed in the output of
 
@@ -95,7 +95,23 @@ Once this is done, you can check the new container is listed in the output of
 docker ps
 ```
 
-#### _🗒️ The ZDM proxy is now up and running, ready to accept connections just as if it were a regular Cassandra cluster. But before re-routing the client application, let's think about observability!_
+By inspecting the logs of the containerized proxy instance, you can verify that it has indeed
+succeeded in connecting to the clusters:
+
+```bash
+### host
+docker logs zdm-proxy-container 2>&1 | grep "Proxy connected"
+```
+
+Alternatively, the ZDM Proxy exposes a health-status HTTP endpoint:
+you can query it with
+
+```bash
+. /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
+curl http://${ZDM_HOST_IP}:14001/health/readiness | jq
+```
+
+#### _🗒️ The ZDM Proxy is now up and running, ready to accept connections just as if it were a regular Cassandra cluster. But before re-routing the client application, let's think about observability!_
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

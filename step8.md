@@ -24,17 +24,17 @@
 
 ![Phase 3](images/p3.png)
 
-#### _🎯 Goal: putting Target to test by having the ZDM proxy forward all read requests to it as well._
+#### _🎯 Goal: putting Target to test by having the ZDM Proxy forward all read requests to it as well._
 
-So far, the ZDM proxy has duplicated only the _write_ statements,
+So far, the ZDM Proxy has duplicated only the _write_ statements,
 so as to ensure continued equivalence between the contents of
 the two databases.
 
-Enabling asynchronous dual reads (or "read mirroring"), you can subject
+By enabling asynchronous dual reads, you can subject
 Target to the same read workload as Origin, thereby verifying its performance
 in a realistic production setting. These reads, however,
 are issued asynchronously by the proxy, so as not to affect the actual
-performance your customers will experience.
+performance your users will experience.
 
 It is desirable to keep an eye on the proxy logs during
 configuration updates and restarts.
@@ -48,7 +48,7 @@ ssh \
   gitpod@${ZDM_HOST_IP} -o StrictHostKeyChecking=no
 ```
 
-You are now logged on to the ZDM proxy host. Have Docker print
+You are now logged on to the ZDM Proxy host. Have Docker print
 the logs from the proxy container (in a non-stop fashion):
 
 ```bash
@@ -116,15 +116,18 @@ rows being inserted in the output of:
 curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```
 
-During this phase, you can go to the Grafana dashboard and check
-the behaviour of Target: in particular, if you scroll down in the
-"ZDM Proxy Dashboard", you'll see that a whole "Async Read Request Metrics" section
-is available: looking at it, any performance problem would be promptly
-spotted and diagnosed.
-
 #### _🗒️ The two databases are now guaranteed to be identical not only in their content, but also in the requests they get (including read requests). The next step is to elect Target to the role of primary database._
 
 ![Schema, phase 3](images/schema3_r.png)
+
+#### 🔎 Monitoring suggestion
+
+With asynchronous dual reads turned on,
+you can go to the Grafana dashboard and check
+the behaviour of Target: in particular, if you scroll down in the
+"ZDM Proxy Dashboard", you'll see that a whole "Async Read Request Metrics"
+section is available: looking at it, any performance problem would be promptly
+spotted and diagnosed.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

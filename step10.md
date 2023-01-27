@@ -63,6 +63,11 @@ _is cleaning up: hit "Next" to complete this exercise._
 
 ![Schema, phase 5](images/schema5_r.png)
 
+#### 🔎 Monitoring suggestion
+
+The proxy has now been put aside: you can check with, the
+proxy instance graphs, that no requests are going through it anymore.
+
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"step9"}]'

@@ -34,22 +34,30 @@ Before doing that, however, let's finish writing the required settings in
 the `.env` file. Check the full path of the secure-connect-bundle zipfile
 you downloaded:
 
+**if you went through the Astra CLI path**, do so with:
+
 ```bash
 ### logs
-# This will succeed if you went through the Astra CLI path:
+# locate the bundle zipfile (if Astra CLI setup followed)
 grep ASTRA_DB_SECURE_BUNDLE_PATH /workspace/zdm-scenario-katapod/.env
-# This will succeed if you used the Astra UI:
+```
+
+**otherwise**, you can get the zipfile path by running:
+
+```bash
+### logs
+# locate the bundle zipfile (if Astra Web UI setup followed)
 ls /workspace/zdm-scenario-katapod/secure*zip
 ```
 
-and the IP address of the proxy instance, e.g. with
+Get the IP address of the proxy instance as well:
 
 ```bash
 ### logs
 . /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 ```
 
-_(this time, the two commands above will run on the still-unused
+_(this time, the commands above will run and print their output on the still-unused
 "zdm-proxy-logs" console for your convenience while editing the dot-env file.)_
 
 and finally make sure you have the "Client ID" and the "Client Secret" found
@@ -72,21 +80,22 @@ CLIENT_CONNECTION_MODE=ZDM_PROXY uvicorn api:app
 This time, the API connects to the proxy. You should see no disruptions in the
 requests that are running in the "api-client-console".
 
-As a test, try sending manually a new status with:
+As a test, try sending manually a new status by issuing this request
+on the "host-console":
 
 ```bash
 ### host
 curl -XPOST localhost:8000/status/eva/ThroughZDMProxy | jq
 ```
 
-and reading right after that:
+and then by reading right after that:
 
 ```bash
 ### host
 curl -XGET localhost:8000/status/eva | jq -r '.[].status'
 ```
 
-The API is connecting to the ZDM proxy. The proxy, in turn, is propagating
+The API is connecting to the ZDM Proxy. The proxy, in turn, is propagating
 writes to _both_ the Origin and Target databases. To verify this,
 check that you can read the last-inserted status rows from Origin:
 
@@ -121,6 +130,19 @@ To remedy this shortcoming, you must do something more.
 #### _🗒️ The proxy is doing its job: in order to guarantee that the two databases have the same content, including historical data, it's time to run a migration process._
 
 ![Schema, phase 1e](images/schema1e_r.png)
+
+#### 🔎 Monitoring suggestion
+
+The proxy is now routing actual traffic, and this will be reflected on the
+dashboard _(note that the metrics take a few seconds to be reflected on graphs)_.
+The instance-level metrics, which refer to an individual proxy instance,
+show the read operations as they are issued with the `curl` GETs above,
+as well as the regular writes sent in by the running loop.
+You can also look at the read/write latency graphs and at the number of client connections.
+
+The node-level metrics (further down in the dashboard) refer to Origin and Target:
+with those graphs, you can confirm that writes are indeed going to both clusters,
+while reads only go to Origin.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

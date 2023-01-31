@@ -40,7 +40,7 @@ docker exec -it zdm-ansible-container bash
 
 It is time to configure the settings for the proxy that is
 about to be created. To do so, you are going to edit
-the file `zdm_proxy_core_config.yml` _on the container_,
+the file `zdm_proxy_cluster_config.yml` _on the container_,
 adding connection parameters for both Origin and Target.
 
 First check the IP address of the Cassandra node, with:
@@ -59,7 +59,7 @@ Moreover you'll need the Target database ID:
 grep ASTRA_DB_ID /workspace/zdm-scenario-katapod/.env
 ```
 
-In file `zdm_proxy_core_config.yml`, you'll have to uncomment and edit the following entries:
+In file `zdm_proxy_cluster_config.yml`, you'll have to uncomment and edit the following entries:
 
 - `origin_username` and `origin_password`: set both to "cassandra" (no quotes);
 - `origin_contact_points`: set it to the IP of the Cassandra seed node (**Note: this is the value of `CASSANDRA_SEED_IP`, and _not_ the ZDM host address**);
@@ -74,7 +74,7 @@ _`nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`._
 ```bash
 ### container
 cd /home/ubuntu/zdm-proxy-automation/
-nano ansible/vars/zdm_proxy_core_config.yml
+nano ansible/vars/zdm_proxy_cluster_config.yml
 ```
 
 Once the changes are saved,

@@ -38,9 +38,9 @@ Download and extract the utility:
 ```bash
 ### host
 cd /workspace/zdm-scenario-katapod/running_zdm_util
-wget https://github.com/datastax/zdm-proxy-automation/releases/download/v2.0.3/zdm-util-linux-amd64-v2.0.3.tgz
-tar -xvf zdm-util-linux-amd64-v2.0.3.tgz
-rm zdm-util-linux-amd64-v2.0.3.tgz
+wget https://github.com/datastax/zdm-proxy-automation/releases/download/v2.2.0/zdm-util-linux-amd64-v2.2.0.tgz
+tar -xvf zdm-util-linux-amd64-v2.2.0.tgz
+rm zdm-util-linux-amd64-v2.2.0.tgz
 ```
 
 Before going through the configuration utility, you may find it convenient to check the IP addresses
@@ -68,7 +68,7 @@ Start the config utility with:
 ```bash
 ### host
 cd /workspace/zdm-scenario-katapod/running_zdm_util
-./zdm-util-v2.0.3
+./zdm-util-v2.2.0
 ```
 
 Once you are done, answer "Yes" when asked "Do you wish to proceed?": a `zdm-ansible-container` is created and started

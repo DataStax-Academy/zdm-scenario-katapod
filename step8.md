@@ -68,9 +68,10 @@ cd /home/ubuntu/zdm-proxy-automation/ansible
 nano vars/zdm_proxy_core_config.yml
 ```
 
-Locate the `read_mode` line (down in the `READ ROUTING CONFIGURATION` section)
+Locate the `read_mode` line (in the `READ ROUTING CONFIGURATION` section)
 and change its value from `PRIMARY_ONLY` to `DUAL_ASYNC_ON_SECONDARY`.
 Save and exit the editor.
+_The variables in this file configure how the proxy behaves: these will be changed as you progress through the remaining phases of the migration._
 
 Now perform a rolling update with:
 

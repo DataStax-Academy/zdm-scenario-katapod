@@ -45,7 +45,7 @@
             <ul>
               <li>
                 <strong>Phase 1:</strong>
-                Connect your client applications to the ZDM Proxy. This activates the dual-write logic: writes will be "bifurcated" (sent both to Origin and Target), while reads will be executed on Origin only.
+                Deploy ZDM Proxy and connect your client applications to it. This activates the dual-write logic: writes will be "bifurcated" (sent both to Origin and Target), while reads will be executed on Origin only.
               </li>
               <li>
                 <strong>Phase 2:</strong>

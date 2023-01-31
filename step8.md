@@ -89,7 +89,7 @@ powering your client application would not even flinch at them undergoing
 a rolling restart.
 
 Meanwhile, keep an eye on the logs from the container:
-they will stop (taking turns, if there were several).
+they will stop.
 Restart the `docker logs` command,
 
 ```bash

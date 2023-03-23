@@ -34,6 +34,9 @@ def get_session(mode):
     global session_map
     global cluster_map
     #
+    if mode is None:
+        raise ValueError('Session connection mode cannot be \'None\'.')
+    #
     session = session_map.get(mode)
     if session is None:
         print(f'[get_session] Creating session (mode={mode})')

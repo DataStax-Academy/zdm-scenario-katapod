@@ -2,18 +2,47 @@ import os
 import datetime
 
 from fastapi import FastAPI, Depends
-from pydantic import BaseModel
 
 from db_connection import get_session
 
-session_mode = os.environ['CLIENT_CONNECTION_MODE']
-print(f'\n*** API starting with mode = {session_mode} ***')
+
+MODE_FILENAME = 'CLIENT_CONNECTION_MODE'
+MODE_ENV_VAR_NAME = 'CLIENT_CONNECTION_MODE'
 
 # Helpers
 #   (this part, in a well-structured app, would go to separate modules...)
 
+def get_session_mode():
+    """
+    a MODE_FILENAME file is checked, containing just the connection mode string:
+    if it exists, it has precedence; otherwise, the env var is read.
+    """
+    if os.path.isfile(MODE_FILENAME):
+        """
+        If a file is used to switch connection mode, the API can be started as:
+            uvicorn api:app
+        as long as before the first request one does something like:
+            echo CASSANDRA > CLIENT_CONNECTION_MODE
+        or
+            echo ZDM_PROXY > CLIENT_CONNECTION_MODE
+        or
+            echo ASTRA_DB > CLIENT_CONNECTION_MODE
+        In any time, without having to restart the API, the above
+        'echo' commands will let the API know that the next request(s)
+        will need to use a certain connection mode.
+        """
+        s_mode = open(MODE_FILENAME).read().strip()
+    else:
+        s_mode = os.environ.get(MODE_ENV_VAR_NAME)
+    return s_mode
+
+
 async def get_db_session():
-    # this wraps getting the session in a way that works with the Depends injection
+    """
+    this wraps the get_session function
+    in a way that works with the Depends injection (i.e. as an async iterator)
+    """
+    session_mode = get_session_mode()
     yield get_session(mode=session_mode)
 
 

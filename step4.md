@@ -59,17 +59,21 @@ Moreover you'll need the Target database ID:
 grep ASTRA_DB_ID /workspace/zdm-scenario-katapod/.env
 ```
 
-In file `zdm_proxy_cluster_config.yml`, you'll have to uncomment and edit the following entries:
+In file `zdm_proxy_cluster_config.yml`, you'll have to uncomment and edit the entries in the following table.
+_(Note that, within the container, all the file editing will have to be done in the console. To save and quit_
+_`nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`.)_
 
-- `origin_username` and `origin_password`: set both to "cassandra" (no quotes);
-- `origin_contact_points`: set it to the IP of the Cassandra seed node (**Note: this is the value of `CASSANDRA_SEED_IP`, and _not_ the ZDM host address**);
-- `origin_port`: set to 9042;
-- `target_username` and `target_password`: set to Client ID and Client Secret found in your Astra DB Token;
-- `target_astra_db_id` is your Database ID from the Astra DB dashboard;
-- `target_astra_token` is the "token" string in your Astra DB Token" (the one starting with `AstraCS:...`).
+|Variable                 | Value|
+|-------------------------|------|
+|`origin_username`        | cassandra     |
+|`origin_password`        | cassandra     |
+|`origin_contact_points`  | _The IP of the **Cassandra seed** node (**Note**: this is the value of_ `CASSANDRA_SEED_IP` _as printed by `find_addresses.sh`, and not the ZDM host address)_     |
+|`origin_port`            | 9042     |
+|`target_username`        | _**Client ID** found in your Astra DB Token_     |
+|`target_password`        | _**Client Secret** found in your Astra DB Token_     |
+|`target_astra_db_id`     | _Your **Database ID** from the Astra DB dashboard_     |
+|`target_astra_token`     | _the **"token"** string in your Astra DB Token" (the one starting with `AstraCS:...`)_     |
 
-_Within the container, all the file editing will have to be done in the console. To save and quit_
-_`nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`._
 
 ```bash
 ### container
@@ -107,6 +111,7 @@ Alternatively, the ZDM Proxy exposes a health-status HTTP endpoint:
 you can query it with
 
 ```bash
+### {"terminalId": "host"}
 . /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 curl http://${ZDM_HOST_IP}:14001/health/readiness | jq
 ```

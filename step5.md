@@ -66,7 +66,7 @@ then go to Dashboards/Manage and pick e.g.
 the "ZDM Proxy Dashboard v1" to confirm the datapoints for the plots
 are pouring in.
 
-<details style="margin-bottom: 12px;"><summary>Click for instructions</summary>
+<details class="katapod-details"><summary>Click for instructions</summary>
 
 ![Grafana dashboards](images/grafana_dashboards.png)
 

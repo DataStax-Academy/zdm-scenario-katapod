@@ -18,6 +18,31 @@
             <li><span class="scenario-description-attribute">Difficulty</span>: Advanced</li>
             <li><span class="scenario-description-attribute">Duration</span>: 80 minutes</li>
           </ul>
+          <details class="katapod-details"><summary>This is a Katapod interactive lab. Expand for usage tips</summary>
+            <p>
+              <i>
+                This hands-on lab is built using the Katapod engine. If you have never encountered it before, this is how you use it:
+              </i>
+              <ul>
+                <li>
+                  You will proceed through a series of steps on the left panel, advancing to the next step by the click of a button.
+                </li>
+                <li>
+                  On the right part of the lab, a number of consoles are spawned for you to execute commands and interact with the system.
+                </li>
+                <li>
+                  Each step provides instructions and explanations on what is going on.
+                </li>
+                <li>
+                  In particular, click on code blocks to execute them in their target console.
+                </li>
+                <li>
+                  Commands that are executed already are marked as such. Usually you can execute a command as many times as you want (though this might not always be what you want to do).
+                </li>
+              </ul>
+              <i><strong>Note:</strong> please do not leave the lab idle for longer than a few minutes, otherwise it would get hibernated, thereby losing some of its state, and you might need to start it all over.</i>
+            </p>
+          </details>
         </div>
       </div>
       <div class="row g-4 py-2 row-cols-1 row-cols-lg-1">
@@ -75,7 +100,7 @@
               The application will initially connect to Origin, but is ready to adapt to the migration phases
               with a simple restart as you progress, provided you inserted the required connection parameters in a configuration file.
             </p>
-            <details><summary>Click to find out how this learning environment differs from a real migration</summary>
+            <details class="katapod-details"><summary>Click to find out how this learning environment differs from a real migration</summary>
               <p>
                 <i>
                   This is an ephemeral setup, designed to be bootstrapped quickly and in such a way as to be easily packaged into a single host machine. As a consequence, please mind that:

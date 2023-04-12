@@ -34,7 +34,18 @@
 **Note**: please wait for message _"Ready for Step 1"_ on the
 the first console ("host-console") before proceeding.
 
-Now check Origin:
+Before starting a production Zero Downtime Migration, there are several preliminary steps
+that must be carefully completed (see [Documentation](https://docs.datastax.com/en/astra-serverless/docs/migrate/preliminary-steps.html));
+with the exception of the actual provisioning of the Target database, however, in this hands-on lab these will be taken for granted. They are:
+
+- [Feasibility checks](https://docs.datastax.com/en/astra-serverless/docs/migrate/feasibility-checklists.html);
+- [Deployment and infrastructure considerations](https://docs.datastax.com/en/astra-serverless/docs/migrate/deployment-infrastructure.html);
+- [Creation of the Target environment](https://docs.datastax.com/en/astra-serverless/docs/migrate/create-target.html) **(next step in this lab)**;
+- [Assessment of the rollback options](https://docs.datastax.com/en/astra-serverless/docs/migrate/rollback.html).
+
+In this spirit, you will simply check the Origin database and make sure that
+the sample client application, which accesses it, is properly running.
+First have a look at the contents of the table in Origin with this CQL query:
 
 ```bash
 ### host

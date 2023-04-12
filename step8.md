@@ -56,7 +56,7 @@ the logs from the proxy container (in a non-stop fashion):
 docker logs -f zdm-proxy-container
 ```
 
-Now get to the console in the `zdm-ansible-container`: you will have to alter
+Now get to the console running in the ZDM Ansible container (`zdm-ansible-console`): you will have to alter
 the proxy settings and issue a "rolling update" of the proxy machines (a notional
 concept in this case, since there is a single proxy, but that's the idea).
 

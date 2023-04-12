@@ -20,9 +20,9 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Phase 1d: Start the monitoring stack</div>
+<div class="step-title">Phase 1c: Start the monitoring stack</div>
 
-![Phase 1d](images/p1d.png)
+![Phase 1c](images/p1c.png)
 
 #### _🎯 Goal: having the Ansible automation provision and start the monitoring stack associated to the ZDM Proxy._
 

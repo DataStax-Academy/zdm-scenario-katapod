@@ -25,9 +25,9 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Before the migration</div>
+<div class="step-title">Preliminary step: Origin and sample application</div>
 
-![Phase 0](images/p0.png)
+![Phase 0a](images/p0a.png)
 
 #### _🎯 Goal: making sure that Origin is ready and that there is a sample client application reading and writing on it._
 

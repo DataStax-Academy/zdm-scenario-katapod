@@ -20,9 +20,9 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Phase 1e: Connect the client application to the proxy</div>
+<div class="step-title">Phase 1d: Connect the client application to the proxy</div>
 
-![Phase 1e](images/p1e.png)
+![Phase 1d](images/p1d.png)
 
 #### _🎯 Goal: switching the client application from a direct connection to Origin to a connection through the proxy (while still keeping Origin as the primary DB)._
 

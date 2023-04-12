@@ -20,9 +20,9 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Phase 1c: Start the proxy</div>
+<div class="step-title">Phase 1b: Start the proxy</div>
 
-![Phase 1c](images/p1c.png)
+![Phase 1b](images/p1b.png)
 
 #### _🎯 Goal: configuring and starting the Ansible playbook that automates the creation and deployment of the ZDM Proxy on the target machine(s)._
 

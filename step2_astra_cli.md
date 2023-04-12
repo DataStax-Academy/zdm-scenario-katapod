@@ -20,9 +20,9 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Phase 1a: Set up Target</div>
+<div class="step-title">Preliminary step: set up Target</div>
 
-![Phase 1a](images/p1a.png)
+![Phase 0b](images/p0b.png)
 
 #### _🎯 Goal: creating the Target database (Astra DB instance) and verifying it is ready for the migration._
 

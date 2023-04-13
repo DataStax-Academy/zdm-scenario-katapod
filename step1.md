@@ -116,7 +116,7 @@ done
 
 #### _🗒️ You have a working application backed by a Cassandra cluster. Time to start preparing for a migration!_
 
-![Schema, phase 0](images/schema0_r.png)
+![Schema, phase 0a](images/schema0a_r.png)
 
 _🧭 You can choose whether to proceed to next step either using the Astra
 Web UI or using a CLI in the console (_except for the DB creation part, which is on the Astra UI anyway_).

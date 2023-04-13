@@ -129,7 +129,7 @@ To remedy this shortcoming, you must do something more.
 
 #### _🗒️ The proxy is doing its job: in order to guarantee that the two databases have the same content, including historical data, it's time to run a migration process._
 
-![Schema, phase 1e](images/schema1e_r.png)
+![Schema, phase 1d](images/schema1d_r.png)
 
 #### 🔎 Monitoring suggestion
 

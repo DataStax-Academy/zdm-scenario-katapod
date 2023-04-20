@@ -70,7 +70,7 @@ CLIENT_CONNECTION_MODE=CASSANDRA uvicorn api:app
 Test the API with a few calls: first check Eva's last three status updates, to compare with the `SELECT` results above:
 
 ```bash
-### client
+### host
 curl -XGET "localhost:8000/status/eva?entries=3" | jq
 ```
 
@@ -86,14 +86,14 @@ curl -XPOST "localhost:8000/status/eva/New" | jq
 Try the read again and check the output to see the new status:
 
 ```bash
-### client
+### host
 curl -XGET localhost:8000/status/eva | jq
 ```
 
 The next API invocations will usually manipulate the output to make it more compact, as in:
 
 ```bash
-### client
+### host
 curl -s -XGET "localhost:8000/status/eva?entries=3" | jq -r '.[] | "\(.when)\t\(.status)"'
 ```
 

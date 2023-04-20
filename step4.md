@@ -81,6 +81,8 @@ cd /home/ubuntu/zdm-proxy-automation/
 nano ansible/vars/zdm_proxy_cluster_config.yml
 ```
 
+_Note: `nano` might occasionally fail to start. In that case, hitting Ctrl-C in the console and re-launching the command would help._
+
 Once the changes are saved,
 you can run the Ansible playbook that will provision and start the proxy containers in the proxy host: still in the Ansible container, launch the command:
 

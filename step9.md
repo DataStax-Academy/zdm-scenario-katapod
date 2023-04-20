@@ -44,7 +44,9 @@ cd /home/ubuntu/zdm-proxy-automation/ansible
 nano vars/zdm_proxy_core_config.yml
 ```
 
-Once you save and exit the editor, you can issue another
+_Note: `nano` might occasionally fail to start. In that case, hitting Ctrl-C in the console and re-launching the command would help._
+
+Once you save and exit the editor (`Ctrl-X`, then `Y`, then `Enter`), you can issue another
 "rolling update" to propagate the new configuration
 to the proxy(/proxies):
 
@@ -72,7 +74,7 @@ For a proof, you can launch a manual write through the API:
 
 ```bash
 ### host
-curl -XPOST localhost:8000/status/eva/TargetIsPrimary | jq
+curl -s -XPOST localhost:8000/status/eva/TargetIsPrimary | jq
 ```
 
 and then try reading the recent rows from the two databases - the new row will be found on both. For Origin:

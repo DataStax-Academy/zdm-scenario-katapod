@@ -68,6 +68,8 @@ in your Astra DB Token. Now you can insert the values of `ASTRA_DB_SECURE_BUNDLE
 nano +7,30 /workspace/zdm-scenario-katapod/client_application/.env
 ```
 
+_Note: `nano` might occasionally fail to start. In that case, hitting Ctrl-C in the console and re-launching the command would help._
+
 Once you save the changes (_Ctrl-X, then Y, then Enter in the `nano` editor_),
 restart the API by executing the following, which kills the process in the "api-console" and launches it again:
 
@@ -96,7 +98,7 @@ while true; do
 done
 ```
 
-Once the loop has restarted, check you get the new rows back by querying the API:
+After the loop has restarted, check you get the new rows back by querying the API:
 
 ```bash
 ### host

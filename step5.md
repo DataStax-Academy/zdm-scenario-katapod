@@ -30,13 +30,16 @@ The `zdm-ansible-container` also offers a playbook that installs and starts
 a full monitoring stack, which will make Grafana dashboards available for
 a detailed view of the performance of the proxy.
 
-Edit file `zdm_monitoring_config.yml` and set the value of `grafana_admin_password` to a memorable password (leaving `grafana_admin_user` to its default of `admin`):
+Edit file `zdm_monitoring_config.yml` and set the value of `grafana_admin_password` to a memorable password, leaving `grafana_admin_user` to its default of `admin`
+_(to save and quit `nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`)_:
 
 ```bash
 ### container
 cd /home/ubuntu/zdm-proxy-automation/ansible
 nano +4,25 vars/zdm_monitoring_config.yml
 ```
+
+_Note: `nano` might occasionally fail to start. In that case, hitting Ctrl-C in the console and re-launching the command would help._
 
 You can now launch the playbook that sets up the monitoring stack:
 

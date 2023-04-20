@@ -49,7 +49,7 @@ def get_session(mode):
                 ),
             )
             session = cluster.connect(KEYSPACE_NAME)
-        elif mode == 'ASTRA_DB':
+        elif mode == 'ASTRA_DB' or mode == 'ASTRA':
             cluster = Cluster(
                 cloud={
                     'secure_connect_bundle': ASTRA_DB_SECURE_BUNDLE_PATH,

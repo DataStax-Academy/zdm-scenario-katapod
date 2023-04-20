@@ -115,7 +115,7 @@ to execute many times):
 
 ```bash
 ### host
-curl -XGET localhost:8000/status/eva | jq -r '.[].status'
+curl -s -XGET "localhost:8000/status/eva?entries=10" | jq -r '.[] | "\(.when)\t\(.status)"'
 ```
 
 This corresponds now to reads being sent to Target: you can verify it on

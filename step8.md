@@ -114,7 +114,7 @@ If you want, check that the application still works by looking for the latest
 
 ```bash
 ### host
-curl -XGET localhost:8000/status/eva | jq -r '.[].status'
+curl -s -XGET "localhost:8000/status/eva?entries=2" | jq -r '.[] | "\(.when)\t\(.status)"'
 ```
 
 #### _🗒️ The two databases are now guaranteed to be identical not only in their content, but also in the requests they get (including read requests). The next step is to elect Target to the role of primary database._

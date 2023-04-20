@@ -1,7 +1,7 @@
 import os
 import datetime
 
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, Request
 
 from db_connection import get_session
 
@@ -46,20 +46,26 @@ async def get_db_session():
     yield get_session(mode=session_mode)
 
 
-GET_STATUS_QUERY = 'SELECT * FROM user_status WHERE user=%s LIMIT 3;'
+GET_STATUS_QUERY = 'SELECT * FROM user_status WHERE user=%s LIMIT %s;'
 PUT_STATUS_QUERY = 'INSERT INTO user_status (user, when, status) VALUES (%s, %s, %s);'
 
 app = FastAPI()
 
-@app.get('/status/{user}')
-async def get_status(user, session=Depends(get_db_session)):
+@app.get('/status/{user}')  # "?entries=<int>", optional
+async def get_status(user, request: Request, session=Depends(get_db_session)):
+    numEntries = 1
+    try:
+        # if we get a positive integer, use it, otherwise fall back:
+        numEntries = max(1, int(request.query_params.get('entries')))
+    except Exception:
+        pass
     return [
         {
             'user': status.user,
             'when': status.when,
             'status': status.status,
         }
-        for status in session.execute(GET_STATUS_QUERY, (user,) )
+        for status in session.execute(GET_STATUS_QUERY, (user, numEntries) )
     ]
 
 @app.post('/status/{user}/{status}')

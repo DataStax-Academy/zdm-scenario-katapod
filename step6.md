@@ -80,24 +80,32 @@ CLIENT_CONNECTION_MODE=ZDM_PROXY uvicorn api:app
 This time, the API connects to the proxy. You should see no disruptions in the
 requests that are running in the "api-client-console".
 
-As a test, try sending manually a new status by issuing this request
-on the "host-console":
+Speaking of which: quick, run the following!
+It will simply stop the loop that writes to the API
+and start another one with just different message strings ("ModeProxy" and a timestamp),
+to better track what's going on:
 
 ```bash
-### host
-curl -XPOST localhost:8000/status/eva/ThroughZDMProxy | jq
+### {"terminalId": "client", "macrosBefore": ["ctrl_c"]}
+while true; do
+  NEW_STATUS="ModeProxy_`date +'%H-%M-%S'`";
+  echo -n "Setting status to ${NEW_STATUS} ... ";
+  curl -s -XPOST -o /dev/null "localhost:8000/status/eva/${NEW_STATUS}";
+  echo "done. Sleeping a little ... ";
+  sleep 20;
+done
 ```
 
-... and confirm you get it back by reading right after that:
+Once the loop has restarted, check you get the new rows back by querying the API:
 
 ```bash
 ### host
-curl -XGET localhost:8000/status/eva | jq -r '.[].status'
+curl -s -XGET "localhost:8000/status/eva?entries=3" | jq -r '.[] | "\(.when)\t\(.status)"'
 ```
 
 The API is connecting to the ZDM Proxy. The proxy, in turn, is propagating
 writes to _both_ the Origin and Target databases. To verify this,
-check that you can read the last-inserted status rows from Origin:
+check that you can read the "ModeProxy" status rows from Origin:
 
 ```bash
 ### host

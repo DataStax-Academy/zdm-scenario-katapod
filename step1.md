@@ -67,18 +67,20 @@ cd /workspace/zdm-scenario-katapod/client_application/
 CLIENT_CONNECTION_MODE=CASSANDRA uvicorn api:app
 ```
 
-Test the API with a few calls: first check Eva's status, and compare with the `SELECT` results above, with:
+Test the API with a few calls: first check Eva's last three status updates, to compare with the `SELECT` results above:
 
 ```bash
 ### client
-curl -XGET localhost:8000/status/eva | jq
+curl -XGET "localhost:8000/status/eva?entries=3" | jq
 ```
+
+_Note: you can customize the `entries` query parameter in all API GET calls to your needs._
 
 Then write a new status:
 
 ```bash
 ### client
-curl -XPOST localhost:8000/status/eva/New | jq
+curl -XPOST "localhost:8000/status/eva/New" | jq
 ```
 
 Try the read again and check the output to see the new status:
@@ -88,13 +90,20 @@ Try the read again and check the output to see the new status:
 curl -XGET localhost:8000/status/eva | jq
 ```
 
-Even better, you can open a separate browser tab
+The next API invocations will usually manipulate the output to make it more compact, as in:
+
+```bash
+### client
+curl -s -XGET "localhost:8000/status/eva?entries=3" | jq -r '.[] | "\(.when)\t\(.status)"'
+```
+
+You can even open a separate browser tab with the output
 and refresh it whenever you want to check.
 The following command (_specific to this learning environment_) opens it:
 
 ```bash
 ### host
-API_URL=`gp url 8000`/status/eva
+API_URL="`gp url 8000`/status/eva?entries=5"
 echo "Opening ${API_URL} ..."
 gp preview --external ${API_URL}
 ```
@@ -107,7 +116,7 @@ You'll keep it running througout the practice, to put the "zero-downtime" aspect
 ```bash
 ### client
 while true; do
-  NEW_STATUS="ItIs_`date +'%H-%M-%S'`";
+  NEW_STATUS="ModeCassandra_`date +'%H-%M-%S'`";
   echo -n "Setting status to ${NEW_STATUS} ... ";
   curl -s -XPOST -o /dev/null "localhost:8000/status/eva/${NEW_STATUS}";
   echo "done. Sleeping a little ... ";

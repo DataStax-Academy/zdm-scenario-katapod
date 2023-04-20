@@ -42,6 +42,17 @@ However, database creation and generation of an associated token are still done 
 - Create a database called `zdmtarget` with a `zdmapp` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
 - Get a **"Database Administrator"** database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise. For the migration process, a "R/W User" token would suffice, but a more powerful token is needed for the `astra-cli` automation._
 
+<details class="katapod-details"><summary>I want to re-use an Astra DB instance I already have</summary>
+
+If you already have a database (likely with a name other than `zdmtarget`)
+and want to use it, that's no problem at all! Just make sure
+you [create a new keyspace](https://awesome-astra.github.io/docs/pages/astra/faq/#add-a-keyspace-to-an-existing-database) called `zdmapp` in your database.
+
+All you have to do then is replacing the name `zdmtarget` with your database
+the few times it appears in the console commands for the rest of this scenario.
+
+</details>
+
 Once this part is done, you can proceed in the "host" console.
 The Astra CLI is preinstalled for you: configure it with
 
@@ -52,7 +63,7 @@ astra setup
 
 and provide the `AstraCS:...` part of the token when prompted.
 
-Have the CLI prepare a `.env` file, useful to later retrieve the database ID:
+Have the CLI prepare a `.env` file, useful to later retrieve the database ID _(edit the database name if different from `zdmtarget`)_:
 
 ```bash
 ### host
@@ -77,7 +88,7 @@ Check the contents of the script file with
 cat /workspace/zdm-scenario-katapod/target_config/target_schema.cql
 ```
 
-and then execute it on the newly-created Astra DB instance:
+and then execute it on the newly-created Astra DB instance _(editing the database name if different from `zdmtarget`)_:
 
 ```bash
 ### host

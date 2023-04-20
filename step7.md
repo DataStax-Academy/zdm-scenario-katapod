@@ -84,7 +84,7 @@ on Target as well, including those written prior to setting up
 the ZDM Proxy.
 
 To verify this,
-**if you went through the Astra CLI path**, launch this command:
+**if you went through the Astra CLI path**, launch this command _(editing the database name if different from `zdmtarget`)_:
 
 ```bash
 ### host

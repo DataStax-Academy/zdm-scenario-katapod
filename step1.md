@@ -45,7 +45,8 @@ with the exception of the actual provisioning of the Target database, however, i
 
 In this spirit, you will simply check the Origin database and make sure that
 the sample client application, which accesses it, is properly running.
-First have a look at the contents of the table in Origin with this CQL query:
+First have a look at the contents of the table in Origin with this CQL query
+(sample rows have been inserted already):
 
 ```bash
 ### host
@@ -66,7 +67,7 @@ cd /workspace/zdm-scenario-katapod/client_application/
 CLIENT_CONNECTION_MODE=CASSANDRA uvicorn api:app
 ```
 
-Test the API with a few calls: first check Eva's status with:
+Test the API with a few calls: first check Eva's status, and compare with the `SELECT` results above, with:
 
 ```bash
 ### client
@@ -80,7 +81,7 @@ Then write a new status:
 curl -XPOST localhost:8000/status/eva/New | jq
 ```
 
-Try the read again and check the output:
+Try the read again and check the output to see the new status:
 
 ```bash
 ### client
@@ -100,8 +101,8 @@ gp preview --external ${API_URL}
 
 _(Depending on your browser and popup-blocker settings, chances are no tab will open at this point. In that case, simply grab the URL output on your console and manually point a new tab to that address.)_
 
-Now start a loop that periodically inserts a new status. You'll keep it running
-througout the practice, to put the "zero-downtime" aspect to test:
+Now start a loop that periodically inserts a new (timestamped) status for Eva.
+You'll keep it running througout the practice, to put the "zero-downtime" aspect to test:
 
 ```bash
 ### client
@@ -113,6 +114,8 @@ while true; do
   sleep 20;
 done
 ```
+
+Feel free to play with the GET endpoint to see the trickle of new rows in the API response.
 
 #### _🗒️ You have a working application backed by a Cassandra cluster. Time to start preparing for a migration!_
 

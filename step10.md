@@ -32,7 +32,7 @@ with the app directly writing to Astra DB and finally
 skipping the ZDM (and Origin) altogether.
 
 This step is very simple. The following command stops the running API, then
-restarts it by passing it the appropriate setting:
+restarts it by passing the appropriate setting to it:
 
 ```bash
 ### {"terminalId": "api", "macrosBefore": ["ctrl_c"]}

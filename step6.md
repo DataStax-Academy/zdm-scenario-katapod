@@ -88,7 +88,7 @@ on the "host-console":
 curl -XPOST localhost:8000/status/eva/ThroughZDMProxy | jq
 ```
 
-and then by reading right after that:
+... and confirm you get it back by reading right after that:
 
 ```bash
 ### host
@@ -108,7 +108,7 @@ docker exec \
 ```
 
 Likewise, you can do the same check on Target, i.e. Astra DB:
-**if you went through the Astra CLI path**, you can run the following:
+**if you went through the Astra CLI path**, you can run the following _(editing the database name if different from `zdmtarget`)_:
 
 ```bash
 ### host

@@ -110,7 +110,7 @@ time="2022-[... ...] ,\"ReadMode\":\"DUAL_ASYNC_ON_SECONDARY\" [... ...]
 Note the `ReadMode: DUAL_ASYNC_ON_SECONDARY` part in the above output.
 
 If you want, check that the application still works by looking for the latest
-rows being inserted in the output of:
+(timestamped) rows being inserted in the output of:
 
 ```bash
 ### host

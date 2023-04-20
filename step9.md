@@ -75,7 +75,7 @@ For a proof, you can launch a manual write through the API:
 curl -XPOST localhost:8000/status/eva/TargetIsPrimary | jq
 ```
 
-and then try reading the recent rows from both databases. For Origin:
+and then try reading the recent rows from the two databases - the new row will be found on both. For Origin:
 
 ```bash
 ### host
@@ -85,7 +85,7 @@ docker exec \
   -e "SELECT * FROM zdmapp.user_status WHERE user='eva' limit 3;"
 ```
 
-For Target, **if you went through the Astra CLI path**, launch the following:
+For Target, **if you went through the Astra CLI path**, launch the following _(editing the database name if different from `zdmtarget`)_:
 
 ```bash
 ### host

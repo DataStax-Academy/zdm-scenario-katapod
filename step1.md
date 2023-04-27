@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -25,16 +25,28 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Before the migration</div>
+<div class="step-title">Preliminary step: Origin and sample application</div>
 
-![Phase 0](images/p0.png)
+![Phase 0a](images/p0a.png)
 
 #### _🎯 Goal: making sure that Origin is ready and that there is a sample client application reading and writing on it._
 
 **Note**: please wait for message _"Ready for Step 1"_ on the
 the first console ("host-console") before proceeding.
 
-Now check Origin:
+Before starting a production Zero Downtime Migration, there are several preliminary steps
+that must be carefully completed (see [Documentation](https://docs.datastax.com/en/astra-serverless/docs/migrate/preliminary-steps.html));
+with the exception of the actual provisioning of the Target database, however, in this hands-on lab these will be taken for granted. They are:
+
+- [Feasibility checks](https://docs.datastax.com/en/astra-serverless/docs/migrate/feasibility-checklists.html);
+- [Deployment and infrastructure considerations](https://docs.datastax.com/en/astra-serverless/docs/migrate/deployment-infrastructure.html);
+- [Creation of the Target environment](https://docs.datastax.com/en/astra-serverless/docs/migrate/create-target.html) **(next step in this lab)**;
+- [Assessment of the rollback options](https://docs.datastax.com/en/astra-serverless/docs/migrate/rollback.html).
+
+In this spirit, you will simply check the Origin database and make sure that
+the sample client application, which accesses it, is properly running.
+First have a look at the contents of the table in Origin with this CQL query
+(sample rows have been inserted already):
 
 ```bash
 ### host
@@ -55,47 +67,56 @@ cd /workspace/zdm-scenario-katapod/client_application/
 CLIENT_CONNECTION_MODE=CASSANDRA uvicorn api:app
 ```
 
-Test the API with a few calls: first check Eva's status with:
+Test the API with a few calls: first check Eva's last three status updates, to compare with the `SELECT` results above:
 
 ```bash
-### client
-curl -XGET localhost:8000/status/eva | jq
+### host
+curl -XGET "localhost:8000/status/eva?entries=3" | jq
 ```
+
+_Note: you can customize the `entries` query parameter in all API GET calls to your needs._
 
 Then write a new status:
 
 ```bash
 ### client
-curl -XPOST localhost:8000/status/eva/New | jq
+curl -XPOST "localhost:8000/status/eva/New" | jq
 ```
 
-Try the read again and check the output:
+Try the read again and check the output to see the new status:
 
 ```bash
-### client
+### host
 curl -XGET localhost:8000/status/eva | jq
 ```
 
-Even better, you can open a separate browser tab
+The next API invocations will usually manipulate the output to make it more compact, as in:
+
+```bash
+### host
+curl -s -XGET "localhost:8000/status/eva?entries=3" | jq -r '.[] | "\(.when)\t\(.status)"'
+```
+
+You can even open a separate browser tab with the output
 and refresh it whenever you want to check.
 The following command (_specific to this learning environment_) opens it:
 
 ```bash
 ### host
-API_URL=`gp url 8000`/status/eva
+API_URL="`gp url 8000`/status/eva?entries=5"
 echo "Opening ${API_URL} ..."
 gp preview --external ${API_URL}
 ```
 
 _(Depending on your browser and popup-blocker settings, chances are no tab will open at this point. In that case, simply grab the URL output on your console and manually point a new tab to that address.)_
 
-Now start a loop that periodically inserts a new status. You'll keep it running
-througout the practice, to put the "zero-downtime" aspect to test:
+Now start a loop that periodically inserts a new (timestamped) status for Eva.
+You'll keep it running througout the practice, to put the "zero-downtime" aspect to test:
 
 ```bash
 ### client
 while true; do
-  NEW_STATUS="ItIs_`date +'%H-%M-%S'`";
+  NEW_STATUS="ModeCassandra_`date +'%H-%M-%S'`";
   echo -n "Setting status to ${NEW_STATUS} ... ";
   curl -s -XPOST -o /dev/null "localhost:8000/status/eva/${NEW_STATUS}";
   echo "done. Sleeping a little ... ";
@@ -103,9 +124,11 @@ while true; do
 done
 ```
 
+Feel free to play with the GET endpoint to see the trickle of new rows in the API response.
+
 #### _🗒️ You have a working application backed by a Cassandra cluster. Time to start preparing for a migration!_
 
-![Schema, phase 0](images/schema0_r.png)
+![Schema, phase 0a](images/schema0a_r.png)
 
 _🧭 You can choose whether to proceed to next step either using the Astra
 Web UI or using a CLI in the console (_except for the DB creation part, which is on the Astra UI anyway_).

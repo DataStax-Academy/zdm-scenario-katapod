@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -35,12 +35,31 @@ _Note: since the data featured in this exercise is rather small, and the data
 migration itself is not the main topic of this exercise, we are not using "Cassandra Data Migrator" here. But if you need advanced data renconciliation features, or you
 are dealing with a database exceeding a few tens of GB, that might be your best option._
 
-Start by going to the `data_migration` directory and obtain the source
-code:
+Verify that the entries inserted before the switch to using the ZDM Proxy are **not** found on Target.
+To do so, **if you went through the Astra CLI path**, launch this command _(editing the database name if different from `zdmtarget`)_:
 
 ```bash
 ### host
-cd /workspace/zdm-scenario-katapod/data_migrator/
+astra db cqlsh zdmtarget \
+  -k zdmapp \
+  -e "SELECT * FROM zdmapp.user_status WHERE user='eva' limit 30;"
+```
+
+or, **if you used the Astra UI**, go to the Web CQL Console and run the statement:
+
+```cql
+### {"execute": false}
+SELECT * FROM zdmapp.user_status WHERE user='eva' limit 30;
+```
+
+You should see just the few rows written once you restarted the API to take advantage of the ZDM Proxy.
+
+Start the migration process by going to the `migration` directory and obtain the source
+code for DSBulk Migrator:
+
+```bash
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
+cd /workspace/zdm-scenario-katapod/migration/
 git clone https://github.com/datastax/dsbulk-migrator.git
 cd dsbulk-migrator/
 # we pin a commit just to make sure the (versioned) jar name matches later on:
@@ -50,8 +69,8 @@ git checkout 9b8a3759d3b59bcbcea191164d791ec8adc83ce9
 Build the project with (this may take 1-2 minutes):
 
 ```bash
-### host
-cd /workspace/zdm-scenario-katapod/data_migrator/dsbulk-migrator/
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
+cd /workspace/zdm-scenario-katapod/migration/dsbulk-migrator/
 mvn clean package
 ```
 
@@ -62,8 +81,8 @@ following commands read the required connection settings also from the dot-env
 file you already set up for the client application:
 
 ```bash
-### host
-cd /workspace/zdm-scenario-katapod/data_migrator/dsbulk-migrator/
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
+cd /workspace/zdm-scenario-katapod/migration/dsbulk-migrator/
 . /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 . /workspace/zdm-scenario-katapod/client_application/.env
 
@@ -84,7 +103,7 @@ on Target as well, including those written prior to setting up
 the ZDM Proxy.
 
 To verify this,
-**if you went through the Astra CLI path**, launch this command:
+**if you went through the Astra CLI path**, launch this command _(editing the database name if different from `zdmtarget`)_:
 
 ```bash
 ### host

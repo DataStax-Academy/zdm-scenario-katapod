@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -32,7 +32,7 @@ with the app directly writing to Astra DB and finally
 skipping the ZDM (and Origin) altogether.
 
 This step is very simple. The following command stops the running API, then
-restarts it by passing it the appropriate setting:
+restarts it by passing the appropriate setting to it:
 
 ```bash
 ### {"terminalId": "api", "macrosBefore": ["ctrl_c"]}
@@ -40,16 +40,40 @@ restarts it by passing it the appropriate setting:
 CLIENT_CONNECTION_MODE=ASTRA_DB uvicorn api:app
 ```
 
+Once again, run the following, which changes the messages in the API-writing loop accordingly:
+
+```bash
+### {"terminalId": "client", "macrosBefore": ["ctrl_c"]}
+while true; do
+  NEW_STATUS="ModeAstra_`date +'%H-%M-%S'`";
+  echo -n "Setting status to ${NEW_STATUS} ... ";
+  curl -s -XPOST -o /dev/null "localhost:8000/status/eva/${NEW_STATUS}";
+  echo "done. Sleeping a little ... ";
+  sleep 20;
+done
+```
+
 The API will work exactly as before and the migration is complete.
 At this point, you can destroy the whole ZDM infrastructure (see next step).
 
-The loop is still periodically writing new rows: to ensure
-the application is still working as expected, you can launch yet
-another read request:
+To ensure the application is still working as expected, you can launch yet
+another read request, looking for the "ModeAstra..." status messages:
 
 ```bash
 ### host
-curl -XGET localhost:8000/status/eva | jq -r '.[].status'
+curl -s -XGET "localhost:8000/status/eva?entries=2" | jq -r '.[] | "\(.when)\t\(.status)"'
+```
+
+Conversely, on Origin, you will **not** see the latest
+entries inserted, confirming that database has really disappeared
+from the picture:
+
+```bash
+### host
+docker exec \
+  -it cassandra-origin-1 \
+  cqlsh -u cassandra -p cassandra \
+  -e "SELECT * FROM zdmapp.user_status WHERE user='eva' LIMIT 5;"
 ```
 
 #### _🏆 Congratulations: the migration is complete._

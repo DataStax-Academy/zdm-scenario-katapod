@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -20,9 +20,9 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Phase 1e: Connect the client application to the proxy</div>
+<div class="step-title">Phase 1d: Connect the client application to the proxy</div>
 
-![Phase 1e](images/p1e.png)
+![Phase 1d](images/p1d.png)
 
 #### _🎯 Goal: switching the client application from a direct connection to Origin to a connection through the proxy (while still keeping Origin as the primary DB)._
 
@@ -68,6 +68,8 @@ in your Astra DB Token. Now you can insert the values of `ASTRA_DB_SECURE_BUNDLE
 nano +7,30 /workspace/zdm-scenario-katapod/client_application/.env
 ```
 
+_Note: `nano` might occasionally fail to start. In that case, hitting Ctrl-C in the console and re-launching the command would help._
+
 Once you save the changes (_Ctrl-X, then Y, then Enter in the `nano` editor_),
 restart the API by executing the following, which kills the process in the "api-console" and launches it again:
 
@@ -80,24 +82,32 @@ CLIENT_CONNECTION_MODE=ZDM_PROXY uvicorn api:app
 This time, the API connects to the proxy. You should see no disruptions in the
 requests that are running in the "api-client-console".
 
-As a test, try sending manually a new status by issuing this request
-on the "host-console":
+Speaking of which: quick, run the following!
+It will simply stop the loop that writes to the API
+and start another one with just different message strings ("ModeProxy" and a timestamp),
+to better track what's going on:
 
 ```bash
-### host
-curl -XPOST localhost:8000/status/eva/ThroughZDMProxy | jq
+### {"terminalId": "client", "macrosBefore": ["ctrl_c"]}
+while true; do
+  NEW_STATUS="ModeProxy_`date +'%H-%M-%S'`";
+  echo -n "Setting status to ${NEW_STATUS} ... ";
+  curl -s -XPOST -o /dev/null "localhost:8000/status/eva/${NEW_STATUS}";
+  echo "done. Sleeping a little ... ";
+  sleep 20;
+done
 ```
 
-and then by reading right after that:
+After the loop has restarted, check you get the new rows back by querying the API:
 
 ```bash
 ### host
-curl -XGET localhost:8000/status/eva | jq -r '.[].status'
+curl -s -XGET "localhost:8000/status/eva?entries=3" | jq -r '.[] | "\(.when)\t\(.status)"'
 ```
 
 The API is connecting to the ZDM Proxy. The proxy, in turn, is propagating
 writes to _both_ the Origin and Target databases. To verify this,
-check that you can read the last-inserted status rows from Origin:
+check that you can read the "ModeProxy" status rows from Origin:
 
 ```bash
 ### host
@@ -108,7 +118,7 @@ docker exec \
 ```
 
 Likewise, you can do the same check on Target, i.e. Astra DB:
-**if you went through the Astra CLI path**, you can run the following:
+**if you went through the Astra CLI path**, you can run the following _(editing the database name if different from `zdmtarget`)_:
 
 ```bash
 ### host
@@ -129,7 +139,7 @@ To remedy this shortcoming, you must do something more.
 
 #### _🗒️ The proxy is doing its job: in order to guarantee that the two databases have the same content, including historical data, it's time to run a migration process._
 
-![Schema, phase 1e](images/schema1e_r.png)
+![Schema, phase 1d](images/schema1d_r.png)
 
 #### 🔎 Monitoring suggestion
 

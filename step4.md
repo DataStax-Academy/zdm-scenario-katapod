@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -20,9 +20,9 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Phase 1c: Start the proxy</div>
+<div class="step-title">Phase 1b: Start the proxy</div>
 
-![Phase 1c](images/p1c.png)
+![Phase 1b](images/p1b.png)
 
 #### _🎯 Goal: configuring and starting the Ansible playbook that automates the creation and deployment of the ZDM Proxy on the target machine(s)._
 
@@ -34,7 +34,7 @@ _something like `ubuntu@4fb20a9b:~$`:_
 _this terminal will stay in the container until the end._
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 docker exec -it zdm-ansible-container bash
 ```
 
@@ -59,29 +59,35 @@ Moreover you'll need the Target database ID:
 grep ASTRA_DB_ID /workspace/zdm-scenario-katapod/.env
 ```
 
-In file `zdm_proxy_cluster_config.yml`, you'll have to uncomment and edit the following entries:
+In file `zdm_proxy_cluster_config.yml`, you'll have to uncomment and edit the entries in the following table.
+_(Note that, within the container, all the file editing will have to be done in the console. To save and quit_
+_`nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`.)_
 
-- `origin_username` and `origin_password`: set both to "cassandra" (no quotes);
-- `origin_contact_points`: set it to the IP of the Cassandra seed node (**Note: this is the value of `CASSANDRA_SEED_IP`, and _not_ the ZDM host address**);
-- `origin_port`: set to 9042;
-- `target_username` and `target_password`: set to Client ID and Client Secret found in your Astra DB Token;
-- `target_astra_db_id` is your Database ID from the Astra DB dashboard;
-- `target_astra_token` is the "token" string in your Astra DB Token" (the one starting with `AstraCS:...`).
+|Variable                 | Value|
+|-------------------------|------|
+|`origin_username`        | cassandra     |
+|`origin_password`        | cassandra     |
+|`origin_contact_points`  | _The IP of the **Cassandra seed** node (**Note**: this is the value of_ `CASSANDRA_SEED_IP` _as printed by `find_addresses.sh`, and not the ZDM host address)_     |
+|`origin_port`            | 9042     |
+|`target_username`        | _**Client ID** found in your Astra DB Token_     |
+|`target_password`        | _**Client Secret** found in your Astra DB Token_     |
+|`target_astra_db_id`     | _Your **Database ID** from the Astra DB dashboard_     |
+|`target_astra_token`     | _the **"token"** string in your Astra DB Token" (the one starting with `AstraCS:...`)_     |
 
-_Within the container, all the file editing will have to be done in the console. To save and quit_
-_`nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`._
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/
 nano ansible/vars/zdm_proxy_cluster_config.yml
 ```
+
+_Note: `nano` might occasionally fail to start. In that case, hitting Ctrl-C in the console and re-launching the command would help._
 
 Once the changes are saved,
 you can run the Ansible playbook that will provision and start the proxy containers in the proxy host: still in the Ansible container, launch the command:
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook deploy_zdm_proxy.yml -i zdm_ansible_inventory
 ```
@@ -91,7 +97,7 @@ This will provision, configure and start the ZDM Proxy, one container per instan
 Once this is done, you can check the new container is listed in the output of
 
 ```bash
-### host
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
 docker ps
 ```
 
@@ -99,7 +105,7 @@ By inspecting the logs of the containerized proxy instance, you can verify that 
 succeeded in connecting to the clusters:
 
 ```bash
-### host
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
 docker logs zdm-proxy-container 2>&1 | grep "Proxy connected"
 ```
 
@@ -107,6 +113,7 @@ Alternatively, the ZDM Proxy exposes a health-status HTTP endpoint:
 you can query it with
 
 ```bash
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
 . /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 curl http://${ZDM_HOST_IP}:14001/health/readiness | jq
 ```

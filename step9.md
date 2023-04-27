@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -39,17 +39,19 @@ edit the `zdm_proxy_core_config.yml` settings again:
 - revert `read_mode` back to `PRIMARY_ONLY` (which will now mean Target):
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 nano vars/zdm_proxy_core_config.yml
 ```
 
-Once you save and exit the editor, you can issue another
+_Note: `nano` might occasionally fail to start. In that case, hitting Ctrl-C in the console and re-launching the command would help._
+
+Once you save and exit the editor (`Ctrl-X`, then `Y`, then `Enter`), you can issue another
 "rolling update" to propagate the new configuration
 to the proxy(/proxies):
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 ```
@@ -72,10 +74,10 @@ For a proof, you can launch a manual write through the API:
 
 ```bash
 ### host
-curl -XPOST localhost:8000/status/eva/TargetIsPrimary | jq
+curl -s -XPOST localhost:8000/status/eva/TargetIsPrimary | jq
 ```
 
-and then try reading the recent rows from both databases. For Origin:
+and then try reading the recent rows from the two databases - the new row will be found on both. For Origin:
 
 ```bash
 ### host
@@ -85,7 +87,7 @@ docker exec \
   -e "SELECT * FROM zdmapp.user_status WHERE user='eva' limit 3;"
 ```
 
-For Target, **if you went through the Astra CLI path**, launch the following:
+For Target, **if you went through the Astra CLI path**, launch the following _(editing the database name if different from `zdmtarget`)_:
 
 ```bash
 ### host
@@ -115,7 +117,7 @@ to execute many times):
 
 ```bash
 ### host
-curl -XGET localhost:8000/status/eva | jq -r '.[].status'
+curl -s -XGET "localhost:8000/status/eva?entries=10" | jq -r '.[] | "\(.when)\t\(.status)"'
 ```
 
 This corresponds now to reads being sent to Target: you can verify it on

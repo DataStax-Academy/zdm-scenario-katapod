@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -20,9 +20,9 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Phase 1d: Start the monitoring stack</div>
+<div class="step-title">Phase 1c: Start the monitoring stack</div>
 
-![Phase 1d](images/p1d.png)
+![Phase 1c](images/p1c.png)
 
 #### _🎯 Goal: having the Ansible automation provision and start the monitoring stack associated to the ZDM Proxy._
 
@@ -30,18 +30,21 @@ The `zdm-ansible-container` also offers a playbook that installs and starts
 a full monitoring stack, which will make Grafana dashboards available for
 a detailed view of the performance of the proxy.
 
-Edit file `zdm_monitoring_config.yml` and set the value of `grafana_admin_password` to a memorable password (leaving `grafana_admin_user` to its default of `admin`):
+Edit file `zdm_monitoring_config.yml` and set the value of `grafana_admin_password` to a memorable password, leaving `grafana_admin_user` to its default of `admin`
+_(to save and quit `nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`)_:
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 nano +4,25 vars/zdm_monitoring_config.yml
 ```
 
+_Note: `nano` might occasionally fail to start. In that case, hitting Ctrl-C in the console and re-launching the command would help._
+
 You can now launch the playbook that sets up the monitoring stack:
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook deploy_zdm_monitoring.yml -i zdm_ansible_inventory
 ```
@@ -66,7 +69,7 @@ then go to Dashboards/Manage and pick e.g.
 the "ZDM Proxy Dashboard v1" to confirm the datapoints for the plots
 are pouring in.
 
-<details style="margin-bottom: 12px;"><summary>Click for instructions</summary>
+<details class="katapod-details"><summary>Click for instructions</summary>
 
 ![Grafana dashboards](images/grafana_dashboards.png)
 

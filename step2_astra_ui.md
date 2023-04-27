@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -20,9 +20,9 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">Phase 1a: Set up Target</div>
+<div class="step-title">Preliminary step: set up Target</div>
 
-![Phase 1a](images/p1a.png)
+![Phase 0b](images/p0b.png)
 
 #### _🎯 Goal: creating the Target database (Astra DB instance) and verifying it is ready for the migration._
 
@@ -40,8 +40,8 @@ this migration exercise._
 - Create a database called `zdmtarget` with a `zdmapp` keyspace ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-instance/)). _for the Free Tier accounts, stick to the GCP cloud provider and choose a region without the "lock" icon). The DB will be ready to use in 2-3 minutes._
 - Get a **"R/W User"** database token from the Astra UI and store it in a safe place ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/create-token/#c-procedure)). _You will need it a few times throughout the exercise._
 - Locate and note down the "Database ID" for your Astra DB instance. This is seen on your Astra dashboard, next to your database name ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/faq/#where-should-i-find-a-database-identifier)).
-- Find the "download secure-connect-bundle" option in the Connect tab for your database (`Connect` ⇒ `Drivers` ⇒ `"Native"` ⇒ _any language_ ⇒ `"Download Bundle"` ⇒ _pick Region_ ⇒ `CURL`) and paste the resulting `curl` command in the "host-console" here ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/download-scb/#c-procedure)). _Take a note of the full path to the downloaded bundle zipfile, you'll need it for the example API_.
-- In the Web CQL Console on the Astra UI (it's a tab in your database dashboard), paste the following script to create a schema mirroring the one on Origin:
+- Find the "Download Secure Connect Bundle" dialog for your database in the Astra UI ([detailed instructions](https://awesome-astra.github.io/docs/pages/astra/download-scb/#c-procedure)), then copy the `curl` command and paste it in the "host-console" here to download it to this environment. _Take a note of the full path to the downloaded bundle zipfile, you'll need it for the example API to run_.
+- In your database's [Web CQL Console](https://awesome-astra.github.io/docs/pages/astra/faq/#how-to-open-the-web-cql-console) on the Astra UI, paste the following script to create a schema mirroring the one on Origin:
 
 ```cql
 ### {"execute": false}
@@ -53,9 +53,22 @@ CREATE TABLE IF NOT EXISTS zdmapp.user_status (
 ) WITH CLUSTERING ORDER BY (when DESC);
 ```
 
+<details class="katapod-details"><summary>I want to re-use an Astra DB instance I already have</summary>
+
+If you already have a database (likely with a name other than `zdmtarget`)
+and want to use it, that's no problem at all! Just make sure you
+[create a new keyspace](https://awesome-astra.github.io/docs/pages/astra/faq/#add-a-keyspace-to-an-existing-database) 
+called `zdmapp` in your database and, in case the DB is in the "hibernated" state, please
+[resume it](https://awesome-astra.github.io/docs/pages/astra/resume-db/) before moving to next step.
+
+All you have to do then is replacing the name `zdmtarget` with your database
+the few times it appears in the console commands for the rest of this scenario.
+
+</details>
+
 #### _🗒️ Your brand new database is created and has the right schema. Now you can start setting up the ZDM process, instructing it to use Astra DB as target._
 
-![Schema, phase 1a](images/schema1a_r.png)
+![Schema, phase 0b](images/schema0b_r.png)
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">

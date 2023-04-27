@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -39,7 +39,7 @@ edit the `zdm_proxy_core_config.yml` settings again:
 - revert `read_mode` back to `PRIMARY_ONLY` (which will now mean Target):
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 nano vars/zdm_proxy_core_config.yml
 ```
@@ -51,7 +51,7 @@ Once you save and exit the editor (`Ctrl-X`, then `Y`, then `Enter`), you can is
 to the proxy(/proxies):
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 ```

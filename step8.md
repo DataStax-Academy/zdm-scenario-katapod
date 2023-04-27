@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -63,7 +63,7 @@ concept in this case, since there is a single proxy, but that's the idea).
 First open the `zdm_proxy_core_config.yml` configuration:
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 nano vars/zdm_proxy_core_config.yml
 ```
@@ -78,7 +78,7 @@ _The variables in this file configure how the proxy behaves: these will be chang
 Now perform a rolling update with:
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible/
 ansible-playbook rolling_update_zdm_proxy.yml -i zdm_ansible_inventory
 ```

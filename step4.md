@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -34,7 +34,7 @@ _something like `ubuntu@4fb20a9b:~$`:_
 _this terminal will stay in the container until the end._
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 docker exec -it zdm-ansible-container bash
 ```
 
@@ -76,7 +76,7 @@ _`nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`.)_
 
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/
 nano ansible/vars/zdm_proxy_cluster_config.yml
 ```
@@ -87,7 +87,7 @@ Once the changes are saved,
 you can run the Ansible playbook that will provision and start the proxy containers in the proxy host: still in the Ansible container, launch the command:
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook deploy_zdm_proxy.yml -i zdm_ansible_inventory
 ```
@@ -97,7 +97,7 @@ This will provision, configure and start the ZDM Proxy, one container per instan
 Once this is done, you can check the new container is listed in the output of
 
 ```bash
-### host
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
 docker ps
 ```
 
@@ -105,7 +105,7 @@ By inspecting the logs of the containerized proxy instance, you can verify that 
 succeeded in connecting to the clusters:
 
 ```bash
-### host
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
 docker logs zdm-proxy-container 2>&1 | grep "Proxy connected"
 ```
 
@@ -113,7 +113,7 @@ Alternatively, the ZDM Proxy exposes a health-status HTTP endpoint:
 you can query it with
 
 ```bash
-### {"terminalId": "host"}
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
 . /workspace/zdm-scenario-katapod/scenario_scripts/find_addresses.sh
 curl http://${ZDM_HOST_IP}:14001/health/readiness | jq
 ```

@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -36,12 +36,14 @@ the Ansible container that, in turn, will deploy the ZDM proxies.
 Download and extract the utility:
 
 ```bash
-### host
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
 cd /workspace/zdm-scenario-katapod/running_zdm_util
 wget https://github.com/datastax/zdm-proxy-automation/releases/download/v2.2.0/zdm-util-linux-amd64-v2.2.0.tgz
 tar -xvf zdm-util-linux-amd64-v2.2.0.tgz
 rm zdm-util-linux-amd64-v2.2.0.tgz
 ```
+
+_Note: commands on a background of a colour like the one above are part of the "core" migration process, as opposed to the setup/context commands you encountered so far._
 
 Before going through the configuration utility, you may find it useful to check the IP addresses
 you will momentarily need.
@@ -66,7 +68,7 @@ Please supply the answers as summarized in this table (see also the [Documentati
 | Do you have an inventory file?      | _No, not yet_     |
 | Is this for testing?                | _Yes (so as to allow for a single ZDM host instead of the required three)_     |
 | Address for the ZDM hosts           | _the IP for the ZDM host, that is,_ `ZDM_HOST_IP` _in the output of_ `find_addresses.sh`. _There is just one and you have to **input a blank line afterwards** to signal you're done_     |
-| Address for the monitoring instance | _The same IP as above for the monitoring instance (in this setup, it will be the same machine)_     |
+| Address for the monitoring instance | _the same IP as above for the monitoring instance (in this setup, it will be the same machine)_     |
 
 <details class="katapod-details"><summary>What does the utility do? (click to expand)</summary>
 
@@ -84,7 +86,7 @@ upgrades).
 Start the config utility with:
 
 ```bash
-### host
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
 cd /workspace/zdm-scenario-katapod/running_zdm_util
 ./zdm-util-v2.2.0
 ```
@@ -94,7 +96,7 @@ on the host machine's Docker (this will take ten seconds or so).
 Once you get the prompt back, check with
 
 ```bash
-### host
+### {"terminalId": "host", "backgroundColor": "#C5DDD2"}
 docker ps
 ```
 

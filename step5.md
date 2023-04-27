@@ -3,7 +3,7 @@
   <img class="scenario-academy-logo" src="https://datastax-academy.github.io/katapod-shared-assets/images/ds-academy-2023.svg" />
   <div class="scenario-title-section">
     <span class="scenario-title">Zero Downtime Migration Lab</span>
-    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:aleksandr.volochnev@datastax.com">email</a> or <a href="https://dtsx.io/aleks">LinkedIn</a>.</span>
+    <span class="scenario-subtitle">ℹ️ For technical support, please contact us via <a href="mailto:academy@datastax.com">email</a>.</span>
   </div>
 </div>
 
@@ -34,7 +34,7 @@ Edit file `zdm_monitoring_config.yml` and set the value of `grafana_admin_passwo
 _(to save and quit `nano` when you are done, hit `Ctrl-X`, then `Y`, then `Enter`)_:
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 nano +4,25 vars/zdm_monitoring_config.yml
 ```
@@ -44,7 +44,7 @@ _Note: `nano` might occasionally fail to start. In that case, hitting Ctrl-C in 
 You can now launch the playbook that sets up the monitoring stack:
 
 ```bash
-### container
+### {"terminalId": "container", "backgroundColor": "#C5DDD2"}
 cd /home/ubuntu/zdm-proxy-automation/ansible
 ansible-playbook deploy_zdm_monitoring.yml -i zdm_ansible_inventory
 ```

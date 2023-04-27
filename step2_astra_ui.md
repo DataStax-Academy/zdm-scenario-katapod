@@ -56,8 +56,10 @@ CREATE TABLE IF NOT EXISTS zdmapp.user_status (
 <details class="katapod-details"><summary>I want to re-use an Astra DB instance I already have</summary>
 
 If you already have a database (likely with a name other than `zdmtarget`)
-and want to use it, that's no problem at all! Just make sure
-you [create a new keyspace](https://awesome-astra.github.io/docs/pages/astra/faq/#add-a-keyspace-to-an-existing-database) called `zdmapp` in your database.
+and want to use it, that's no problem at all! Just make sure you
+[create a new keyspace](https://awesome-astra.github.io/docs/pages/astra/faq/#add-a-keyspace-to-an-existing-database) 
+called `zdmapp` in your database and, in case the DB is in the "hibernated" state, please
+[resume it](https://awesome-astra.github.io/docs/pages/astra/resume-db/) before moving to next step.
 
 All you have to do then is replacing the name `zdmtarget` with your database
 the few times it appears in the console commands for the rest of this scenario.

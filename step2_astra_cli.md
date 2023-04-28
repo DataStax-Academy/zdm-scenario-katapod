@@ -9,11 +9,11 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
-  <a href='command:katapod.loadPage?[{"step":"step1"}]' 
+  <a title="Back" href='command:katapod.loadPage?[{"step":"step1"}]' 
     class="btn btn-dark navigation-top-left">⬅️ Back
   </a>
   <span class="step-count">Step 2 (astra-cli)</span>
-  <a href='command:katapod.loadPage?[{"step":"step3"}]' 
+  <a title="Next" href='command:katapod.loadPage?[{"step":"step3"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
@@ -104,10 +104,10 @@ astra db cqlsh zdmtarget -f target_config/target_schema.cql
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
-  <a href='command:katapod.loadPage?[{"step":"step1"}]'
+  <a title="Back" href='command:katapod.loadPage?[{"step":"step1"}]'
     class="btn btn-dark navigation-bottom-left">⬅️ Back
   </a>
-  <a href='command:katapod.loadPage?[{"step":"step3"}]'
+  <a title="Next" href='command:katapod.loadPage?[{"step":"step3"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

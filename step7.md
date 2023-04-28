@@ -9,11 +9,11 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step6"}]' 
+ <a title="Back" href='command:katapod.loadPage?[{"step":"step6"}]' 
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
 <span class="step-count">Step 7</span>
- <a href='command:katapod.loadPage?[{"step":"step8"}]' 
+ <a title="Next" href='command:katapod.loadPage?[{"step":"step8"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
@@ -137,10 +137,10 @@ hence will not be part of the metrics collected in the Grafana dashboard.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step6"}]'
+ <a title="Back" href='command:katapod.loadPage?[{"step":"step6"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step8"}]'
+ <a title="Next" href='command:katapod.loadPage?[{"step":"step8"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

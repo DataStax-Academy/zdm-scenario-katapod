@@ -9,11 +9,11 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step8"}]' 
+ <a title="Back" href='command:katapod.loadPage?[{"step":"step8"}]' 
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
 <span class="step-count">Step 9</span>
- <a href='command:katapod.loadPage?[{"step":"step10"}]' 
+ <a title="Next" href='command:katapod.loadPage?[{"step":"step10"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
@@ -125,10 +125,10 @@ the "reads_target" curve in the "Read throughput by instance" plot.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step8"}]'
+ <a title="Back" href='command:katapod.loadPage?[{"step":"step8"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step10"}]'
+ <a title="Next" href='command:katapod.loadPage?[{"step":"step10"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

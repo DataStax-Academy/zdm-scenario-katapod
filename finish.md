@@ -26,7 +26,7 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"cleanup"}]'
+ <a title="Back" href='command:katapod.loadPage?[{"step":"cleanup"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
 </div>

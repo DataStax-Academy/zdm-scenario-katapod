@@ -9,16 +9,16 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
-  <a href='command:katapod.loadPage?[{"step":"intro"}]' 
+  <a title="Back" href='command:katapod.loadPage?[{"step":"intro"}]' 
     class="btn btn-dark navigation-top-left">⬅️ Back
   </a>
   <span class="step-count">Step 1</span>
-  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+  <a title="Next (Astra UI)" href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
     class="btn btn-dark navigation-top-right"
     style="margin-left: 8px;"
   >Next (Astra UI) ➡️
   </a>
-  <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
+  <a title="Next (astra-cli)" href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
     class="btn btn-dark navigation-top-right">Next (astra-cli) ➡️
   </a>
 </div>
@@ -142,15 +142,15 @@ _↔️ Please choose how you would like to perform the next step (setting up Ta
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
-  <a href='command:katapod.loadPage?[{"step":"intro"}]' 
+  <a title="Back" href='command:katapod.loadPage?[{"step":"intro"}]' 
     class="btn btn-dark navigation-top-left">⬅️ Back
   </a>
-  <a href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
+  <a title="Next (Astra UI)" href='command:katapod.loadPage?[{"step":"step2_astra_ui"}]' 
     class="btn btn-dark navigation-top-right"
     style="margin-left: 8px;"
   >Next (Astra UI) ➡️
   </a>
-  <a href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
+  <a title="Next (astra-cli)" href='command:katapod.loadPage?[{"step":"step2_astra_cli"}]' 
     class="btn btn-dark navigation-top-right">Next (astra-cli) ➡️
   </a>
 </div>

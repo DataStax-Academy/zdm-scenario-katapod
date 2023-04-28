@@ -133,7 +133,7 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step1"}]'
+ <a title="Start" href='command:katapod.loadPage?[{"step":"step1"}]'
     class="btn btn-dark navigation-bottom-right">Start ➡️
   </a>
 </div>

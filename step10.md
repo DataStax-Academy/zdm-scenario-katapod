@@ -9,11 +9,11 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step9"}]' 
+ <a title="Back" href='command:katapod.loadPage?[{"step":"step9"}]' 
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
 <span class="step-count">Step 10</span>
- <a href='command:katapod.loadPage?[{"step":"cleanup"}]' 
+ <a title="Next" href='command:katapod.loadPage?[{"step":"cleanup"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
@@ -94,10 +94,10 @@ proxy instance graphs, that no requests are going through it anymore.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step9"}]'
+ <a title="Back" href='command:katapod.loadPage?[{"step":"step9"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"cleanup"}]'
+ <a title="Next" href='command:katapod.loadPage?[{"step":"cleanup"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

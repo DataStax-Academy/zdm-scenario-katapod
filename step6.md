@@ -9,11 +9,11 @@
 
 <!-- NAVIGATION -->
 <div id="navigation-top" class="navigation-top">
- <a href='command:katapod.loadPage?[{"step":"step5"}]' 
+ <a title="Back" href='command:katapod.loadPage?[{"step":"step5"}]' 
    class="btn btn-dark navigation-top-left">⬅️ Back
  </a>
 <span class="step-count">Step 6</span>
- <a href='command:katapod.loadPage?[{"step":"step7"}]' 
+ <a title="Next" href='command:katapod.loadPage?[{"step":"step7"}]' 
     class="btn btn-dark navigation-top-right">Next ➡️
   </a>
 </div>
@@ -156,10 +156,10 @@ while reads only go to Origin.
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
- <a href='command:katapod.loadPage?[{"step":"step5"}]'
+ <a title="Back" href='command:katapod.loadPage?[{"step":"step5"}]'
    class="btn btn-dark navigation-bottom-left">⬅️ Back
  </a>
- <a href='command:katapod.loadPage?[{"step":"step7"}]'
+ <a title="Next" href='command:katapod.loadPage?[{"step":"step7"}]'
     class="btn btn-dark navigation-bottom-right">Next ➡️
   </a>
 </div>

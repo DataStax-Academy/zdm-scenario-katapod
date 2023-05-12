@@ -11,7 +11,7 @@ tasks:
     init: |
       docker pull cassandra:4.1
       pip install -r client_application/requirements.txt
-      # ./scenario_scripts/configure-ssh.sh  | tee -a ./katapod_logs/ssh-setup.log
+      ./scenario_scripts/configure-ssh.sh  | tee -a ./katapod_logs/ssh-setup.log
     command: |
       docker run \
         --name cassandra-origin-1 \
